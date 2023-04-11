@@ -1,0 +1,132 @@
+*{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0;
+  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+body{
+  background-color: #fff;
+  color: #666;
+  font-family: monospace, Helvetica, Verdana, Geneva, sans-serif;
+  font-size: 16px;
+}
+#pagewrap{
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* main header */
+
+#main, nav, section, footer{
+  margin: 1%;
+}
+
+
+#main h1{
+  text-align: center;
+  font-size: 3em;
+}
+/* end of main header */
+
+/* navigation section */
+
+nav{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #222;
+}
+
+nav ul{
+  list-style-type: none;
+  text-align: center;
+}
+
+nav ul li{
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  height: 2%;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+}
+
+/* an underline appears at the bottom on hover of each link */
+nav ul li a:hover, nav ul li a:active{
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+}
+/* end of navigation section*/
+
+/* left column of first content */
+.left-section{
+  float: left;
+  width: 48%; /* 455/960*/
+  height: auto;
+  padding: 20px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.left-section h3{
+  text-align: center;
+  padding: 15px;
+}
+/* end of left column of first content */
+
+/* right column of first content */
+.right-section{
+  float: right;
+  width: 48%; /* 455/960*/
+  height: auto;
+  padding: 20px;
+  line-height: 1.8;
+  text-indent: 5px;
+  text-align: center;
+}
+
+.right-section h3{
+  text-align: center;
+  padding: 15px;
+}
+/* end of right column of first content */
+
+/* footer */
+footer{
+  clear: both;
+}
+
+
+/* end of footer */
+
+
+.calendario-widget {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  width: 150px;
+  height: 150px;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 100;
+  overflow: hidden;
+}

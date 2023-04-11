@@ -1,0 +1,113 @@
+body {
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .voltar {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .voltar:before {
+    content: "\2190"; /* código unicode para a seta esquerda */
+    font-size: 30px;
+    color: black;
+    margin-left: 25px;
+    top: 30px;
+  }
+  
+  
+  form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+
+  select {
+    flex-basis: calc(20% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"] {
+    background-color: #fff;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.5);
+  }
+  .pesquisar{
+    margin-top: 10px;
+  }
+  input[type="submit"] {
+    background-color: #A6a6a6;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif; /* alteração aqui */
+  }
+  
+  table th,
+  table td {
+    border: 2px solid black; /* alteração aqui */
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #ccc;
+  }
+  
+  table td:nth-child(2),
+  table td:nth-child(3) {
+    text-align: left;
+  }

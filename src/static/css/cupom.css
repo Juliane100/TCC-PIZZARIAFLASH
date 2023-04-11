@@ -1,0 +1,26 @@
+.text-white {
+    color: black;
+}
+
+.bg-info {
+    background-color: #a6a6a6;
+}
+
+.voltar {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+}
+
+.voltar:before {
+    content: "\2190";
+    /* código unicode para a seta esquerda */
+    font-size: 30px;
+    color: black;
+    margin-left: 25px;
+    top: 30px;
+}
+
+.left {
+    text-align: left;
+}

@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+* { 
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+html, body {
+    background: url(../assets/1fundo.home.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow-y: hidden; /* adicionado para remover a barra de rolagem vertical */
+
+  }
+  
+
+  a {
+    
+    background-color: #191919;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: #242424;
+  }
+
+nav {
+  font:700 16px/60px 'Lato', sans-serif;
+  width:90%;
+  margin:30px auto 0 auto;
+  background:#242424;
+  overflow:hidden;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
+}
+
+nav ul {
+  height:60px;
+  overflow:hidden;
+}
+
+nav ul li {
+  width:25%;
+  float:left;
+  text-align:center;
+}
+
+.item-container {
+  top: 0;
+  position:relative;
+  height:120px;
+  cursor:pointer;
+  -webkit-transition: all 0.3s ease;
+	-moz-transition:  	all 0.3s ease;
+	-o-transition:  	  all 0.3s ease;
+	transition: 		    all 0.3s ease;
+}
+
+.item-container:hover{
+  top:-60px;
+}
+
+.item-top,
+.item-bottom {
+  height:60px;
+  position:relative;
+}
+
+.item-top {
+  color:#797979;
+}
+
+.item-bottom {
+  background:#191919;
+  color:#ffffff;
+}
