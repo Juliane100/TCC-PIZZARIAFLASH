@@ -1,7 +1,7 @@
 const form = document.querySelector('form');
-const forgotPasswordLink = document.getElementById('forgot-password-link');
-const forgotPasswordForm = document.getElementById('forgot-password-form');
-const backToLoginLink = document.getElementById('back-to-login-link');
+const forgotPasswordLink = document.querySelector('.forgot-password');
+const forgotPasswordForm = document.querySelector('.forgot-password-form');
+const backToLoginLink = document.querySelector('.back-to-login');
 
 // mostra o formulário de "esqueci a senha" quando o link é clicado
 forgotPasswordLink.addEventListener('click', e => {
@@ -25,22 +25,37 @@ forgotPasswordForm.addEventListener('submit', e => {
   // depois de enviar o email, você pode exibir uma mensagem para o usuário informando que o link foi enviado com sucesso
 });
 
+// lista de usuários cadastrados
+const users = [
+  { username: 'admin', password: '123456', type: 'adm', name: 'Conta adm teste' },
+  { username: 'funcionario', password: '123456', type: 'funcionario', name: 'Conta funcionario teste' },
+];
 
-
+function setStorage(login){
+  localStorage.setItem('login', JSON.stringify(login));
+}
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const email = document.getElementById('email').value;
+  const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  if (email === 'pizzaria@exemplo.com' && password === '123456') {
-    alert('Login realizado com sucesso!');
-    // aqui você pode redirecionar o usuário para a página principal da pizzaria ou fazer outras ações que desejar
+  // busca pelo usuário na lista de usuários cadastrados
+  const user = users.find((u) => u.username === username && u.password === password);
 
-    window.location.href = "adm.html";
+  if (user) {
+    if (user.type === 'adm') {
+      alert('Login realizado com sucesso como ADM!');
+      // window.location.href = "adm.html";
+    } else {
+      alert('Login realizado com sucesso como funcionário!');
+      // window.location.href = "home.html";
+    }
+    window.location.href = "home.html";
 
+    setStorage(user);
   } else {
-    alert('Email ou senha incorretos. Tente novamente.');
+    alert('Nome de usuário ou senha incorretos. Tente novamente.');
   }
 });

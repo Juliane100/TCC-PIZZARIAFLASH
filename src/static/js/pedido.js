@@ -1,30 +1,59 @@
-function ocultarImagem(imagem) {
-    imagem.classList.add('oculta');
-  }
-  
-  function mostrarImagem(imagem) {
-    imagem.classList.remove('oculta');
-  }
-  
-  var imagens = document.querySelectorAll('.imagem');
-  
-  imagens[1].addEventListener('click', function() {
-    if (imagens[0].classList.contains('oculta')) {
-      mostrarImagem(imagens[0]);
-      ocultarImagem(imagens[1]);
-    } else {
-      ocultarImagem(imagens[0]);
-      mostrarImagem(imagens[1]);
-    }
+document.getElementById("btn-buscar").addEventListener("click", function() {
+  var nomeCliente = document.getElementById("buscar-clientes").value;
+  var dialogo = document.createElement("dialog");
+  dialogo.setAttribute("id", "dialogo-clientes");
+  dialogo.style.width = "90%";
+  dialogo.style.height = "80%";
+  dialogo.innerHTML = "<iframe src='cliente.html?selecionar=true&nome=" + nomeCliente + "'></iframe>";
+  document.body.appendChild(dialogo);
+  dialogo.showModal();
+  var botaoFechar = document.createElement("button");
+  botaoFechar.innerHTML = "Fechar";
+  botaoFechar.addEventListener("click", function() {
+    dialogo.close();
   });
-  
-  imagens[0].addEventListener('click', function() {
-    if (imagens[1].classList.contains('oculta')) {
-      mostrarImagem(imagens[1]);
-      ocultarImagem(imagens[0]);
-    } else {
-      ocultarImagem(imagens[1]);
-      mostrarImagem(imagens[0]);
-    }
+  dialogo.appendChild(botaoFechar);
+  dialogo.addEventListener("close", function() {
+    document.body.removeChild(dialogo);
   });
-  
+});
+
+function selecionarCliente(nomeCliente) {
+  // Seu código para selecionar um cliente aqui
+}
+
+const btnValidar = document.getElementById('btn-validar');
+const inputCupom = document.getElementById('cupom');
+const divStatusCupom = document.getElementById('cupom-status');
+
+btnValidar.addEventListener('click', function() {
+  const codigoCupom = inputCupom.value;
+
+  // Aqui você pode adicionar a lógica para verificar o código do cupom no sistema
+  // e retornar um resultado (por exemplo, um objeto com informações sobre o cupom)
+
+  // Exemplo:
+  if (codigoCupom === 'cupom243') {
+    const resultado = {
+      sucesso: true,
+      mensagem: 'Cupom válido'
+    };
+    exibirResultadoCupom(resultado);
+  } else {
+    const resultado = {
+      sucesso: false,
+      mensagem: 'Cupom inválido'
+    };
+    exibirResultadoCupom(resultado);
+  }
+});
+
+function exibirResultadoCupom(resultado) {
+  divStatusCupom.innerHTML = resultado.mensagem;
+  divStatusCupom.classList.remove('sucesso', 'erro');
+  if (resultado.sucesso) {
+    divStatusCupom.classList.add('sucesso');
+  } else {
+    divStatusCupom.classList.add('erro');
+  }
+}

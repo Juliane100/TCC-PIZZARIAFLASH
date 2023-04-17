@@ -1,0 +1,8 @@
+body{
+    background-image: url("../assets/fun.png") ;
+    background-size: cover;
+    height: 100vh;
+    font-family: monospace, Helvetica, Verdana, Geneva, sans-serif;
+    font-size: 16px;
+  }
+  

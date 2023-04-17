@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-</head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -15,319 +10,72 @@
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href=""/>
+        <link rel="stylesheet" href="../static/css/pedido.css"/>
+        <link rel="stylesheet" href="../static/css/global.css"/>
   
-  <title>Produto</title>
+  <title>Novo</title>
 </head>
 <body>
 
-    <div id="pagewrap">
+  
 
-     
-        
-
-  <h3 class="bg-secondary text-white p-3 ">PRODUTO</h3>
+  <h3 class="bg-secondary text-white p-3 upper ">Novo</h3>
   <div class="container">
       <div class="row">
           <div class="col-md-12">
-              <a class="voltar" href="../templates/Adm.html"></a>
 
-          </br>
 
-              <h4 class="text-success text-center">Cadastrar Produtos</h4>
-              <br />
-              <form id="produtoForm">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-sm">
-                              <div class="form-group">
-                                  <label for="nome">
-                                      <strong>
-                                          Nome
-                                      </strong>
-                                  </label>
-                                  <input type="text" value="" id="nome" class="form-control" required>
-                              </div>
-                          </div>
-                          <div class="col-sm">
-                              <div class="form-group">
-                                  <label for="descrição">
-                                      <strong>
-                                          Descrição
-                                      </strong>
-                                  </label>
-                                  <input type="text" value="" id="descrição" class="form-control" required>
-                              </div>
-                            </div>
-
-                          <div class="col-sm">
-                              <div class="form-group">
-                                  <label for="valor">
-                                      <strong>
-                                          Valor
-                                      </strong>
-                                  </label>
-                                  <input type="text" value="" id="valor" class="form-control">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col align-self-end">
-                              <div class="form-group">
-                                  <input type="submit" value="Cadastrar" id='submitBtn'
-                                      class="btn btn-primary col-auto">
-                                  <input type="button" value="Atualizar" id="updateBtn"
-                                      class="btn btn-primary d-none">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </form>
-          </div>
-      </div>
-      <div class="row">
-          <br />
-          <div class="col-md-12">
-              <h4 class="text-success text-center">Lista de Produtos</h4>
-              <br />
-              <table class="table table-bordered table-striped">
-                  <thead class="thead-dark">
-                      <tr>
-                          <th class="text-center">Nome</th>
-                          <th class="text-center">Descrição</th>
-                          <th class="text-center">Valor</th>
-                          <th class="text-center">Ações</th>
-                      </tr>
-                  </thead>
-                  <tbody id="prodInfo">
-
-                  </tbody>
-              </table>
-          </div>
-
-      </div>
+            </div>
+            </div>
   </div>
 
-  <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
-  <div class="w3-container" onload="findAll()">
-    <button onclick="document.getElementById('id01').style.display='block'" class="btn2">Finalizar pedido</button>
- 
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:100%">
-
-        <div class="w3-center"><br>
-          <span onclick="document.getElementById('id01').style.display='none'"
-            class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+  <nav>
+    <div class="Clie">
+      <label for="buscar-clientes">Buscar clientes:</label>
+      <div class="campo-busca">
+        <input type="text" id="buscar-clientes" placeholder="Digite o nome do cliente">
+        <button id="btn-buscar">Buscar</button>
+        <div id="box-resultados"></div>
+      </div>
+      <div class="cupom">
+        <div class="Cupom">
+          <label for="cupom">Cupom de desconto:</label>
+          <div class="campo-cupom">
+            <input type="text" id="cupom" placeholder="Código do cupom">
+            <button id="btn-validar">Validar</button>
+            <div id="cupom-status"></div>
+          </div>
+        </div>
+        <div class="RetiradaEntrega">
+          <label>Retirada ou Entrega:</label>
+          <div class="opcoes">
+            <label>
+              <input type="radio" name="retirada-entrega" value="retirada">
+              Retirada
+            </label>
+            <label>
+              <input type="radio" name="retirada-entrega" value="entrega">
+              Entrega
+            </label>
+          </div>
         </div>
 
-   
-            </fieldset>
-            <fieldset>
-              <div class="modal-body">
-                <div class="form-group">
-                  <h3>Dados</h3>
-                  <label for="nome" class="col-form-label"><strong>Nome:</strong></label>
-                  <input type="text" class="form-control" name="Name" id="name" size="20" maxlenght="30"
-                    placeholder=" Nome Completo" required>
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="telefone" class="col-form-label"><strong>Telefone:</strong></label>
-                  <input type="tel" name="Phone" class="form-control" id="phone" size="11"
-                    placeholder="(DDD) + nº telefone" required>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <div class="modal-body">
-                <div class="form-group">
-                  <h3>Dados para Entrega</h3>
-                  <label for="entrega" class="col-form-label"><strong>Entrega/Retirada:</strong></label>
-                  <label>
-                    <input type="radio" name="Entrega" id="entrega" value="retirada">Retirada
-                  </label>
-                  <label>
-                    <input type="radio" name="Entrega" id="entrega" value="entrega" checked>Entrega
-                  </label>
-                  <br>
-                  <small>Se a escolha for entrega, preencha os dados de endereço abaixo</small>
-                </div>
-                <div class="form-group">
-                  <label for="cep"><strong>CEP</strong></label>
-                  <input type="text" class="form-control" maxlength="9" id="cep" placeholder="00000-000" required>
-                  <br>
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="endereco" class="col-form-label"><strong>Endereço para entrega:</strong></label>
-                  <input type="text" class="form-control" id="logradouro" placeholder="Av., Rua....">
-                  <p><label for="numero"><strong>Número:</strong></label></p>
-                  <input type="number" class="form-control" id="numero" min="0" max="99999">
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="bairro" class="col-form-label"><strong>Bairro:</strong></label>
-                  <input type="text" class="form-control" name="Bairro" id="bairro">
-
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="localidade" class="col-form-label"><strong>Localidade:</strong></label>
-                  <input type="text" class="form-control" name="Localidade" id="localidade" placeholder="Cidade">
-                  <br>
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="uf" class="col-form-label"><strong>UF:</strong></label>
-                  <input type="text" class="form-control" name="UF" id="uf" placeholder="Estado">
-                  <br>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="taxaentrega" class="col-form-label"><strong>Taxa de Entrega:</strong></label>
-                  <select id="taxaentrega" required onchange="incrementTaxValue()">
-                    <option selected disabled value="">Selecione a taxa de entrega:</option>
-                    <option>R$ 1,50 - Bairros: Castelo Branco, Fernão Dias</option>
-                    <option>R$ 5,00 - Bairro: Dumaville</option>
-                    <option>R$ 3,00 - Bairro: Fernão Dias</option>
-                  </select>
-                </div>
-                <p></p>
-                <div class="form-group">
-                  <label for="pagamento"><strong>Formas de Pagamento:</strong></label>
-                  <label>
-                    <input type="radio" name="Pagamento" id="pagamento" value="credito" checked>Cartão de Crédito
-                  </label>
-                  <label>
-                    <input type="radio" name="Pagamento" id="pagamento" value="debito">Cartão de Débito
-                  </label>
-                  <label>
-                    <input type="radio" name="Pagamento" id="pagamento" value="dinheiro">Dinheiro
-                  </label>
-                  <label>
-                    <input type="radio" name="Pagamento" id="pagamento" value="pix">PIX
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <div class="modal-body">
-                <div class="form-group">
-                  <p><label for="msg"><strong>Mensagem do Cliente:</strong></label>
-                    <textarea name="tMsg" id="mensagem" cols="45"></textarea>
-                  </p>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <div class="modal-body">
-                <div class="form-group">
-                  <p><label for="msg"><strong>Valor Final do Pedido:</strong></label>
-                    <div id='total-pedido-value'></div>
-                  </p>
-                </div>
-              </div>
-            </fieldset>
-            <p></p>
-            <div class="modal-footer">
-              <div class="w3-container w3-center">
-                <div class="w3-bar">
-                  <input type="reset" value="Limpar" button
-                    style="background: #946362; border-radius: 6px; padding: 10px; cursor: pointer; color: #fff; border: none; font-size: 12px;">
-                  <button type="submit" class
-                    style="background: #946362; border-radius: 6px; padding: 10px; cursor: pointer; color: #fff; border: none; font-size: 12px;">Salvar</button>
-                  <a href="/index.html" target="_blank">
-                    <class
-                      style="background: #946362; border-radius: 6px; padding: 12px; cursor: pointer; color: #fff; border: none; font-size: 12px;">
-                      Continuar Comprando
-                  </a>
-                </div>
-              </div>
-              <button onclick="gotowhatsapp()" type="submit" name="submit" value="Submit" class="btn" id="btn3">Enviar
-                Pedido</button>
-            </div>
+        <div class="Busca ml-auto">
+          <label for="buscar-produto">Buscar Produto:</label>
+          <div class="campo-busca">
+            <input type="text" id="buscar-produto" placeholder="Nome do produto...">
+            <button id="btn-buscar">Buscar</button>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <script src="main.js"></script>
-  <!-- // Associar salvamento ao botao
--->
-  <script> document.getElementById('btn_salvar').addEventListener('click', salvaLogin);
-  </script>
-
-  <!--// Associar envio whatsapp -->
-
-  <script>
-    function gotowhatsapp() {
-      var name = document.getElementById("name").value;
-      var phone = document.getElementById("phone").value;
-      var entrega = document.getElementById("entrega").value;
-      var cep = document.getElementById("cep").value;
-      var logradouro = document.getElementById("logradouro").value;
-      var numero = document.getElementById("numero").value;
-      var bairro = document.getElementById("bairro").value;
-      var localidade = document.getElementById("localidade").value;
-      var uf = document.getElementById("uf").value;
-      var taxaentrega = document.getElementById("taxaentrega").value;
-      var pagamento = document.getElementById("pagamento").value;
-      var mensagem = document.getElementById("mensagem").value;
-      var infoPedido = getPedido()
-
-      var url = "https://wa.me/5531998325314?text="
-        + "Name: " + name + "%0a"
-        + "Phone: " + phone + "%0a"
-        + "Entrega: " + entrega + "%0a"
-        + "Cep: " + cep + "%0a"
-        + "Logradouro: " + logradouro + "%0a"
-        + "Bairro: " + bairro + "%0a"
-        + "Localidade: " + localidade + "%0a"
-        + "UF: " + uf + "%0a"
-        + "Taxaentrega: " + taxaentrega + "%0a"
-        + "Pagamento: " + pagamento + "%0a"
-        + "tMsg: " + mensagem + "%0a"
-        + "Info do Pedido: " + infoPedido + "%0a"
-      window.open(url, '_blank').focus();
-    }
-  </script>
-
-
+        </div>
+        
+        
+  </nav>
   
-  <script>
-    function toggleFAB(fab) {
-      if (document.querySelector(fab).classList.contains('show')) {
-        document.querySelector(fab).classList.remove('show');
-      } else {
-        document.querySelector(fab).classList.add('show');
-      }
-    }
+  
+  
 
-    document.querySelector('.fab .main').addEventListener('click', function () {
-      toggleFAB('.fab');
-    });
-
-    document.querySelectorAll('.fab ul li button').forEach((item) => {
-      item.addEventListener('click', function () {
-        toggleFAB('.fab');
-      });
-    });
-  </script>
-  </div>
-  </div>
+     
+  <script src="../static/js/pedido.js"> </script>
 
 </body>
-
-</html>
-  
-  
-  
-  
-</body>
-
 </html>

@@ -10,29 +10,36 @@
 </head>
 <body>
 
-    <div class="login-container">
+  <div class="container">
+    <h1 class="title">Login - Pizzaria Flash</h1>
+    <div class="card">
+      <div class="left"></div>
+      <div class="right">
         <form>
-          <h1>Login - Pizzaria</h1>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <label for="password">Senha:</label>
-          <input type="password" id="password" required>
-          <i class="fa fa-eye-slash" id="toggle-password"></i>
-          <button type="submit">Entrar</button>
-          <a href="#" id="forgot-password-link">Esqueci a senha</a>
-          <a href="#" id="register-link">Cadastre-se</a>
+          <div class="form-input">
+            <input type="text" id="username" >
+            <label for="username">username</label>
+          </div>
+          <div class="form-input">
+            <input type="password" id="password" >
+            <label for="password">password</label>
+          </div>
+          <input type="submit" class="btn" value="LOGIN">
+          <a href="#" class="forgot-password">Esqueceu a Senha ?</a>
         </form>
-        <form id="forgot-password-form" style="display: none;">
-          <h1>Recuperar senha</h1>
-          <p>Insira o email cadastrado abaixo e enviaremos um link para você redefinir sua senha.</p>
-          <label for="forgot-password-email">Email:</label>
-          <input type="email" id="forgot-password-email" name="email" required>
-          <button type="submit">Enviar</button>
-          <a href="#" id="back-to-login-link">Voltar para o login</a>
+        <form class="forgot-password-form" style="display:none;">
+          <div class="form-input">
+            <input type="email" id="forgot-password-email" placeholder="Digite o email cadastrado">
+            <label for="forgot-password-email">Email</label>
+          </div>
+          <input type="submit" class="btn" value="Enviar email">
+          <a href="#" class="back-to-login">Voltar ao Login</a>
         </form>
       </div>
+    </div>
+  </div>
 
-      <script src="../static/js/login.js"></script>
+  <script src="../static/js/login.js"></script>
     
 </body>
 </html>
