@@ -13,20 +13,7 @@ body {
     margin-top: 50px;
   }
 
-  .voltar {
-    display: inline-block;
-    color: black;
-    text-decoration: none;
-  }
-  
-  .voltar:before {
-    content: "\2190"; /* código unicode para a seta esquerda */
-    font-size: 30px;
-    color: black;
-    margin-left: 25px;
-    top: 30px;
-  }
-  
+
   
   form {
     background-color: white;

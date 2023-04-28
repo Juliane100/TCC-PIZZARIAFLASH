@@ -63,8 +63,9 @@
     border: none;
     flex: 1;
     width: 100vw;
-    height: 100vw;
+    height: 200vw;
     max-width: 100%;
+    overflow: hidden;
 }
 
 /*
@@ -197,6 +198,8 @@ ul ul a {
 
 ul.CTAs {
     padding: 20px;
+    margin-top: 15px;
+
 }
 
 ul.CTAs a {
@@ -247,23 +250,35 @@ a.article:hover {
     }
 }
 .menu {
+    
     margin-top: 20px;
-   margin-left: 35px;
+   margin-left: 13px;
   }
+
+.h3 {
+
+    color: #fff !important;
+}
 
 .card-modal {
     border-radius: 0.5em;
     background-color: #ddd !important;
     padding: 15px 15px 15px 15px;
     margin-left: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     
 }
 
 .h-3 {
-    height: 300px;
-    margin-left: 12px;
+    height: 350px;
+    margin-left: 55px;
 }
+
+.h-2 {
+    height: 350px;
+   
+}
+
 
 .h-1 {
     height: auto;

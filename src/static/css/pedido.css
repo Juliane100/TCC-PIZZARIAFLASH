@@ -1,212 +1,262 @@
-nav {
-  background-color: #f5f5f5;
-  justify-content: space-between;
-  align-items: center;
+.form-group {
+  padding: 15px;
+}
+
+.form-control, .input-group>.form-control-plaintext {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 0.2 !important;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+body {
+  margin: 20px;
+}
+
+#buscar-clientes input[type="text"], #cupom input[type="text"] {
   padding: 10px;
-  margin: 20 20 0 20;
-}
-
-nav a {
-  color: #333;
-  text-decoration: none;
-  margin-right: 30px;
-  font-size: 20px;
-}
-
-nav a:hover {
-  color: #007bff;
-}
-
-/* Estilo do campo de busca */
-.Clie {
-  margin-top: 30px;
-  margin-left: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.Clie label {
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.Clie .campo-busca {
-  display: flex;
-  align-items: center;
-  margin-top: 12px;
-}
-
-.Clie #buscar-clientes {
-  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 240px;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  text-align: center;
+  outline: none;
 }
 
-.Clie #btn-buscar {
+#buscar-clientes input[type="text"]::-webkit-input-placeholder, #cupom input[type="text"]::-webkit-input-placeholder {
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb;
+  text-align: center;
+}
+
+#buscar-clientes input[type="text"]::-moz-placeholder, #cupom input[type="text"]::-moz-placeholder {
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb;
+  text-align: center;
+}
+
+#buscar-clientes input[type="text"]:-ms-input-placeholder, #cupom input[type="text"]:-ms-input-placeholder {
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbb;
+  text-align: center;
+}
+
+#buscar-clientes,
+#cupom {
   padding: 10px;
-  background-color: #ddd;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+#cupom h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.radio-group label {
+  margin-right: 10px;
+}
+
+.search-container {
+  float: right;
+}
+
+.card-buttons button {
+  width: 45%;
+  padding: 6px 0;
   border: none;
   border-radius: 4px;
-  margin-left: 20px;
+  background-color: #4CAF50;
+  color: #fff;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.Clie #box-resultados {
+.card-buttons button:hover {
+  background-color: #3e8e41;
+}
+
+nav {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow-y: scroll;
+  height: 400px;
+  width: 96%;
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+  width: 250px; /* alteração para diminuir o tamanho do campo */
+}
+
+.search-bar button[type="submit"] {
+  color: #fff !important;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+
+.product-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  max-height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+
+.product-search-bar {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
-  width: 240px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  display: none;
-  max-height: 240px;
-  overflow-y: auto;
-}
-
-.Clie #box-resultados div {
+  border-radius: 10px;
   padding: 10px;
-  cursor: pointer;
+  height: 300px;
+  width: 200px;
+  text-align: center;
 }
 
-.Clie #box-resultados div:hover {
-  background-color: #eee;
+.product-image {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 7px;
 }
 
-/* Estilo do campo de cupom */
-.Cupom {
-  margin-top: 30px;
-  margin-bottom: 25px;
-  margin-right: 50px;
+.product-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
-.Cupom label {
+.product-info h3 {
   font-size: 18px;
-  font-weight: initial;
-  margin-bottom: 12px;
-  margin-right: 20px;
+  margin-bottom: 5px;
 }
 
-.Cupom .campo-cupom {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.Cupom .campo-cupom input[type="text"] {
-  border: none;
-  margin-right: 10px;
+.product-price {
   font-size: 16px;
-  padding: 10px;
-  border-radius: 4px;
+  margin-bottom: 5px;
 }
 
-
-.Cupom #btn-validar {
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.Cupom #btn-validar:hover {
-  background-color: #0069d9;
-}
-
-.Cupom .valido:before {
-  content: "\2713";
-  color: green;
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-.Cupom .invalido:before {
-  content: "\2717";
-  color: red;
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-
-/* Estilo dos campos de retirada e entrega */
-.RetiradaEntrega {
-  margin-top: 20px;
-  margin-left: 30px;
+.card-buttons {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.RetiradaEntrega label {
-  font-size: 20px;
-  margin-bottom: 8px;
+.product-button {
+  background-color: white;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.RetiradaEntrega .opcoes {
+.product-button:hover {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.product-button:active {
+  background-color: white;
+  border-color: #343a40;
+  color: #343a40;
+}
+
+.form-grupo {
   display: flex;
-  flex-direction: row;
+  justify-content: flex-end; /* alinha o conteúdo à direita */
   align-items: center;
+  margin-bottom: 10px;
 }
 
-.RetiradaEntrega .opcoes label {
-  font-size: 18px;
-  margin-right: 20px;
+label {
+  margin-right: 20px; /* adiciona um espaço entre o label e o input */
 }
 
-.RetiradaEntrega input[type="radio"] {
-  margin-right: 5px;
-}
-
-.Busca {
-  margin-top: 20px;
-  margin-right: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.Busca label {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.Busca .campo-busca {
-  display: flex;
-  align-items: center;
-}
-
-.Busca input[type="text"] {
-  padding: 8px;
+input.total {
+  width: 120px; /* ajusta a largura do input */
+  text-align: right; /* alinha o conteúdo do input à direita */
   font-size: 16px;
+  color: #555;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 200px;
+  padding: 5px;
+  margin-left: 12px;
 }
 
-.Busca button {
-  padding: 8px;
-  background-color: #007bff;
-  border: none;
+select {
+  width: 40%;
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-left: 10px;
-  color: #fff;
+  box-sizing: border-box;
   font-size: 16px;
-  cursor: pointer;
+  color: #555;
+  background-color: #f9f9f9;
 }
-
-.Busca button:hover {
-  background-color: #0069d9;
-}
-
-#dialogo-clientes iframe {
-  width: 100%;
-  height: 90%;
-}
-

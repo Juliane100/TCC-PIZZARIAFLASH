@@ -1,4 +1,4 @@
-document.getElementById("btn-buscar").addEventListener("click", function() {
+document.getElementById("btn btn-outline-secondary").addEventListener("click", function() {
   var nomeCliente = document.getElementById("buscar-clientes").value;
   var dialogo = document.createElement("dialog");
   dialogo.setAttribute("id", "dialogo-clientes");
