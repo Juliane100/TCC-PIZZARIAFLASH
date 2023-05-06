@@ -1,64 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> pedido </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="Stylesheet" href="../static/css/pagamento.css">
-	<link rel="Stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/pagamento.css" />
+    <title>Pedido</title>
 </head>
-
 <body>
-    <div id="pagewrap">
-
-  
-
-        <nav>
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="cliente.html">Clientes</a></li>
-            <li><a href="pedido.html"> Realizar Pedido</a></li>
-            <li><a href="pagamento.html">Pedidos</a></li>
-          </ul>
-        </nav>
-
-		<h3 class="bg-secondary text-white p-3 ">CLIENTES</h3>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-            <br />
-            
-                <h4 class="text-success text-center">Lista de pedidos</h4>
-                <br />
-                
-                <table class="table table-bordered table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th class="text-center">id</th>
-                            <th class="text-center">Nome do Cliente</th>
-							<th class="text-center">Pizzas</th>
-                            <th class="text-center">descriçao</th>
-                            <th class="text-center">Valor</th>
-                            <th class="text-center">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="stdInfo">
-
-                    </tbody>
-                </table>
-                
-
+    <div class="background">
+        <div class="search-bar">
+          <input type="text" placeholder="Pesquisar Pedido">
+          <button type="submit">Buscar</button>
         </div>
-    </div>
-
-    <script src="../static/js/cupom.js"> </script>
+        <table>
+          <thead>
+            <tr>
+              <th>Número do Pedido</th>
+              <th>Data do Pedido</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>12345</td>
+              <td>01/05/2023</td>
+              <td>Entregue</td>
+            </tr>
+            <tr>
+              <td>67890</td>
+              <td>02/05/2023</td>
+              <td>Cancelado</td>
+            </tr>
+            <tr>
+              <td>24680</td>
+              <td>03/05/2023</td>
+              <td>Em Andamento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <script src="../static/js/pagamento.js"> </script>
 </body>
-
 </html>

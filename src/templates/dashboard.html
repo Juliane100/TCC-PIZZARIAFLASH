@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cupom </title>
+    <title> Home </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -17,127 +17,130 @@
 </head>
 
 <body>
-    <div class="menu">
-        <div class="row">
-            <div class="col-md-6 card-modal h-2">
-                <h4 class="text-center title">Lista de Produtos</h4>
-
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card" style="width: 5rem; height: 5rem;">
-                            <img class="card-img-top" src="../static/assets/logo.png" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Teste</p>
-                            </div>
-                        </div>
+    <div class="container">
+            <div class="square full-width">
+                <div class="card">
+                    <div class="tools">
+                    <div class="circle">
+                        <span class="red box"></span>
                     </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 5rem; height: 5rem;">
-                            <img class="card-img-top" src="../static/assets/logo.png" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Teste</p>
-                            </div>
-                        </div>
+                    <div class="circle">
+                        <span class="yellow box"></span>
                     </div>
-
-                    <div class="col-sm">
-                        <div class="card" style="width: 5rem; height: 5rem;">
-                            <img class="card-img-top" src="../static/assets/logo.png" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Teste</p>
-                            </div>
-                        </div>
+                    <div class="circle">
+                        <span class="green box"></span>
                     </div>
-
-                    <div class="col-sm">
-                        <div class="card" style="width: 5rem; height: 5rem;">
-                            <img class="card-img-top" src="../static/assets/logo.png" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Teste</p>
-                            </div>
-                        </div>
                     </div>
-
-                </div>
-
-            </div>
-            <div class="col-md-5 card-modal h-3">
-                <div class="row2">
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="text-center title">Lista de Cupons</h4>
-                            <br>
-    
-                            <table class="table table-striped">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th class="text-center">Cupom</th>
-                                        <th class="text-center">Validade</th>
-                                        <th class="text-center">Valor Desconto</th>
-                                   
-                                    </tr>
-                                </thead>
-                                <tbody id="cupInfo">
-                                    <tr>
-                                        <th class="text-center">o8701842092</th>
-                                        <th class="text-center">2023-04-27</th>
-                                        <th class="text-center">R$35,99</th>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-    
+                    <div class="card__content">
+                        <h1 class="slogan">Piscou Chegou!</h1>
                     </div>
                 </div>
-            </div>
-                    </div>
+            <hr class="decorative-line">
+            <div class="relogio">
+                <div>
+                    <span id="horas">00</span>
+                    <span class="tempo">Horas</span>
                 </div>
-
-
-
-            </div>
-
-            <div class="card-modal h-1">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4 class="text-center title">Lista de Pedidos</h4>
-                        <br>
-
-                        <table class="table table-bordered table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th class="text-center">Pedido</th>
-                                    <th class="text-center">Descrição</th>
-                                    <th class="text-center">Horario</th>
-                                    <th class="text-center">Valor</th>
-                                    <th class="text-center">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="cupInfo">
-                                <tr>
-                                    <th class="text-center">#1253</th>
-                                    <th class="text-center">Calabresa, Mussarela...</th>
-                                    <th class="text-center">22:30</th>
-                                    <th class="text-center">R$ 98,00</th>
-                                    <th class="text-center">
-                                        <div>
-                                            <i class="fa fa-check" style="color:green">
-                                            </i>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
+        
+                <div>
+                    <span id="minutos">00</span>
+                    <span class="tempo">Minutos</span>
                 </div>
+        
+                <div>
+                    <span id="segundos">00</span>
+                    <span class="tempo">Segundos</span>
+                </div>
+                
             </div>
-        </div>
-    </div>
+		<div class="square half-width">
+            <h3>Pedidos Realizados</h3>
+            <form>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Status</th>
+                    <th>Dia e Hora</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>001</td>
+                    <td>
+                      <div class="status preparing"></div> Preparando
+                    </td>
+                    <td>04/05/2023 10:30</td>
+                    <td><div class="ellipsis">...</div></td>
+                  </tr>
+                  <tr>
+                    <td>002</td>
+                    <td>
+                      <div class="status delivered"></div> Entregue
+                    </td>
+                    <td>04/05/2023 11:15</td>
+                    <td><div class="ellipsis">...</div></td>
+                  </tr>
+                  <tr>
+                    <td>003</td>
+                    <td>
+                      <div class="status cancelled"></div> Cancelado
+                    </td>
+                    <td>04/05/2023 12:00</td>
+                    <td><div class="ellipsis">...</div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </div>
+          
+          <div class="square hall-width">
+            <h3>Cupons Registrados</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Valor</th>
+                  <th>Status</th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#123</td>
+                  <td>R$ 50,00</td>
+                  <td>
+                    <span class="status delivered"></span>
+                    Ativo
+                  </td>
+                  <td><span class="ellipsis">...</span></td>
+                </tr>
+                <tr>
+                  <td>#124</td>
+                  <td>R$ 20,00</td>
+                  <td>
+                    <span class="status delivered"></span>
+                    Ativo
+                  </td>
+                  <td><span class="ellipsis">...</span></td>
+                </tr>
+                <tr>
+                  <td>#125</td>
+                  <td>R$ 10,00</td>
+                  <td>
+                    <span class="status cancelled"></span>
+                    Desativado
+                  </td>
+                  <td><span class="ellipsis">...</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+	</div>
 
-    <!-- <script src="../static/js/cupom.js"> </script> -->
+    <script src="../static/js/global.js"> </script> 
 </body>
 
 </html>
