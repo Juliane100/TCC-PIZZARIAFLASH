@@ -2,7 +2,7 @@
 trabalho de conclusão de curso
 
 Tema: Gerenciamento de uma pizzaria;
-Grupo:1 (não tenho certeza) 
+INF3CM - Grupo:1 (não tenho certeza) 
 
 Integrantes:
 Aline Nascimento Ferreira Nº 01;
