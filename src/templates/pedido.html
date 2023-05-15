@@ -1,212 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+  <title>Página com Etapas de Processo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-r20LgwzE4SRqK9XEQG7Oc4nm+DfS8h2jKtiMI+Dnk+ucJsE4f4lqX9jlBK+hF+pCvtmfj/oZYbMvftEphOruw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="../static/css/novo.css" />
-  <link rel="stylesheet" href="../static/css/global.css" />
-
-  
-  <script src="../static/js/pedido.js"> </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  
-  
-
-  <title>Novo</title>
+  <link rel="stylesheet" href="../static/css/pedido.css">
 </head>
 
 <body>
-<FORM>
-  <h3 class="bg-secondary text-white p-3 upper ">Novo</h3>
-  <div class="container">
-    <div class="row">
-     
-      </div>
-    </div>
+  <div class="progress-bar">
+    <div class="progress"></div>
   </div>
-
-  
-    <!-- Busca de Cliente -->
-    <div class="form-group">
-      <label for="buscar-clientes">Buscar clientes:</label>
-      <div class="input-group">
-        <input type="text" id="buscar-clientes" class="form-control" placeholder="Nome do cliente" />
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+  <div class="content">
+    <div class="step active">
+      <h2>Passo 1 - Informações do Cliente</h2>
+      <br>
+      <form id="step1-form">
+        <div>
+          <label for="client-name">Nome do Cliente:</label>
+          <div class="search-bar">
+            <input type="text" id="client-name" name="client-name" placeholder="Pesquisar" >
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Busca de Cupom -->
-    <div class="form-group">
-      <label for="cupom">Cupom de desconto:</label>
-      <div class="input-group">
-        <input type="text" id="cupom" class="form-control" placeholder="Código do cupom" />
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Validar</button>
+        <div>
+          <label for="delivery-time">Data e Hora:</label>
+          <input type="datetime-local" id="delivery-time" name="delivery-time" >
         </div>
-      </div>
-      <span id="cupom-status"></span>
+        <div>
+          <label>Retirada ou Entrega:</label>
+          <label for="delivery-option-retirada">
+            <input type="radio" id="delivery-option-retirada" name="delivery-option" value="retirada" checked> Retirada
+          </label>
+          <label for="delivery-option-entrega">
+            <input type="radio" id="delivery-option-entrega" name="delivery-option" value="entrega"> Entrega
+          </label>
+        </div>
+      </form>
     </div>
 
-    <!-- Opções de Retirada ou Entrega -->
-    <div class="form-group">
-      <label for="retirada-entrega" class="form-label">Opção:</label>
-      <div class="radio-group">
-        <label>
-          <input type="radio" name="retirada-entrega" value="retirada" checked>
-          Retirada
-        </label>
-        <label>
-          <input type="radio" name="retirada-entrega" value="entrega">
-          Entrega
-        </label>
+    <div class="step" id="step2">
+      <h2>Passo 2 - Produtos</h2>
+      <div>
+        <label for="product-search">Buscar Produto:</label>
+        <div class="search-box">
+          <input type="text" id="product-search" name="product-search" placeholder="Digite o nome do produto">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+      <div class="product-list">
+        <div class="product-item">
+          <div class="product-info">
+            <h3>Calabresa </h3>
+            <p>Molho de tomate,Queijo e Calabresa</p>
+            <p>R$ 26,00</p>
+          </div>
+          <div class="product-options">
+            <label>
+              <input type="radio" name="product-size-1" value="grande">
+              <span>Grande</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-1" value="media">
+              <span>Média</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-1" value="pequena">
+              <span>Pequena</span>
+            </label>
+            <button class="add-product-btn" data-product-name="Produto 1">Adicionar</button>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="product-info">
+            <h3>Portuguesa</h3>
+            <p>Ervilha, Azeitona, Molho de Tomate, Cebola, Ovos, Queijo, Linguiça , Calabresa e Orégano</p>
+            <p>R$ 35,00</p>
+          </div>
+          <div class="product-options">
+            <label>
+              <input type="radio" name="product-size-2" value="grande">
+              <span>Grande</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="media">
+              <span>Média</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="pequena">
+              <span>Pequena</span>
+            </label>
+            <button class="add-product-btn" data-product-name="Produto 2">Adicionar</button>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="product-info">
+            <h3>Mussarela</h3>
+            <p> Molho de Tomate, Queijo, e Orégano</p>
+            <p>R$ 35,00</p>
+          </div>
+          <div class="product-options">
+            <label>
+              <input type="radio" name="product-size-2" value="grande">
+              <span>Grande</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="media">
+              <span>Média</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="pequena">
+              <span>Pequena</span>
+            </label>
+            <button class="add-product-btn" data-product-name="Produto 2">Adicionar</button>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="product-info">
+            <h3>Morango e Chocolate</h3>
+            <p>chocolate, Morango</p>
+            <p>R$ 35,00</p>
+          </div>
+          <div class="product-options">
+            <label>
+              <input type="radio" name="product-size-2" value="grande">
+              <span>Grande</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="media">
+              <span>Média</span>
+            </label>
+            <label>
+              <input type="radio" name="product-size-2" value="pequena">
+              <span>Pequena</span>
+            </label>
+            <button class="add-product-btn" data-product-name="Produto 2">Adicionar</button>
+          </div>
+        </div>
+      </div>
+      <div class="selected-products">
+        <h3>Produtos Selecionados</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Tamanho</th>
+              <th>Preço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div>
+          <label for="description">Descrição:</label>
+          <textarea id="description" name="description" rows="4" cols="50"></textarea>
+          <button id="add-description-btn">Adicionar Descrição</button>
+        </div>
       </div>
     </div>
-    
-    
-    <nav>
-      <div class="search-bar">
-        <input type="text" placeholder="Busque por produtos">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 1</h5>
-            <p class="product-price">R$ 10,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-         <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="https://via.placeholder.com/150" alt="product">
-          </div>
-          <div class="product-info">
-            <h5>Produto 2</h5>
-            <p class="product-price">R$ 15,00</p>
-            <div class="product-buttons">
-              <button>Inteiro</button>
-              <button>Meia</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <br>
-    <br>
 
+    <div class="step" id="step3">
+      <h2>Etapa 3 - Pagamento e Resumo do Pedido</h2>
+      <form>
+        <h3>Forma de Pagamento</h3>
+        <div>
+          <select name="payment-method" id="payment-method">
+            <option value="cash">Dinheiro</option>
+            <option value="card">Cartão de Debito</option>
+            <option value="card">Cartão de Credíto</option>
+
+          </select>
+        </div>
+
+        <h3>Resumo do Pedido</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Preço Unitário</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Produto 1</td>
+              <td>2</td>
+              <td>R$ 10,00</td>
+              <td>R$ 20,00</td>
+            </tr>
+            <tr>
+              <td>Produto 2</td>
+              <td>1</td>
+              <td>R$ 15,00</td>
+              <td>R$ 15,00</td>
+            </tr>
+            <tr>
+              <td>Produto 3</td>
+              <td>3</td>
+              <td>R$ 5,00</td>
+              <td>R$ 15,00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Total</td>
+              <td>R$ 50,00</td>
+            </tr>
+          </tfoot>
+        </table>
+
+
+      </form>
+    </div>
+
+    <div class="button-container">
+      <button id="prev-button" class="disabled">Anterior</button>
+      <button id="next-button">Próximo</button>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="pagamento">Forma de pagamento:</label>
-    <select id="pagamento" name="pagamento">
-      <option value="debito">Cartão de débito</option>
-      <option value="credito">Cartão de crédito</option>
-      <option value="dinheiro">Dinheiro</option>
-    </select>
-  </div>
-
-  <div class="form-grupo">
-    <label for="total">Total do pedido:</label>
-    <input type="text" id="total" name="total" readonly class="total" value="$00.00">
-  </div>
-
-    
-      </div>
-      
-   
-        <div class="menu">
-          <h1>Resumo de Pedido</h1>
-         <div class="row">
-             <div class="col-md-12 card-modal h-3">
-             </div>
-</div>
-<button type="reset" class="btn btn-primary">CANCELAR</button>
-<button type="submit" class="btn btn-danger">FINALIZAR</button>
-
-</FORM>
+  <script src="../static/js/pedido.js"></script>
 </body>
 
 </html>

@@ -1,262 +1,417 @@
-.form-group {
-  padding: 15px;
-}
-
-.form-control, .input-group>.form-control-plaintext {
-  position: relative;
-  -ms-flex: 1 1 auto;
-  flex: 0.2 !important;
-  width: 1%;
-  min-width: 0;
-  margin-bottom: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 20px;
+  font-family: sans-serif;
+  background-color: #f4f4f4;
 }
 
-#buscar-clientes input[type="text"], #cupom input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  width: 100%;
-  max-width: 400px;
+.progress-bar {
+  height: 10px;
+  background-color: #29d964;
   margin-bottom: 20px;
-  text-align: center;
-  outline: none;
+  position: relative;
 }
 
-#buscar-clientes input[type="text"]::-webkit-input-placeholder, #cupom input[type="text"]::-webkit-input-placeholder {
-  font-size: 16px;
-  font-weight: bold;
-  color: #bbb;
-  text-align: center;
+.progress {
+  height: 100%;
+  background-color: #5cb85c;
+  width: 0;
+  transition: width 0.2s ease-in-out;
 }
 
-#buscar-clientes input[type="text"]::-moz-placeholder, #cupom input[type="text"]::-moz-placeholder {
-  font-size: 16px;
-  font-weight: bold;
-  color: #bbb;
-  text-align: center;
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#buscar-clientes input[type="text"]:-ms-input-placeholder, #cupom input[type="text"]:-ms-input-placeholder {
-  font-size: 16px;
-  font-weight: bold;
-  color: #bbb;
-  text-align: center;
+.step:not(.active) {
+  display: none;
 }
 
-#buscar-clientes,
-#cupom {
-  padding: 10px;
-  margin-right: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-}
-
-#cupom h2 {
-  font-size: 18px;
+.step h2 {
   margin-bottom: 10px;
 }
 
-
-.radio-group {
+.button-container {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.radio-group label {
-  margin-right: 10px;
-}
-
-.search-container {
-  float: right;
-}
-
-.card-buttons button {
-  width: 45%;
-  padding: 6px 0;
+button {
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
-  background-color: #4CAF50;
+  border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.card-buttons button:hover {
-  background-color: #3e8e41;
+button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-nav {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow-y: scroll;
-  height: 400px;
-  width: 96%;
+button#next-button {
+  background-color: #5cb85c;
 }
 
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 10px;
+button#next-button:hover {
+  background-color: #449d44;
 }
 
-.search-bar input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  font-size: 16px;
-  width: 250px; /* alteração para diminuir o tamanho do campo */
+button#prev-button {
+  background-color: #aaa;
 }
 
-.search-bar button[type="submit"] {
-  color: #fff !important;
-  background-color: #6c757d;
-  border-color: #6c757d;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
+button#prev-button:hover {
+  background-color: #999;
 }
 
-.product-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-  max-height: 500px;
-  width: 100%;
-  margin: 0 auto;
-  
-}
-
-
-.product-search-bar {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.product-card {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input[type=text],
+form input[type=datetime-local] {
   padding: 10px;
-  height: 300px;
-  width: 200px;
-  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
-.product-image {
-  height: 150px;
-  width: 100%;
-  margin-bottom: 7px;
+form input[type=text]:focus,
+form input[type=datetime-local]:focus {
+  outline: none;
+  background-color: #ddd;
 }
 
-.product-image img {
-  height: 100%;
+form label[for=client-name]::after {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #aaa;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+form label[for=client-name]:hover::after {
+  color: #555;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+}
+
+/* ajuste a largura conforme necessário */
+#client-name {
+  width: 250px;
+}
+
+
+/* Estilo para o campo de busca */
+label[for="product-search"] {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
+.search-box input[type="text"] {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-box i {
+  margin-left: 5px;
+  color: #666;
+  font-size: 16px;
+}
+
+.search-box i:hover {
+  cursor: pointer;
+  color: #333;
+}
+
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Adicione o espaçamento que desejar entre os elementos */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-item {
   width: 100%;
-  object-fit: cover;
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-info {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: auto;
+  margin-right: 20px;
 }
 
 .product-info h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 24px;
+  margin: 0;
 }
 
-.product-price {
-  font-size: 16px;
-  margin-bottom: 5px;
+.product-info p {
+  margin: 5px 0;
 }
 
-.card-buttons {
+.product-options {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+
+.product-options label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.product-options label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.add-product-btn {
+  padding: 8px 16px;
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+
+}
+
+.add-product-btn:hover {
+  background-color: #0077aa;
+}
+
+.selected-products {
+  margin-top: 50px;
+}
+
+.selected-products h3 {
+  margin-bottom: 20px;
+}
+
+.selected-products table {
+  border-collapse: collapse;
   width: 100%;
 }
 
-.product-button {
-  background-color: white;
-  border: 1px solid #6c757d;
-  color: #6c757d;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  padding: 0.375rem 0.75rem;
+.selected-products th,
+.selected-products td {
+  padding: 10px;
   text-align: center;
-  text-decoration: none;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.product-button:hover {
-  background-color: #28a745;
-  border-color: #28a745;
-  color: white;
+.selected-products th {
+  background-color: #eee;
 }
 
-.product-button:active {
-  background-color: white;
-  border-color: #343a40;
-  color: #343a40;
+.selected-products tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.form-grupo {
+.selected-products tbody tr:hover {
+  background-color: #ddd;
+}
+
+.selected-products td .delete-product-btn {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selected-products td .delete-product-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+.description {
+  
   display: flex;
-  justify-content: flex-end; /* alinha o conteúdo à direita */
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.description label {
   margin-bottom: 10px;
+  padding-top: 20px;
+  font-weight: bold;
+  
+}
+
+.description textarea {
+  height: 100px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+}
+
+#add-description-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#add-description-btn:hover {
+  background-color: #0077aa;
+}
+
+/* Estilos para a seção de pagamento e resumo do pedido */
+#step3 {
+  margin-top: 50px;
+}
+
+#step3 h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#step3 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#step3 h3 {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+#step3 input[type="radio"] {
+  margin-right: 10px;
+}
+
+#step3 table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+#step3 th,
+#step3 td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#step3 th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#step3 tfoot td {
+  font-weight: bold;
 }
 
 label {
-  margin-right: 20px; /* adiciona um espaço entre o label e o input */
-}
-
-input.total {
-  width: 120px; /* ajusta a largura do input */
-  text-align: right; /* alinha o conteúdo do input à direita */
-  font-size: 16px;
-  color: #555;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  margin-left: 12px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 select {
-  width: 40%;
-  height: 40px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  padding: 10px;
   font-size: 16px;
-  color: #555;
-  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
+
+select:focus {
+  border-color: #666;
+}
+
+select option {
+  font-size: 16px;
+  color: #333;
+}
+
+select option:hover {
+  background-color: #f2f2f2;
+}
+
+

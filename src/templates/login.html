@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/login.css">
 
-    <title>Login</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/login.css">
+
+  <title>Login</title>
 </head>
+
 <body>
 
   <div class="container">
@@ -17,44 +19,44 @@
       <div class="right">
         <form>
           <div class="form-input">
-            <input type="text" id="username" >
-            <label for="username">username</label>
-          </div>
-          <div class="form-input">
-            <input type="password" id="password" >
-            <label for="password">password</label>
-          </div>
-          <input type="submit" class="btn" value="LOGIN">
-          <a href="#" id="register-link" class="register-btn">Registre-se</a>
-
-          <br>
-          
-          
-          <a href="#" class="forgot-password">Esqueceu a Senha ?</a>
-        </form>
-        
-        <!-- Formulário de registro -->
-        <form class="register-form" style="display:none;">
-          <div class="form-input">
-            <input type="email" id="email" >
+            <input type="text" id="email">
             <label for="email">Email</label>
           </div>
           <div class="form-input">
-            <input type="text" id="username" >
-            <label for="username">Username</label>
+            <input type="password" id="password">
+            <label for="password">Senha</label>
+          </div>
+          <input type="submit" class="btn" value="LOGIN">
+          <a href="#" class="register" id="register-link" class="register-btn">Registre-se</a>
+
+          <br>
+
+
+          <a href="#" class="forgot-password">Esqueceu a Senha ?</a>
+        </form>
+
+        <!-- Formulário de registro -->
+        <form class="register-form" style="display:none;">
+          <div class="form-input">
+            <input type="text" id="email">
+            <label for="email">Email:</label>
           </div>
           <div class="form-input">
-            <input type="password" id="password" >
-            <label for="password">Password</label>
+            <input type="text" id="username">
+            <label for="username">Usuario:</label>
           </div>
           <div class="form-input">
-            <input type="password" id="password-confirm" >
-            <label for="password-confirm">Confirm Password</label>
+            <input type="password" id="password">
+            <label for="password">Password:</label>
+          </div>
+          <div class="form-input">
+            <input type="password" id="password-confirm">
+            <label for="password-confirm">Cargo:</label>
           </div>
           <input type="submit" class="btn" value="REGISTER">
           <a href="#" class="back-to-login">Voltar ao Login</a>
         </form>
-        
+
         <!-- Formulário de recuperação de senha -->
         <form class="forgot-password-form" style="display:none;">
           <div class="form-input">
@@ -69,6 +71,7 @@
   </div>
 
   <script src="../static/js/login.js"></script>
-    
+
 </body>
+
 </html>

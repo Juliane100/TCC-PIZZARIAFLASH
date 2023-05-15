@@ -7,7 +7,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   height: 100vh;
   margin: 0;
-  background-color: #cec8c8;
+  background-color: #fff;
 }
 
 .title {
@@ -140,4 +140,16 @@ form input {
   }
   
 
+  
+.register {
+  color: #000;
+  font-size: .8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: letter-spacing .3s ease-in-out;
+}
+
+.register:hover {
+  letter-spacing: 1px;
+}
 
