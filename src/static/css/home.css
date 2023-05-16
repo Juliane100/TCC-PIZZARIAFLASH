@@ -1,12 +1,27 @@
 
+.content {
+  flex: 1;
+  height: 100%;
+  
+}
+
+
+iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
 
 .content iframe {
   border: none;
   flex: 1;
   width: 100%;
-  height: 450px; /* altura fixa para o iframe */
+  height: 590px; /* altura fixa para o iframe */
   overflow: auto !important; /* adiciona scroll somente no iframe */
 }
+
 
 /*
     DEMO STYLE
@@ -14,13 +29,15 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+
 body {
-  
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  /* Remova a barra de rolagem da página principal */
 }
+
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -40,7 +57,7 @@ a:focus {
 
 .navbar {
     padding: 1px 10px;
-    background: #fff;
+    background: #000000;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -69,36 +86,42 @@ a:focus {
   box-sizing: content-box !important;
 }
 
-.wrapper { 
-    display: flex;
-    width: 100%;
-    align-items: stretch;
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Remova a barra de rolagem da div wrapper */
 }
 
 #sidebar {
-    min-width: 230px;
-    max-width: 250px;
-    background: #e33030;
-    color: #060505;
-    transition: all 0.3s;
+  min-width: 240px;
+  max-width: 250px;
+  background: #e33030;
+  color: #060505;
+  transition: all 0.3s;
+  height: 100%; /* Faça a barra lateral ocupar toda a altura da div wrapper */
+  
 }
+
+
 
 #sidebar.active {
     margin-left: -250px;
 }
 
 #sidebar .sidebar-header {
-    padding: 13px;
+    padding: 23px;
     background: #e32828;
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding: 75px 0;
     border-bottom: 1px solid #47748b;
+    height: auto !important;
 }
 
 #sidebar ul p {
-    color: #f2c9c9;
+    color: #000000;
     padding: 10px;
     font-size: 16px;
 }
@@ -125,7 +148,7 @@ a[data-toggle="collapse"] {
 }
 
 a {
-    color: rgb(244, 239, 239) !important;
+   color: #000000 !important;
     text-decoration: none ;
     background-color: transparent;
 }
@@ -152,15 +175,15 @@ ul.CTAs {
 
 ul.CTAs a {
     text-align: center;
-    /* font-size: 0.5em !important; */
+    /*font-size: 0.5em !important; */
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
 }
 
 a.download {
-    background: #fff;
-    color: black;
+    background: #47748b;
+    color: #fff;
 }
 
 a.article,
@@ -203,7 +226,7 @@ a.article:hover {
     position: relative;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 80%;
     overflow: hidden;
   }
   
@@ -402,9 +425,4 @@ a.article:hover {
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
-  }
-  
-  
-
-  
-  
+  } 

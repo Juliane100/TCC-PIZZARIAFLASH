@@ -11,12 +11,9 @@
     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-  
-
 </head>
 
 <body>
-
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
@@ -42,72 +39,50 @@
           <a href="pedido.html" target="myFrame">Novo</a>
         </li>
         <li>
-          
-          <a href="pagamento.html" target="myFrame" >Pedidos</a>
+          <a href="pagamento.html" target="myFrame">Pedidos</a>
         </li>
-
-
 
         <ul class="list-unstyled CTAs">
           <li>
-            <!-- <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a> -->
             <a href="../templates/login.html" class="fa fa-sign-out"></a>
           </li>
           <li>
-            <!-- <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article"></a> -->
             <a href="../templates/login.html" class="fa fa-gear"></a>
           </li>
         </ul>
-
+      </ul>
     </nav>
 
     <!-- Page Content  -->
     <div id="content">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-
           <button type="button" id="sidebarCollapse" class="btn btn-info">
             <i class="fas fa-align-left"></i>
-            <!-- <span>Toggle Sidebar</span> -->
           </button>
-
           <div class="text-center">
-            <h5 id="usuario" class="text-center"></h4>
+            <h5 id="usuario" class="text-center"></h5>
           </div>
-
           <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <i class="fas fa-align-justify"></i>
-          </button>
+            <i class="fas fa -align-justify"></i>
+</button>
+</div>
+<div id="clock" class="clock"></div>
+<div class="profile">
+<img src="../static/assets/ícone.jpg" alt="icone" class="profile-image">
+</div>
+</nav>
+<div class="content">
+<div class="iframe-container">
+<iframe name="myFrame" src="dashboard.html" frameborder="0"></iframe>
+</div>
+</div>
+</div>
 
-        
-
-        </div>
-
-        <div id="clock" class="clock"></div>
-
-
-        
-        <div class="profile">
-          <img src="../static/assets/ícone.jpg" alt="icone" class="profile-image">
-        </div>
-        
-    
-      </nav>
-
-      <div class="content">
-
-        <iframe name="myFrame" scrolling="auto" src="dashboard.html"></iframe>
-      </div>
-
-    </div>
   </div>
-
-  <script src="../static/js/home.js"> </script>
-  <script src="../static/js/global.js"> </script>
-
+  <script src="../static/js/home.js"></script>
+  <script src="../static/js/global.js"></script>
 </body>
-
 </html>
