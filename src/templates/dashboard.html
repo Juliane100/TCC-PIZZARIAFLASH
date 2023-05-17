@@ -19,6 +19,38 @@
 <body>
     <div class="container">
             <div class="square full-width">
+              <div style=" height: 220px;">
+                <canvas id="myChart"></canvas>
+              </div>
+              
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              
+              <script>
+                const ctx = document.getElementById('myChart');
+              
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ['Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    datasets: [{
+                      label: '# Qtd Pedidos',
+                      data: [12, 18, 25, 30, 22, 0],
+                      //backgroundColor: 'blue',
+                      borderWidth: 3
+                      
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+              </script>
+              
+              
              
                 </div>
            
@@ -109,7 +141,9 @@
           
 	</div>
 
+
     <script src="../static/js/global.js"> </script> 
+    
 </body>
 
 </html>

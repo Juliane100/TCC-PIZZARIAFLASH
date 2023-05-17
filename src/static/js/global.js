@@ -27,7 +27,8 @@ function displayTime() {
     var clockDiv = document.getElementById("clock");
     clockDiv.textContent = hours + ":" + minutes + ":" + seconds + " " + meridiem;
   }
-  
+
+   
   // Update the clock every second
   setInterval(displayTime, 1000);
       
