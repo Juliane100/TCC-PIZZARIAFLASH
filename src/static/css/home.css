@@ -465,10 +465,10 @@ a.article:hover {
     visibility: visible;
     left: 0%;
 }
-.card .content h2{
+.card .content h3{
     color: #fff;
     text-transform: uppercase;
-    font-size: 2.5em;
+    font-size: 1.5em;
     line-height: 1em;
 }
 
@@ -480,8 +480,4 @@ a.article:hover {
     .card:hover img{
         height: 100px;
     }
-}
-
-.card .p{
-  color: black;
 }
