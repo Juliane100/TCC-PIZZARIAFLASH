@@ -4,11 +4,6 @@
   padding: 0;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #f4f4f4;
-}
-
 .progress-bar {
   height: 10px;
   background-color: #29d964;
@@ -430,7 +425,7 @@ header {
   top:0;
   right:0;
   height:60px;
-  background-color:#399ade;
+  background-color:#e33030;
   display:none;
   justify-content: flex-end;
   align-items: center;
@@ -438,7 +433,7 @@ header {
 .menu-openner {
   margin-right: 15px;
   font-size: 26px;
-  background-color: #a9dcff;
+  background-color: #e33030;
   padding: 5px 20px;
   border-radius: 5px;
 }
@@ -453,7 +448,7 @@ header {
 }
 
 aside {
-  background-color:#9ccbe6;
+  background-color:#EEE;
 }
 
 .cart--area {
@@ -499,7 +494,7 @@ h1 {
   height:50px;
   line-height:50px;
   border-radius:25px;
-  background-color:#388bc5;
+  background-color:#e33030;
   text-align:center;
   color:#FFF;
   font-size:22px;
@@ -562,7 +557,7 @@ h1 {
 }
 .pizzaBig img {
   height:400px;
-  width:auto;
+  background-color: #e33030
 }
 .pizzaInfo {
   flex:1;
@@ -602,7 +597,7 @@ h1 {
   background-color:#CCC;
 }
 .pizzaInfo--size.selected {
-  background-color:#399ade;
+  background-color:#e33030;
   color:#FFF;
 }
 .pizzaInfo--size.selected span {
@@ -672,7 +667,6 @@ h1 {
   line-height: 40px;
   margin-bottom:30px;
   border-radius: 10px;
-  background-color: rgb(238, 69, 69);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -719,7 +713,7 @@ h1 {
 }
 .cart--totalitem {
   padding:15px 0;
-  border-top:1px solid #79b9dd;
+  border-top:1px solid #0000;
   color:#315970;
   display:flex;
   justify-content: space-between;
@@ -798,8 +792,7 @@ h1 {
   }
 
   .pizzaWindowBody {
-      width:100vw;
-      display:block;
+      width:97vw;
       padding:20px;
       border-radius:0;
       box-shadow:none;
@@ -807,7 +800,7 @@ h1 {
   }
 
   .pizzaBig{
-      background-color: #CAF0F8;
+
       border-radius: 50px;
       height: 430px;
   }
