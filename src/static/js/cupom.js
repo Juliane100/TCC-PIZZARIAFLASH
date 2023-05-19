@@ -11,6 +11,7 @@ const numero = document.getElementById('numero');
 const gerado = document.getElementById('gerado');
 const validado = document.getElementById('validado')
 const valor = document.getElementById('valor');
+const cupomStatus = document.getElementById('cupomStatus');
 const updateBtn = document.getElementById('updateBtn');
 const submitBtn = document.getElementById('submitBtn');
 
@@ -41,6 +42,8 @@ const OnEditHandler = (ele) => {
     gerado.value = getObj.gerado;
     validado.value = getObj.validado
     valor.value = getObj.valor;
+    cupomStatus.value = getObj.cupomStatus;   
+
     submitBtn.classList.add('d-none');
     updateBtn.classList.remove('d-none');
 }
@@ -51,7 +54,7 @@ const OnDeleteHandler = (ele) => {
     cl(getDeleteId);
     let getData = getLocalData();
     cupArray = getData.filter(ele => ele.id !== getDeleteId);
-    alert("Are you Sure to Delete");
+    alert("Você deletou esse item!");
     templating(cupArray);
     localStorage.setItem('cupArray', JSON.stringify(cupArray))
 }
@@ -65,6 +68,7 @@ const templating = (arr) => {
         <td>${element.gerado}</td>
         <td>${element.validado}
         <td>${element.valor}</td>
+        <td>${element.cupomStatus}</td>
         <td class='text-center'><button class="fa-solid fa-pen-to-square" data-id="${element.id}" onclick = 'OnEditHandler(this)'></button>
         <button class="fa-solid fa-trash-can" data-id="${element.id}" onclick = 'OnDeleteHandler(this)'></button></td>
         </tr>
@@ -82,6 +86,7 @@ function onCupInfoSubmit(event) {
         gerado: gerado.value,
         validado: validado.value,
         valor: valor.value,
+        cupomStatus: cupomStatus.value,
         id: uuidv4(),
     };
     cupArray.push(obj)
@@ -98,7 +103,8 @@ const onCupInfoUpdate = () => {
 		numero: numero.value,
         gerado: gerado.value,
         validado: validado.value,
-        valor: valor.value
+        valor: valor.value,
+        cupomStatus: cupomStatus.value,
     };
 
     let arr = getLocalData();
@@ -108,7 +114,8 @@ const onCupInfoUpdate = () => {
         ele.numero = numero.value,
         ele.gerado = gerado.value,
         ele.validado = validado.value,      
-        ele.valor = valor.value
+        ele.valor = valor.value,
+        ele.cupomStatus = cupomStatus.value
         }
     })
     templating(arr);

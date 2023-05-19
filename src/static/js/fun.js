@@ -71,7 +71,7 @@ const OnDeleteHandler = (ele) => {
     cl(getDeleteId);
     let getData = getLocalData();
     funArray = getData.filter(ele => ele.id !== getDeleteId);
-    alert("Are you Sure to Delete");
+    alert("Você deletou esse item!");
     templating(funArray);
     localStorage.setItem('funArray', JSON.stringify(funArray))
 }

@@ -10,7 +10,7 @@
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="../static/css/home.css"/>
+        
         <link rel="stylesheet" href="../static/css/global.css"/>
   
   <title>Produto</title>
@@ -32,7 +32,22 @@
               <form id="produtoForm">
                   <div class="container">
                       <div class="row">
-                          <div class="col-sm">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="imagem">
+                                    <strong>
+                                        Imagem
+                                    </strong>
+                                </label>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="imagem" accept="image/*">
+                                  <label class="custom-file-label" for="imagem">Adicione</label>
+                                </div>
+                              </div>                              
+                          </div>
+
+                        <div class="col-md-4">
                               <div class="form-group">
                                   <label for="nome">
                                       <strong>
@@ -42,14 +57,14 @@
                                   <input type="text" value="" id="nome" class="form-control" required>
                               </div>
                           </div>
-                          <div class="col-sm">
+                          <div class="col-md-5">
                               <div class="form-group">
-                                  <label for="descrição">
+                                  <label for="descricao">
                                       <strong>
                                           Descrição
                                       </strong>
                                   </label>
-                                  <input type="text" value="" id="descrição" class="form-control" required>
+                                  <input type="text" value="" id="descricao" class="form-control" required>
                               </div>
                             </div>
 
@@ -63,17 +78,49 @@
                                   <input type="text" value="" id="valor" class="form-control">
                               </div>
                           </div>
+
+                          <div class="col-sm">
+                            <div class="form-group">
+                                <label for="Categoria">
+                                    <strong>
+                                        Categoria
+                                    </strong>
+                                </label>
+                                <select id="Categoria"  class="form-control">
+                                    <option value="BEBIDAS">BEBIDA</option>
+                                    <option value="SALGADOS">SALGADO</option>
+                                    <option value="DOCES">DOCE</option>
+                                  </select> 
+                            </div>
+                        </div>
+
+
+                          <div class="col-sm">
+                            <div class="form-group">
+                                <label for="status">
+                                    <strong>
+                                        Status
+                                    </strong>
+                                </label>
+                                <select id="ProdStatus"  class="form-control">
+                                    <option value="ATIVO">ATIVO</option>
+                                    <option value="DESATIVADO">DESATIVADO</option>
+                                  </select> 
+                            </div>
+                        </div>
+
                       </div>
                       <div class="row">
-                          <div class="col align-self-end">
-                              <div class="form-group">
-                                  <input type="submit" value="Cadastrar" id='submitBtn'
-                                      class="btn btn-primary col-auto">
-                                  <input type="button" value="Atualizar" id="updateBtn"
-                                      class="btn btn-primary d-none">
-                              </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <div class="d-flex justify-content-end mt-4">
+                              <input type="submit" value="Cadastrar" id="submitBtn" class="btn btn-primary">
+                              <input type="button" value="Atualizar" id="updateBtn" class="btn btn-primary d-none">
+                            </div>
                           </div>
+                        </div>
                       </div>
+                      
                   </div>
               </form>
           </div>
@@ -85,10 +132,11 @@
               <br />
               <table class="table table-bordered table-striped">
                   <thead class="thead-dark">
-                      <tr>
+                      <tr> 
                           <th class="text-center">Nome</th>
                           <th class="text-center">Descrição</th>
                           <th class="text-center">Valor</th>
+                          <th class="text-center">Status</th>
                           <th class="text-center">Ações</th>
                       </tr>
                   </thead>

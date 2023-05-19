@@ -130,7 +130,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-7">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="complemento">
                                         <strong>
@@ -141,19 +141,33 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="status">
+                                        <strong>
+                                            Status
+                                        </strong>
+                                    </label>
+                                    <select id="CliStatus"  class="form-control">
+                                        <option value="ATIVO">ATIVO</option>
+                                        <option value="DESATIVADO">DESATIVADO</option>
+                                      </select> 
+                                </div>
+                            </div>
+
 
 
                         </div>
                         <div class="row">
-                            <div class="col align-self-end">
-                                <div class="form-group">
-                                    <input type="submit" value="Cadastrar" id='submitBtn'
-                                        class="btn btn-primary col-auto">
-                                    <input type="button" value="Atualizar" id="updateBtn"
-                                        class="btn btn-primary d-none">
+                            <div class="col">
+                              <div class="form-group">
+                                <div class="d-flex justify-content-end mt-4">
+                                  <input type="submit" value="Cadastrar" id="submitBtn" class="btn btn-primary">
+                                  <input type="button" value="Atualizar" id="updateBtn" class="btn btn-primary d-none">
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                          </div>
                     </div>
                 </form>
             </div>
@@ -173,6 +187,7 @@
                             <th class="text-center">Telefone</th>
                             <th class="text-center">CEP</th>
                             <th class="text-center">Numero</th>
+                            <th class="text-center">Status</th>
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>

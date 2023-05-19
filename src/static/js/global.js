@@ -25,7 +25,7 @@ function displayTime() {
     
     // Display the time
     var clockDiv = document.getElementById("clock");
-    clockDiv.textContent = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+    clockDiv.textContent = hours + ":" + minutes + ":" + seconds + "|Período" + meridiem ;
   }
 
    

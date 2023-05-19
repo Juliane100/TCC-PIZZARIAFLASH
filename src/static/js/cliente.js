@@ -17,6 +17,7 @@ const bairro = document.getElementById('bairro');
 const cidade = document.getElementById('cidade');
 const numero = document.getElementById('numero');
 const complemento = document.getElementById('complemento');
+const CliStatus = document.getElementById('CliStatus');
 const updateBtn = document.getElementById('updateBtn');
 const submitBtn = document.getElementById('submitBtn');
 
@@ -53,6 +54,7 @@ const OnEditHandler = (ele) => {
 	cidade.value = getObj.cidade;
 	numero.value = getObj.numero;
 	complemento.value = getObj.complemento;
+    CliStatus.value = getObj.CliStatus;
     
     submitBtn.classList.add('d-none');
     updateBtn.classList.remove('d-none');
@@ -64,7 +66,7 @@ const OnDeleteHandler = (ele) => {
     cl(getDeleteId);
     let getData = getLocalData();
     clieArray = getData.filter(ele => ele.id !== getDeleteId);
-    alert("Are you Sure to Delete");
+    alert("Você deletou esse item!");
     templating(clieArray);
     localStorage.setItem('cliArray', JSON.stringify(clieArray))
 }
@@ -77,6 +79,7 @@ const templating = (arr) => {
 		<td>${element.telefone}</td>
 		<td>${element.cep}</td>
 		<td>${element.numero}</td>
+        <td>${element.CliStatus}</td>
 		<td class='text-center'><button class="fa-solid fa-pen-to-square" data-id="${element.id}" onclick = 'OnEditHandler(this)'></button>
         <button class="fa-solid fa-trash-can" data-id="${element.id}" onclick = 'OnDeleteHandler(this)'></button></td>
         </tr>
@@ -100,6 +103,7 @@ function onClieInfoSubmit(event) {
 		cidade: cidade.value,
 		numero: numero.value,
 		complemento: complemento.value,
+        CliStatus: CliStatus.value,
 		id: uuidv4(),
     };
     clieArray.push(obj)
@@ -123,6 +127,7 @@ const onClieInfoUpdate = () => {
 		cidade: cidade.value,
 		numero: numero.value,
 		complemento: complemento.value,
+        CliStatus: CliStatus.value,
 
         
     };
@@ -139,7 +144,8 @@ const onClieInfoUpdate = () => {
 			ele.bairro = bairro.value,
 			ele.cidade = cidade.value,
 			ele.numero = numero.value,
-			ele.complemento = complemento.value
+			ele.complemento = complemento.value,
+            ele.CliStatus = CliStatus.value 
 		}
     })
     templating(arr);
