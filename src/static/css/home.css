@@ -466,6 +466,7 @@ a.article:hover {
     left: 0%;
 }
 .card .content h3{
+    margin-top: 50px;
     color: #fff;
     text-transform: uppercase;
     font-size: 1.5em;

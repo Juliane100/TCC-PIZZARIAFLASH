@@ -494,7 +494,7 @@ h1 {
   height:50px;
   line-height:50px;
   border-radius:25px;
-  background-color:#e33030;
+  background-color:#e65050;
   text-align:center;
   color:#FFF;
   font-size:22px;
@@ -503,7 +503,7 @@ h1 {
   transition:all ease .2s;
 }
 .pizza-item a:hover .pizza-item--add {
-  background-color:#244c88;
+  background-color:#ee1e1e;
 }
 .pizza-item--price {
   font-size:15px;
