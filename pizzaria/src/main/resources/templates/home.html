@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../static/css/home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Pizzaria Flash</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <p>Menu</p>
+        <li>
+          <a href="dashboard.html" target="myFrame">Home</a>
+        </li>
+        <li>
+          <a href="cliente.html" target="myFrame">Cliente</a>
+        </li>
+        <li>
+          <a href="produto.html" target="myFrame">Produto</a>
+        </li>
+        <li>
+          <a href="cupom.html" target="myFrame">Cupom</a>
+        </li>
+        <li>
+          <a href="pedido.html" target="myFrame">Novo</a>
+        </li>
+        <li>
+          <a href="pagamento.html" target="myFrame">Pedidos</a>
+        </li>
+
+        <ul class="list-unstyled CTAs">
+          <li>
+            <a href="../templates/login.html" class="fa fa-sign-out"></a>
+          </li>
+          <li>
+            <a href="../templates/login.html" class="fa fa-gear"></a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+          </button>
+          <div class="text-center">
+            <h5 id="usuario" class="text-center"></h5>
+          </div>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa -align-justify"></i>
+</button>
+</div>
+<div id="clock" class="clock"></div>
+<div class="profile">
+<img src="../static/assets/ícone.jpg" alt="icone" class="profile-image">
+</div>
+</nav>
+<div class="content">
+<div class="iframe-container">
+<iframe name="myFrame" src="dashboard.html" frameborder="0"></iframe>
+</div>
+</div>
+</div>
+
+  </div>
+  <script src="../static/js/home.js"></script>
+  <script src="../static/js/global.js"></script>
+</body>
+</html>

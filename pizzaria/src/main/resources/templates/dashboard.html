@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Home </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../static/css/home.css" />
+  <link rel="stylesheet" href="../static/css/global.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="square full-width">
+      <div style=" height: 210px;">
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            datasets: [{
+              label: '# Qtd Pedidos',
+              data: [12, 18, 25, 30, 22, 15],
+              //backgroundColor: 'blue',
+              borderWidth: 3
+
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+
+      <div class="card">
+        <div class="content">
+          <h3>Peça Já!</h3>
+          
+        </div>
+        <img
+          src="../static/assets/Avatar.png" />
+      </div>
+
+
+
+    </div>
+
+    <div class="square half-width">
+      <h3>Pedidos Realizados</h3>
+      <form>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Status</th>
+              <th>Dia e Hora</th>
+              <th>Opções</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>
+                <div class="status preparing"></div> Preparando
+              </td>
+              <td>04/05/2023 10:30</td>
+              <td>
+                <div class="ellipsis">...</div>
+              </td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>
+                <div class="status delivered"></div> Entregue
+              </td>
+              <td>04/05/2023 11:15</td>
+              <td>
+                <div class="ellipsis">...</div>
+              </td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>
+                <div class="status cancelled"></div> Cancelado
+              </td>
+              <td>04/05/2023 12:00</td>
+              <td>
+                <div class="ellipsis">...</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <div class="square hall-width">
+      <h3>Cupons Registrados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#123</td>
+            <td>R$ 50,00</td>
+            <td>
+              <span class="status delivered"></span>
+              Ativo
+            </td>
+            <td><span class="ellipsis">...</span></td>
+          </tr>
+          <tr>
+            <td>#124</td>
+            <td>R$ 20,00</td>
+            <td>
+              <span class="status delivered"></span>
+              Ativo
+            </td>
+            <td><span class="ellipsis">...</span></td>
+          </tr>
+          <tr>
+            <td>#125</td>
+            <td>R$ 10,00</td>
+            <td>
+              <span class="status cancelled"></span>
+              Desativado
+            </td>
+            <td><span class="ellipsis">...</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <script src="../static/js/global.js"> </script>
+
+</body>
+
+</html>
