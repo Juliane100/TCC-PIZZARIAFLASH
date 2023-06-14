@@ -1,9 +1,15 @@
 package com.example.pizzaria.model;
 
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,20 +19,47 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column (name = "nome", nullable = false)
     private String nome;
+
+    @Column (name = "telefone", nullable = false)
     private String telefone;
+
+    @Column (name = "email", nullable = false)
     private String email;
-    private String data_nasc;
+
+    @Column (name = "data_nasc")
+    private LocalDate data_nasc;
+
+    @Column (name = "cep", nullable = false)
     private String cep;
+
+    @Column (name = "logradouro", nullable = false)
     private String logradouro;
+
+    @Column (name = "cidade", nullable = false)
     private String cidade;
+
+    @Column (name = "bairro", nullable = false)
     private String bairro;
+
+    @Column (name = "numresid", nullable = false)
     private int numresid;
+
+    @Column (name = "complemento", nullable = false)
     private String complemento;
+
+    @Column (name = "status", nullable = false)
     private String status;
+
+    @OneToOne
+    @JoinColumn(name = "login_id", unique = true, nullable = false)
+    private Login login;
 
    
     // Getters e Setters
+
 
     public long getId() {
         return id;
@@ -52,6 +85,7 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+
     public String getEmail() {
         return email;
     }
@@ -60,11 +94,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getData_nasc() {
+    public LocalDate getData_nasc() {
         return data_nasc;
     }
 
-    public void setData_nasc(String data_nasc) {
+    public void setData_nasc(LocalDate data_nasc) {
         this.data_nasc = data_nasc;
     }
 
@@ -125,7 +159,14 @@ public class Cliente {
         this.status = status;
     }
 
-  
+    
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
 
     
 }

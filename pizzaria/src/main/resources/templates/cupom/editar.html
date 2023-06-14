@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+</head>
+<body>
+
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    
+    <div class="container">
+        <div class="row justify-content-center mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title text-center">Editar Serviço</h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/cupons/{id}/salvar(id=${cupom.id})}" method="post"
+                            th:object="${cupom}" class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" id="nome" name="nome" class="form-control"
+                                        th:value="${cupom.nome}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="numero">Numero:</label>
+                                    <input type="text" id="numero" name="numero" class="form-control" 
+                                        th:value="${cupom.numero}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="data_gerado">Data Geração:</label>
+                                    <input type="date" id="data_gerado" name="data_gerado" class="form-control"
+                                        th:value="${cupom.data_gerado}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="data_validade">Data Validade:</label>
+                                    <input type="date" id="data_validade" name="data_validade" class="form-control"
+                                        th:value="${cupom.data_validade}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="preco">Preço:</label>
+                                    <input type="number" id="preco" name="preco" class="form-control" step="0.01"
+                                        th:value="${cupom.preco}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="status">Status:</label>
+                                    <select id="status" name="status" class="form-control" required>
+                                        <option value="ATIVO" th:selected="${cupom.status == 'ATIVO'}">Ativo</option>
+                                        <option value="DESATIVADO" th:selected="${cupom.status == 'DESATIVADO'}">
+                                            Desativado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

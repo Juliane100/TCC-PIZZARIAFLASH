@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var mensagem=[[${comment}]];
+        /*]]>*/
+        $(document).ready(function () {
+            if(mensagem)
+            $('.toast').toast('show');
+        });
+    </script>
+
+    <title>Serviços</title>
+</head>
+
+<body>
+    
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast" hide role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Mensagem</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" th:text="${comment}"></div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+
+    <div class="container">
+        <div class="row justify-content-center mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title text-center">Cadastrar Novo Serviço</h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/servicos/cadastrar}" method="post" th:object="${novoServico}"
+                            class="row g-3">
+                            <div class="col-md-4">
+                                <label for="nome" class="form-label">Nome:</label>
+                                <input type="text" id="nome" name="nome" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="preco" class="form-label">Preço:</label>
+                                <input type="number" id="preco" name="preco" class="form-control" step="0.01" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="status" class="form-label">Status:</label>
+                                <select id="status" name="status" class="form-select" required>
+                                    <option value="ATIVO">Ativo</option>
+                                    <option value="DESATIVADO">Desativado</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="card mt-3 mb-4">
+                    <div class="card-header">
+                        <h2 class="card-title text-center">Serviços Cadastrados</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Nome</th>
+                                    <th class="text-center">Preço</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="servico : ${servicos}">
+                                    <td class="text-center" th:text="${servico.id}"></td>
+                                    <td class="text-center" th:text="${servico.nome}"></td>
+                                    <td class="text-center" th:text="${servico.preco}"></td>
+                                    <td class="text-center" th:text="${servico.status}"></td>
+                                    <td class="text-center">
+                                        <a th:href="@{/servicos/{id}/editar(id=${servico.id})}"
+                                            class="btn btn-primary">Editar</a>
+                                        <a th:href="@{/servicos/{id}/excluir(id=${servico.id})}"
+                                            class="btn btn-danger">Excluir</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer">&nbsp;</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

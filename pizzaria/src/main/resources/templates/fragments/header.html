@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    
+</head>
+
+<body>
+    <!-- <nav th:fragment="header">Nav</nav> -->
+    <nav th:fragment="header" class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="container d-flex justify-content-between nav">
+                <a class="navbar-brand" href="#">
+                    Pizzaria Flash
+                </a>
+                <div class="d-flex">
+                    <a class="nav-link text-white"></a>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 navbar-nav-sm">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/login#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/clientes">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/produtos">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cupons">Cupons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Pedido">Pedido</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Realizar">Realizar</a>
+                        </li>
+                        <br>
+                        <li class="nav-item d-flex align-items-center">
+                            <button class="btn btn-primary me-2"
+                                onclick="window.location.href='/configuracao'">Configuração</button>
+                            <button class="btn btn-danger" onclick="window.location.href='/sair'">Sair</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>

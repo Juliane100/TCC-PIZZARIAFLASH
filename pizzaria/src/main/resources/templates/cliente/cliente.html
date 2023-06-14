@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+    <title>Cliente</title>
+</head>
+
+<body>
+
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container mt-3">
+        <div class="row justify-content-center mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title text-center">Cadastro de Cliente</h2>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/clientes/cadastrar}" method="post" class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" id="nome" name="nome" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="telefone">Telefone:</label>
+                                    <input type="text" id="telefone" name="telefone" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="data_nasc">Data Nascimento:</label>
+                                    <input type="date" id="data_nasc" name="data_nasc" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="cep">CEP:</label>
+                                    <input type="text" id="cep" name="cep" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="logradouro">Logradouro:</label>
+                                    <input type="text" id="logradouro" name="logradouro" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade:</label>
+                                    <input type="text" id="cidade" name="cidade" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="bairro">Bairro:</label>
+                                    <input type="text" id="bairro" name="bairro" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="numresid">Número Residência:</label>
+                                    <input type="text" id="numresid" name="numresid" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="complemento">Complemento:</label>
+                                    <input type="text" id="complemento" name="complemento" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="status">Status:</label>
+                                    <select id="status" name="status" class="form-control" required>
+                                        <option value="ATIVO">Ativo</option>
+                                        <option value="DESATIVADO">Desativado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 bt-3 ">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div th:replace="fragments/footer :: footer">&nbsp;</div>
+
+</body>
+
+</html>
