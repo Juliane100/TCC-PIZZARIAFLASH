@@ -18,10 +18,11 @@ public class CategoriaProduto {
     @Column (name = "nome", nullable = false)
     private String nome;
 
+   
     @Column (name = "status", nullable = false)
     private String status;
     
-  
+
     //Getters e Setters
     public long getId() {
         return id;

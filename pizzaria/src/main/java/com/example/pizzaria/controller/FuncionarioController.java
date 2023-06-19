@@ -1,21 +1,19 @@
 package com.example.pizzaria.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.pizzaria.service.FuncionarioService;
-import com.example.pizzaria.service.LoginService;
+
 
 @RequestMapping("/funcionarios")
 @Controller
 public class FuncionarioController {
 
-    @Autowired
-    private FuncionarioService funcionarioService;
+    // @Autowired
+    // private FuncionarioService funcionarioService;
 
-    @Autowired
-    private LoginService loginService;
+    // @Autowired
+    // private LoginService loginService;
 
     @GetMapping("/login")
     public String showLoginPage() {

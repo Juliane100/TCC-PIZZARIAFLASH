@@ -76,7 +76,9 @@ public class LoginController {
         var mapperFuncionario = modelMapper.map(registroDto, Funcionario.class);
         mapperFuncionario.setLogin(login);
         funcionarioService.register(mapperFuncionario);
+        
 
-        return "login/index";
+        return showLoginPage(model);
+
     }
 }

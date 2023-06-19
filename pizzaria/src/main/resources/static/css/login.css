@@ -1,0 +1,13 @@
+.bg-img {
+    background-image: url(../assets/bebum.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.bg-image {
+    opacity: 0.8;
+    border-radius: 0.7px;
+}
