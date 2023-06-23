@@ -7,8 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -52,13 +52,21 @@ public class Cliente {
     @Column (name = "status", nullable = false)
     private String status;
 
-    @OneToOne
-    @JoinColumn(name = "login_id", unique = true, nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "login_id", unique = true, nullable = true)
     private Login login;
 
    
     // Getters e Setters
 
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
 
     public long getId() {
         return id;
@@ -159,13 +167,7 @@ public class Cliente {
     }
 
     
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
+   
 
     
 }

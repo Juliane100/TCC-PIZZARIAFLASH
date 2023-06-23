@@ -19,14 +19,34 @@
 
     <title>Produto</title>
 
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var mensagem=[[${chat}]];
+        /*]]>*/
+        $(document).ready(function () {
+            if(mensagem)
+            $('.toast').toast('show');
+        });
+    </script>
+
 </head>
 
 <body>
 
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast" hide role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Mensagem</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" th:text="${chat}"></div>
+        </div>
+    </div>
+
     <div th:replace="fragments/header :: header">&nbsp;</div>
 
     <div class="container mb-4">
-        <div class="row justify-content-center mt-4 ">
+        <div class="row justify-content-center mt-4">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
@@ -82,43 +102,46 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row justify-content-center mb-4">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title text-center">Lista de Produtos</h2>
-                    </div>
-                    <div class="card-body">
-                        <!-- <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Tamanho</th>
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Descrição</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="produto : ${produtos}">
-                                    <td th:text="${produto.nome}"></td>
-                                    <td th:text="${produto.tamanho}"></td>
-                                    <td th:text="${produto.categoria.nome}"></td>
-                                    <td th:text="${produto.preco}"></td>
-                                    <td th:text="${produto.descricao}"></td>
-                                    <td th:text="${produto.status}"></td>
-                                </tr>
-                            </tbody>
-
-                        </table> -->
-                    </div>
+    <div class="container mt-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title text-center">Produtos Cadastrados</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Nome</th>
+                                <th class="text-center">Tamanho</th>
+                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Preço</th>
+                                <!-- <th class="text-center">Status</th> -->
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="produto : ${produtos}">
+                                <td class="text-center" th:text="${produto.id}"></td>
+                                <td class="text-center" th:text="${produto.nome}"></td>
+                                <td class="text-center" th:text="${produto.tamanho}"></td>
+                                <td class="text-center" th:text="${produto.categoriaProduto.nome}"></td>
+                                <td class="text-center" th:text="${produto.preco}"></td>
+                                <!-- <td class="text-center" th:text="${produto.status}"></td> -->
+                                <td class="text-center">
+                                    <a th:href="@{/produtos/{id}/editar(id=${produto.id})}"
+                                        class="btn btn-primary">Editar</a>
+                                    <a th:href="@{/produtos/{id}/excluir(id=${produto.id})}"
+                                        class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div th:replace="fragments/footer :: footer">&nbsp;</div>
 

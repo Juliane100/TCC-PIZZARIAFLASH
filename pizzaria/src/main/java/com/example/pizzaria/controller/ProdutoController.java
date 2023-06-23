@@ -58,14 +58,18 @@ public class ProdutoController {
     @GetMapping("/{id}/editar")
     public String exibirFormularioEdicao(@PathVariable("id") Long id, Model model) {
         Produto produto = produtoService.buscarPorId(id);
+        List<CategoriaProduto> categorias = categoriaProdutoService.buscarTodos();
         model.addAttribute("produto", produto);
+        model.addAttribute("categorias", categorias);
         return "produto/editar";
     }
 
     @PostMapping("/{id}/salvar")
     public String salvarServicoEditado(@PathVariable("id") Long id, @ModelAttribute("produto") Produto produto,
-            Model model) {
+            @RequestParam("categoriaProdutoId") Long categoriaProdutoId, Model model) {
         produto.setId(id);
+        CategoriaProduto categoriaProduto = categoriaProdutoService.buscarPorId(categoriaProdutoId);
+        produto.setCategoriaProduto(categoriaProduto);
         produtoService.alterar(produto);
         model.addAttribute("chat", "Produto Alterado com sucesso");
         return listarProdutos(model);
