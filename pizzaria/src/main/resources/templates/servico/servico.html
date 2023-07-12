@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -20,11 +22,11 @@
 
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var mensagem=[[${comment}]];
+        var mensagem = [[${ comment }]];
         /*]]>*/
         $(document).ready(function () {
-            if(mensagem)
-            $('.toast').toast('show');
+            if (mensagem)
+                $('.toast').toast('show');
         });
     </script>
 
@@ -32,7 +34,7 @@
 </head>
 
 <body>
-    
+
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div class="toast" hide role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -100,11 +102,16 @@
                                     <td class="text-center" th:text="${servico.preco}"></td>
                                     <td class="text-center" th:text="${servico.status}"></td>
                                     <td class="text-center">
-                                        <a th:href="@{/servicos/{id}/editar(id=${servico.id})}"
-                                            class="btn btn-primary">Editar</a>
-                                        <a th:href="@{/servicos/{id}/excluir(id=${servico.id})}"
-                                            class="btn btn-danger">Excluir</a>
+                                        <a th:href="@{/servicos/{id}/editar(id=${servico.id})}" class="btn btn-primary">
+                                            <i class="fas fa-edit fa-sm"></i>
+                                        </a>
+                                        <a th:href="@{/servicos/{id}/excluir(id=${servico.id})}" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt fa-sm"></i>
+                                        </a>
                                     </td>
+
+
+
                                 </tr>
                             </tbody>
                         </table>

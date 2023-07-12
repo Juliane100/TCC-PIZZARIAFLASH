@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Visualizar Cupom</title>
+
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title text-center">Visualizar Cupom</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" class="form-control" th:value="${cupom.nome}"
+                                readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="numero">Numero:</label>
+                                <input type="text" id="numero" class="form-control"
+                                    th:value="${cupom.numero}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="data_gerado">Data Geração:</label>
+                                <input type="date" id="data_gerado"  class="form-control"
+                                    th:value="${cupom.data_gerado}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="data_validade">Data Validade:</label>
+                                <input type="date" id="data_validade" class="form-control"
+                                    th:value="${cupom.data_validade}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="preco">Preço:</label>
+                                <input type="number" id="preco" class="form-control" step="0.01"
+                                    th:value="${cupom.preco}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <input type="text" id="status" class="form-control" th:value="${cupom.status}" readonly>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <a th:href="@{/cupons}" class="btn btn-primary">Voltar</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

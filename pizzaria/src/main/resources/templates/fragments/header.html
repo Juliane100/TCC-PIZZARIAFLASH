@@ -2,20 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    
+    <link rel="stylesheet" type="text/css" href="/js/home.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
-    <!-- <nav th:fragment="header">Nav</nav> -->
-    <nav th:fragment="header" class="navbar navbar-dark bg-dark">
+    <nav th:fragment="header" class="navbar navbar-dark bg-secondary" >
         <div class="container-fluid">
             <div class="container d-flex justify-content-between nav">
                 <a class="navbar-brand" href="#">
                     Pizzaria Flash
                 </a>
-                <div class="d-flex">
-                    <a class="nav-link text-white"></a>
-                </div>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
@@ -29,10 +26,10 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">
+                <div class="offcanvas-body bg-secondary">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 navbar-nav-sm">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/login#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/servicos">Serviços</a>
@@ -47,7 +44,7 @@
                             <a class="nav-link" href="/cupons">Cupons</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Pedido">Pedidos</a>
+                            <a class="nav-link" href="/pedido">Pedidos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Realizar">Efetuar Pedido</a>
@@ -60,12 +57,9 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </nav>
-
-
 </body>
 
 </html>

@@ -1,120 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Clientes</title>
+    <title>Visualizar</title>
 </head>
 
 <body>
 
-    <div th:replace="fragments/header :: header">&nbsp;</div>
-
-    <div class="container">
-        <div class="row justify-content-center mt-4">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title text-center">Editar Cliente</h2>
+                        <h2 class="card-title text-center">Visualizar Cliente</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/clientes/{id}/salvar(id=${cliente.id})}" method="post"
-                            th:object="${cliente}" class="row g-3">
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" id="nome" name="nome" class="form-control"
-                                        th:value="${cliente.nome}" required>
+                                    <input type="text" id="nome" class="form-control" th:value="${cliente.nome}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="telefone">Telefone:</label>
-                                    <input type="text" id="telefone" name="telefone" class="form-control"
-                                        th:value="${cliente.telefone}" required>
+                                    <input type="text" id="telefone" class="form-control" th:value="${cliente.telefone}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="text" id="email" name="email" class="form-control"
-                                        th:value="${cliente.email}" required>
+                                    <input type="text" id="email" class="form-control" th:value="${cliente.email}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="data_nasc">Data Nascimento:</label>
-                                    <input type="date" id="data_nasc" name="data_nasc" class="form-control"
-                                        th:value="${cliente.data_nasc}" required>
+                                    <input type="date" id="data_nasc" class="form-control"
+                                        th:value="${cliente.data_nasc}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="cep">CEP :</label>
-                                    <input type="text" id="cep" name="cep" class="form-control"
-                                        th:value="${cliente.cep}" required>
+                                    <input type="text" id="cep" class="form-control" th:value="${cliente.cep}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="logradouro">Logradouro:</label>
-                                    <input type="text" id="logradouro" name="logradouro" class="form-control"
-                                        th:value="${cliente.logradouro}" required>
+                                    <input type="text" id="logradouro" class="form-control"
+                                        th:value="${cliente.logradouro}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="cidade">Cidade:</label>
-                                    <input type="text" id="cidade" name="cidade" class="form-control"
-                                        th:value="${cliente.cidade}" required>
+                                    <input type="text" id="cidade" class="form-control" th:value="${cliente.cidade}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="bairro">Bairro:</label>
-                                    <input type="text" id="bairro" name="bairro" class="form-control"
-                                        th:value="${cliente.bairro}" required>
+                                    <input type="text" id="bairro" class="form-control" th:value="${cliente.bairro}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="numresid">Numero Residência:</label>
-                                    <input type="text" id="numresid" name="numresid" class="form-control"
-                                        th:value="${cliente.numresid}" required>
+                                    <input type="text" id="numresid" class="form-control" th:value="${cliente.numresid}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="complemento">Complemento:</label>
-                                    <input type="text" id="complemento" name="complemento" class="form-control"
-                                        th:value="${cliente.complemento}" >
+                                    <input type="text" id="complemento" class="form-control"
+                                        th:value="${cliente.complemento}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="status">Status:</label>
-                                    <select id="status" name="status" class="form-control" required>
-                                        <option value="ATIVO" th:selected="${cliente.status == 'ATIVO'}">Ativo</option>
-                                        <option value="DESATIVADO" th:selected="${cliente.status == 'DESATIVADO'}">
-                                            Desativado</option>
-                                    </select>
+                                    <input type="text" id="status" class="form-control" th:value="${cliente.status} "
+                                        readonly>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end mt-4">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <a th:href="@{/clientes}" class="btn btn-primary">Voltar</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div th:replace="fragments/footer :: footer">&nbsp;</div>
-
 
 </body>
 

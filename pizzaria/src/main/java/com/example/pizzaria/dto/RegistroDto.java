@@ -10,7 +10,7 @@ public class RegistroDto {
     private String telefone;
 
     @NotEmpty(message = "Insira o seu email")
-    @Email
+    @Email(message ="Insira outro email")
     private String email;
 
     @NotEmpty(message = "Insira o sua senha")

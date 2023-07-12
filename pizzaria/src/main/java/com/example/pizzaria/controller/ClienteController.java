@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.pizzaria.model.Cliente;
 import com.example.pizzaria.service.ClienteService;
 
-
 @Controller
 @RequestMapping("/clientes")
 public class ClienteController {
@@ -41,9 +40,17 @@ public class ClienteController {
         return listarClientes(model);
     }
 
+    @GetMapping("/{id}/visualizar")
+    public String exibirFormulario(@PathVariable("id") Long id, Model model) {
+        Cliente cliente = clienteService.buscarPorId(id);
+        model.addAttribute("cliente", cliente);
+        return "cliente/visualizar";
+
+    }
+
     @GetMapping("/{id}/editar")
     public String exibirEdicao(@PathVariable("id") Long id, Model model) {
-        Cliente cliente = clienteService.buscarporId(id);
+        Cliente cliente = clienteService.buscarPorId(id);
         model.addAttribute("cliente", cliente);
         return "cliente/editar";
     }

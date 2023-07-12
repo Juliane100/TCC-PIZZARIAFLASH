@@ -38,17 +38,17 @@ public class LoginService implements ILoginService {
     }
 
     public Login register(String email, String senha) {
+
         if (loginRepository.existsByEmail(email)) {
-            return null; 
+             return null;
+            //  return new AuthenticacaoDto("Alguém já possui esse email", TipoNotificacaoDto.falha); 
         }
 
-        // Criar um novo objeto Login
         Login login = new Login();
         login.setEmail(email);
         login.setSenha(senha);
         login.setStatus(true);
 
-        // Salvar o novo Login no repositório
         return loginRepository.save(login);
 
     }

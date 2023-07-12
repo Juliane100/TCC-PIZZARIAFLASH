@@ -71,13 +71,16 @@ public class LoginController {
     public String registrarSubmit(@ModelAttribute RegistroDto registroDto, Model model) {
 
         var mapperLogin = modelMapper.map(registroDto, Login.class);
+
         var login = loginService.register(mapperLogin.getEmail(), mapperLogin.getSenha());
 
         var mapperFuncionario = modelMapper.map(registroDto, Funcionario.class);
+        //if login.autenticao = false
+        // buscar o login
         mapperFuncionario.setLogin(login);
         funcionarioService.register(mapperFuncionario);
-        
 
+        // model.addAttribute("notificacaoDto", notificacaoDto);
         return showLoginPage(model);
 
     }

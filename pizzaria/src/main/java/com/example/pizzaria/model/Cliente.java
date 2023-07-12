@@ -19,46 +19,44 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column (name = "telefone", nullable = false)
+    @Column(name = "telefone", nullable = false)
     private String telefone;
 
-    @Column (name = "email", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column (name = "data_nasc")
+    @Column(name = "data_nasc")
     private LocalDate data_nasc;
 
-    @Column (name = "cep", nullable = false)
+    @Column(name = "cep", nullable = false)
     private String cep;
 
-    @Column (name = "logradouro", nullable = false)
+    @Column(name = "logradouro", nullable = false)
     private String logradouro;
 
-    @Column (name = "cidade", nullable = false)
+    @Column(name = "cidade", nullable = false)
     private String cidade;
 
-    @Column (name = "bairro", nullable = false)
+    @Column(name = "bairro", nullable = false)
     private String bairro;
 
-    @Column (name = "numresid", nullable = false)
+    @Column(name = "numresid", nullable = false)
     private int numresid;
 
-    @Column (name = "complemento", nullable = false)
+    @Column(name = "complemento", nullable = false)
     private String complemento;
 
-    @Column (name = "status", nullable = false)
+    @Column(name = "status", nullable = false)
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "login_id", unique = true, nullable = true)
+    @JoinColumn(name = "login_id", nullable = true)
     private Login login;
 
-   
     // Getters e Setters
-
 
     public Login getLogin() {
         return login;
@@ -91,7 +89,6 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
 
     public String getEmail() {
         return email;
@@ -141,13 +138,12 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-
-    public int getNum_resid() {
+    public int getNumresid() {
         return numresid;
     }
 
-    public void setNum_resid(int num_resid) {
-        this.numresid = num_resid;
+    public void setNumresid(int numresid) {
+        this.numresid = numresid;
     }
 
     public String getComplemento() {
@@ -166,8 +162,4 @@ public class Cliente {
         this.status = status;
     }
 
-    
-   
-
-    
 }

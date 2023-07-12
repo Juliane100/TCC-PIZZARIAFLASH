@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.pizzaria.model.Servico;
 import com.example.pizzaria.service.ServicoService;
 
+
 @Controller
 @RequestMapping("/servicos")
 public class ServicoController {
@@ -39,6 +40,8 @@ public class ServicoController {
         model.addAttribute("comment", "Serviço cadastrado");
         return listarServicos(model);
     }
+
+
 
     @GetMapping("/{id}/editar")
     public String exibirFormularioEdicao(@PathVariable("id") Long id, Model model) {

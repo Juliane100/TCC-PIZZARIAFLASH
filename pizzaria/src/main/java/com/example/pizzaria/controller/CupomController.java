@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.pizzaria.model.Cupom;
+    import com.example.pizzaria.model.Cupom;
 import com.example.pizzaria.service.CupomService;
 
 @Controller
 @RequestMapping("/cupons")
 public class CupomController {
 
-     private final CupomService cupomService;
+    private final CupomService cupomService;
 
     public CupomController(CupomService cupomService) {
         this.cupomService = cupomService;
@@ -34,6 +34,14 @@ public class CupomController {
         cupomService.inserir(cupom);
         model.addAttribute("mens", "Cupom cadastrado");
         return listarCupons(model);
+    }
+
+    @GetMapping("/{id}/visualizar")
+    public String exibirFormulario(@PathVariable("id") Long id, Model model) {
+        Cupom cupom = cupomService.buscarPorId(id);
+        model.addAttribute("cupom", cupom);
+        return "cupom/visualizar";
+
     }
 
     @GetMapping("/{id}/editar")
@@ -58,5 +66,5 @@ public class CupomController {
         model.addAttribute("mens", "Cupom Removido com Sucesso");
         return listarCupons(model);
     }
-    
+
 }

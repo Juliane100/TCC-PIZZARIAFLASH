@@ -18,6 +18,9 @@ public class AutenticacaoDto {
     public AutenticacaoDto(Funcionario funcionario) {
         this.autenticado = true;
         this.funcionario = funcionario;
+        // this.mensagem = mensagem;
+        // this.tipoNotificacaoDto = tipoNotificacaoDto;
+        
         
     }
 

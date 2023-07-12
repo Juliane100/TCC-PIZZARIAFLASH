@@ -47,12 +47,21 @@ public class ProdutoController {
     @PostMapping("/cadastrar")
     public String cadastrarProduto(@ModelAttribute("novoProduto") Produto produto,
             @RequestParam("categoria") Long categoriaProdutoId, Model model) {
+                
         CategoriaProduto categoriaProduto = categoriaProdutoService.buscarPorId(categoriaProdutoId);
         produto.setCategoriaProduto(categoriaProduto);
         produtoService.inserir(produto);
         model.addAttribute("categoriaProduto", categoriaProdutoService.buscarCategoriasProdutos());
         model.addAttribute("chat", "Produto Cadastrado");
         return listarProdutos(model);
+    }
+
+      @GetMapping("/{id}/visualizar")
+    public String exibirFormulario(@PathVariable("id") Long id, Model model) {
+        Produto produto = produtoService.buscarPorId(id);
+        model.addAttribute("produto", produto);
+        return "produto/visualizar";
+
     }
 
     @GetMapping("/{id}/editar")

@@ -20,86 +20,19 @@
 
 </head>
 
-<div th:replace="fragments/header :: header">&nbsp;</div>
-
 <body>
-    <header class="jumbotron text-center mt-2">
-        <div class="alert alert-primary" role="alert">
-            <h1 class="display-5">Bem-vindo [(${funcionario.nome})]</h1>
-            <p class="lead text-black">"Faça a sua inauguração de forma descomplicada usando o nosso sistema"</p>
-        </div>
-    </header>
+    <div th:replace="fragments/header :: header">&nbsp;</div>
 
-    <section class="py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="/cupons" class="card-link">
-                                <div class="card">
-                                    <img src="/assets/cupom.jpg" style="border-radius: 7px;" alt="Imagem 1">
-                                    <div class="card-overlay">
-                                        <h2>Cupons</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="card-link">
-                                <div class="card">
-                                    <img src="/assets/produtos.jpg" style="border-radius: 7px;" alt="Imagem 2">
-                                    <div class="card-overlay">
-                                        <h2>Produtos</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <a href="/clientes" class="card-link">
-                                <div class="card">
-                                    <img src="/assets/cliente.jpg" style="border-radius: 7px;" alt="Imagem 3">
-                                    <div class="card-overlay">
-                                        <h2>Clientes</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="card-link">
-                                <div class="card">
-                                    <img src="/assets/pedido.png" style="border-radius: 7px;" alt="Imagem 4">
-                                    <div class="card-overlay">
-                                        <h2>Pedidos</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-50">
-                    <div class="row">
-                        <div class="card border-0" style="width: 100%; height: 410px;">
-                            <div style="position: relative;">
-                                <img src="/assets/principal.jpg" alt="Imagem 4" class="enfeitar-imagem"
-                                    style="object-fit: cover; width: 100%; height: 75%; border-radius: 7px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="shadowed-box"></div>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
 
 
-
-
-    <div th:replace="fragments/footer :: footer">&nbsp;</div>
+    <!-- <div th:replace="fragments/footer :: footer">&nbsp;</div> -->
 </body>
 
 </html>

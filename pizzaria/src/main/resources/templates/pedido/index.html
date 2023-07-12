@@ -1,25 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.css" th:href="@{/webjars/bootstrap/css/bootstrap.css}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <link rel="stylesheet" type="text/css" href="/css/pedido.css">
+
+    <title>Pedido</title>
 </head>
 
 <body>
-    <div class="container">
-        <p>
-            Welcome to the Spring MVC Quickstart application!
-        </p>
-    </div>
-    <div th:replace="fragments/footer :: footer">&nbsp;</div>
 
-    <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"
-        th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-    <script src="/webjars/jquery/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <div th:replace="fragments/header :: header">&nbsp;</div>
+
+
+    <div class="container">
+        <div class="accordion" id="accordionExample">
+            <div class="etapas">
+                <progress id="progress" value="0" max="100"></progress>
+                <div class="passo-item">
+                    <button class="botão-passo text-center" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        1
+                    </button>
+                    <div class="passo-título">
+                        Primeiro passo
+                    </div>
+                </div>
+                <div class="passo-item">
+                    <button class="botão-passo text-center recolhido" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2
+                    </button>
+                    <div class="passo-título">
+                        Segundo passo
+                    </div>
+                </div>
+                <div class="passo-item">
+                    <button class="botão-passo text-center recolhido" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3
+                    </button>
+                    <div class="passo-título">
+                        Terceiro passo
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div id="headingOne"></div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="card-produto">
+                                        <div class="circle">
+                                            <img src="../assets/excard1.png" alt="Imagem do círculo">
+                                        </div>
+                                        <h3 class="title">Pizza Mussarela</h3>
+                                        <div class="quantity">
+                                            <div class="circleimg">
+                                                <span class="label-text">met</span>
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <span class="quantity-value">0</span>
+                                            <div class="circleimg">
+                                                <i class="fas fa-minus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="circleimg">
+                                                <span class="label-text">int</span>
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <span class="quantity-value">1</span>
+                                            <div class="circleimg">
+                                                <i class="fas fa-minus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-5">
+                                        <div class="card-body">
+                                            <div class="carrinho-wrapper">
+                                                <div class="d-flex align-items-center">
+                                                    <h3 class="card-title">Carrinho</h3>
+                                                    <div class="ms-auto">
+                                                        <i class="fas fa-shopping-cart carrinho-icone"></i>
+                                                    </div>
+                                                </div>
+
+                                                <div class="carrinho-header">
+                                                    <h6 class="carrinho-titulo">Produtos</h6>
+                                                </div>
+                                                <div class="carrinho-produtos">
+                                                    <div class="produto-selecionado">
+                                                        <div class="produto-info">
+                                                            <h6 class="produto-titulo">Mussarela</h6>
+                                                            <p class="produto-tamanho">Inteira</p>
+                                                        </div>
+                                                        <div class="produto-quantidade">
+                                                            <button class="produto-botao menos"><i
+                                                                    class="fas fa-minus"></i></button>
+                                                            <span class="produto-quantidade-valor">1</span>
+                                                            <button class="produto-botao mais"><i
+                                                                    class="fas fa-plus"></i></button>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Outros produtos selecionados -->
+                                                </div>
+
+                                                <div class="carrinho-forma-pagamento">
+                                                    <label for="forma-pagamento">Forma de Pagamento:</label>
+                                                    <select id="forma-pagamento">
+                                                        <option value="">selecione o Tamanho</option>
+                                                        <option>Credito</option>
+                                                        <option>Debito</option>
+                                                        <option>Dinheiro</option>
+                                                    </select>
+                                                </div>
+                                                <div class="carrinho-codigo-cupom">
+                                                    <label for="codigo-cupom">Código do Cupom:</label>
+                                                    <input type="text" id="codigo-cupom">
+                                                </div>
+                                                <div class="carrinho-botoes">
+                                                    <button
+                                                        class="btn btn-danger carrinho-botao-cancelar">Cancelar</button>
+                                                    <button
+                                                        class="btn btn-success carrinho-botao-continuar">Continuar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="card2">
+        <div id="headingTwo"></div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="card-body">
+                Seu conteúdo vai aqui 2...
+            </div>
+        </div>
+    </div>
+
+    <div class="card3">
+        <div id="headingThree"></div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="card-body">
+                Seu conteúdo vai aqui 3...
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="botão-passo">
+        <button id="botão-mudar" type="button">Mudar Etapa</button>
+    </div>
+    </div>
+
+    <!-- <div th:replace="fragments/footer :: footer">&nbsp;</div> -->
+
+
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+<script src="/js/pedido.js"></script>
+
 
 </html>
