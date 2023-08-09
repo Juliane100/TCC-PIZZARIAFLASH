@@ -7,5 +7,5 @@ import com.example.pizzaria.model.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    
+    Cliente findByTelefone(String telefone);    
 }

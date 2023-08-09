@@ -72,16 +72,20 @@ public class LoginController {
 
         var mapperLogin = modelMapper.map(registroDto, Login.class);
 
-        var login = loginService.register(mapperLogin.getEmail(), mapperLogin.getSenha());
+        var notificacaoDto = loginService.register(mapperLogin.getEmail(), mapperLogin.getSenha());
+        if (!notificacaoDto.autenticado) {
+            model.addAttribute("notificacaoDto", notificacaoDto);
+            return "login/register"; 
+        }
 
-        var mapperFuncionario = modelMapper.map(registroDto, Funcionario.class);
-        //if login.autenticao = false
-        // buscar o login
-        mapperFuncionario.setLogin(login);
+        Funcionario mapperFuncionario = modelMapper.map(registroDto, Funcionario.class);
+        mapperFuncionario.setLogin(notificacaoDto.login);
         funcionarioService.register(mapperFuncionario);
 
-        // model.addAttribute("notificacaoDto", notificacaoDto);
         return showLoginPage(model);
-
+        
+        //adicionar a mensagem de cadastro novo
+        
     }
+
 }

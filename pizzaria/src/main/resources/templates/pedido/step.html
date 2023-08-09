@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página com Etapas de Processo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-r20LgwzE4SRqK9XEQG7Oc4nm+DfS8h2jKtiMI+Dnk+ucJsE4f4lqX9jlBK+hF+pCvtmfj/oZYbMvftEphOruw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/pedido.css">
+</head>
+
+<body>
+    <div th:fragment="pedido" id="step1" class="step-content">
+        <form>
+            
+            <div class="models">
+                <div class="pizza-item">
+                    <a href="">
+                        <div class="pizza-item--img"><img src="" /></div>
+                        <div class="pizza-item--add">+</div>
+                    </a>
+                    <div class="pizza-item--price"></div>
+                    <div class="pizza-item--name"></div>
+                    <div class="pizza-item--desc"></div>
+                </div>
+                <div class="cart--item">
+                    <img src="" />
+                    <div class="cart--item-nome"></div>
+                    <div class="cart--item--qtarea">
+                        <button class="cart--item-qtmenos">-</button>
+                        <div class="cart--item--qt">1</div>
+                        <button class="cart--item-qtmais">+</button>
+                    </div>
+                </div>
+            </div>
+            <header>
+                <div class="menu-openner"><span></span></div>
+            </header>
+            <main>
+                <h3>Escolha os produtos</h3>
+                <br>
+                <div class="pizza-area"></div>
+            </main>
+            <div class="pizzaWindowArea" style="z-index: 1000">
+                <div class="pizzaWindowBody">
+                    <div class="boxBack">
+                        <div class="pizzaInfo--cancelMobileButton">❌</div>
+                    </div>
+                    <div class="pizzaBig">
+                        <img src="" />
+                    </div>
+                    <div class="pizzaInfo">
+                        <h1>--</h1>
+                        <div class="pizzaInfo--desc"></div>
+                        <div class="pizzaInfo--sizearea">
+                            <div class="pizzaInfo--sector">Tamanho</div>
+                            <div class="pizzaInfo--sizes">
+                                <div data-key="0" class="pizzaInfo--size">PEQUENA <span></span></div>
+                                <div data-key="1" class="pizzaInfo--size">MÉDIO <span></span></div>
+                                <div data-key="2" class="pizzaInfo--size selected">GRANDE <span></span></div>
+                            </div>
+                        </div>
+                        <div class="pizzaInfo--pricearea">
+                            <div class="pizzaInfo--sector">Preço</div>
+                            <div class="pizzaInfo--price">
+                                <div class="pizzaInfo--actualPrice"></div>
+                                <div class="pizzaInfo--qtarea">
+                                    <button class="pizzaInfo--qtmenos">-</button>
+                                    <div class="pizzaInfo--qt">1</div>
+                                    <button class="pizzaInfo--qtmais">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pizzaInfo--addButton" type="submit"> Adicionar ao carrinho</div>
+                        <div class="pizzaInfo--cancelButton" type="reset">Cancelar</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript" src="/js/pizzas.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
+
+    </div>
+
+    <script src="/js/pedido.js"></script>
+</body>
+
+</html>

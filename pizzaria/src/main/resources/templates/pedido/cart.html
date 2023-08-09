@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/js/home.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div th:fragment="cart-container" class="cart-container" style="z-index: 900">
+            <h3><b>Resumo</b></h3>
+        <hr>
+        <aside>
+            <!-- <div class="row">
+                <div class="col">ITENS: <span id="cart-items">0</span></div>
+                <div class="col text-right" id="cart-total">0.00</div>
+            </div> -->
+            <div class="cart"></div>
+
+            <form-group>
+                <div class="col-12">
+                    <label for="descricao" class="form-label">Observação:</label>
+                    <textarea id="descricao" name="descricao" class="form-control" required></textarea>
+                </div>
+                <label for="servico-select">Serviço</label>
+                <select id="servico-select">
+                    <option class="text-muted">Entrega Padrão - 5.00</option>
+                    <option class="text-muted">Entrega Expressa - 8.00</option>
+                </select>
+
+                <label for="code">Número do Cupom</label>
+                <input id="code" placeholder="Digite o número">
+
+
+                <div class="cart--details">
+                    <div class="cart--totalitem subtotal">
+                        <span>Subtotal</span>
+                        <span></span>
+                    </div>
+                    <div class="cart--totalitem desconto">
+                        <span>Desconto (-10%)</span>
+                        <span></span>
+                    </div>
+                    <div class="cart--totalitem total big">
+                        <span>Total</span>
+                        <span></span>
+                    </div>
+                </div>
+        </aside>
+        <div class="row">
+            <div class="col text-center d-flex justify-content-center">
+                <button class="btn btn-danger btn-md btn-previous" style="margin: 5px;background-color: red;">Anterior</button>
+                <button class="btn btn-success btn-next btn-md me-2" style="margin: 5px">Próximo</button>
+            </div>
+        </div>
+
+</body>
+
+</html>

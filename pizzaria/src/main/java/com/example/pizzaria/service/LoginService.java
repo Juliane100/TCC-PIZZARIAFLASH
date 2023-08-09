@@ -37,11 +37,9 @@ public class LoginService implements ILoginService {
 
     }
 
-    public Login register(String email, String senha) {
-
+    public AutenticacaoDto register(String email, String senha) {
         if (loginRepository.existsByEmail(email)) {
-             return null;
-            //  return new AuthenticacaoDto("Alguém já possui esse email", TipoNotificacaoDto.falha); 
+            return new AutenticacaoDto("Alguém já possui esse email", TipoNotificacaoDto.falha);
         }
 
         Login login = new Login();
@@ -49,8 +47,9 @@ public class LoginService implements ILoginService {
         login.setSenha(senha);
         login.setStatus(true);
 
-        return loginRepository.save(login);
+        loginRepository.save(login);
 
+        return new AutenticacaoDto("Cadastro realizado com sucesso", login);
     }
 
 }

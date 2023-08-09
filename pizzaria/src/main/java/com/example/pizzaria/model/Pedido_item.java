@@ -23,6 +23,9 @@ public class Pedido_item {
     @Column (name = "descricao")
     private String descricao;
 
+    @Column (name = "preco", nullable = false)
+    private double preco;
+
     @Column (name = "status", nullable = false)
     private String status;
 
@@ -54,6 +57,14 @@ public class Pedido_item {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+     public double getPreco() {
+        return preco;
+    }
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+    
     public String getStatus() {
         return status;
     }

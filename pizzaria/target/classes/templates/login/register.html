@@ -20,7 +20,28 @@
 
 </head>
 
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  var notificacaoDto = [[${ notificacaoDto }]];
+  /*]]>*/
+  $(document).ready(function () {
+    if (notificacaoDto?.mensagem)
+      $('.toast').toast('show');
+  });
+
+
+</script>
+
 <body>
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header text-white">
+        <strong class="me-auto">Login</strong>
+        <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" th:text="${notificacaoDto?.mensagem}"></div>
+    </div>
+  </div>
   <div class="bg-img">
     <div class="container vh-100  bg-image">
       <div class="row justify-content-center align-items-center h-100">

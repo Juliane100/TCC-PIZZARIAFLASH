@@ -1,0 +1,45 @@
+<html DOCTYPE>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div th:fragment="cliente" id="step2" class="step-content">
+        <div class="container-fluid quadro-cliente">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-12">
+                    <br>
+                    <h3>Procure o cliente</h3>
+                    <div class="card-step2 card-cliente">
+                        <div class="card-body align-items-center">
+                            <div class="form-group  col-md-12">
+                                
+                                    <form class="row bg-white">
+                                        <div class="col-md">
+                                            <input type="text" id="campo-cliente" name="telefone" class="form-control"
+                                                placeholder="Digite o telefone do cliente"
+                                                th:value="${cliente.telefone}"  style="border: 1px solid black;">
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <button id="btn-buscar-cliente" type="button"
+                                                class="btn btn-danger btn-lupa">
+                                                <i class="fas fa-search"></i> Buscar
+                                            </button>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container mt-3" id="resultadoBusca" style="background-color: white;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/cliente.js"></script>
+</body>
+
+</html>

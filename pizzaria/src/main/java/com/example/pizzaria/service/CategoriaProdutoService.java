@@ -35,4 +35,16 @@ public class CategoriaProdutoService {
                 .orElseThrow(() -> new IllegalArgumentException("Categoria de produto não encontrada"));
     }
 
+    // private void criarCategorias() {
+    //     List<String> categorias = Arrays.asList("doce", "salgada", "bebidas");
+
+    //     for (String nomeCategoria : categorias) {
+    //         CategoriaProduto categoria = categoriaProdutoRepository.findByNome(nomeCategoria);
+    //         if (categoria == null) {
+    //             categoria = new CategoriaProduto(nomeCategoria);
+    //             categoriaProdutoRepository.save(categoria);
+    //         }
+    //     }
+    // }
+    
 }

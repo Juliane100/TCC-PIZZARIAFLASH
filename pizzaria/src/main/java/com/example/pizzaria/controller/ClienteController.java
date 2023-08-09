@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -33,6 +34,13 @@ public class ClienteController {
         return "cliente/lista";
     }
 
+    @GetMapping("/buscar")
+    public String buscarCliente(@RequestParam String telefone, Model model) {
+        Cliente cliente = clienteService.buscarPorTelefone(telefone);
+        model.addAttribute("cliente", cliente);
+        return cliente == null ? "cliente/cliente :: salvarCliente" : "cliente/editar :: editarCliente";
+    }
+
     @PostMapping("/cadastrar")
     public String cadastrarCliente(@ModelAttribute("novoCliente") Cliente cliente, Model model) {
         clienteService.inserir(cliente);
@@ -45,7 +53,6 @@ public class ClienteController {
         Cliente cliente = clienteService.buscarPorId(id);
         model.addAttribute("cliente", cliente);
         return "cliente/visualizar";
-
     }
 
     @GetMapping("/{id}/editar")

@@ -21,7 +21,10 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    
+    public Cliente buscarPorTelefone(String telefone) {
+        return clienteRepository.findByTelefone(telefone);
+    }
+
     public Cliente buscarPorId (Long id){
         return clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
     }

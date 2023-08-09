@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
 <body>
-    <footer class="bg-light text-center text-lg-start" th:fragment="footer">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-        </div>
-    </footer>
-    
+    <div class="footer-dark" th:fragment="footer">
+        <link rel="stylesheet" type="text/css" href="/css/footer.css"> 
+        <footer class="footer-basic-centered">
+
+            <p class="footer-company-motto">Pizzaria Flash</p>
+
+            <p class="footer-links">
+                <a href="/home">Início</a>
+                ·                
+                <a href="/servicos">Serviços</a>
+                ·
+                <a href="/cupons">Cupons</a>
+                ·
+                <a href="/clientes">Clientes</a>
+                ·
+                <a href="/pedido">Pedidos</a>
+                ·
+                <a href="/produtos">Produtos</a>
+                
+            </p>
+
+            <p class="footer-company-name">Pizzaria Flash &copy; 2023</p>
+
+        </footer>
+        
+    </div>
 </body>
 
 </html>

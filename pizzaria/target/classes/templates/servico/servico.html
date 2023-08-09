@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -85,36 +85,43 @@
                         <h2 class="card-title text-center">Serviços Cadastrados</h2>
                     </div>
                     <div class="card-body">
-                        <table class="table">
-                            <thead class="table">
-                                <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Nome</th>
-                                    <th class="text-center">Preço</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="servico : ${servicos}">
-                                    <td class="text-center" th:text="${servico.id}"></td>
-                                    <td class="text-center" th:text="${servico.nome}"></td>
-                                    <td class="text-center" th:text="${servico.preco}"></td>
-                                    <td class="text-center" th:text="${servico.status}"></td>
-                                    <td class="text-center">
-                                        <a th:href="@{/servicos/{id}/editar(id=${servico.id})}" class="btn btn-primary">
-                                            <i class="fas fa-edit fa-sm"></i>
-                                        </a>
-                                        <a th:href="@{/servicos/{id}/excluir(id=${servico.id})}" class="btn btn-danger">
-                                            <i class="fas fa-trash-alt fa-sm"></i>
-                                        </a>
-                                    </td>
-
-
-
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- <form th:action="@{/lista}" method="get" class="form-inline mt-2 mb-3">
+                            <input type="text" name="nome" class="form-control mr-sm-2"
+                                placeholder="Digite o nome do serviço..." th:value="${nomePesquisado}">
+                            <button type="submit" class="btn btn-primary my-2 my-sm-0">Buscar</button>
+                        </form> -->
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-center">ID</th>
+                                        <th class="text-center">Nome</th>
+                                        <th class="text-center">Preço</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="servico : ${servicos}">
+                                        <td class="text-center" th:text="${servico.id}"></td>
+                                        <td class="text-center" th:text="${servico.nome}"></td>
+                                        <td class="text-center" th:text="${#numbers.formatCurrency(servico.preco)}">
+                                        </td>
+                                        <td class="text-center" th:text="${servico.status}"></td>
+                                        <td class="text-center">
+                                            <a th:href="@{/servicos/{id}/editar(id=${servico.id})}"
+                                                class="btn btn-primary btn-circle">
+                                                <i class="fas fa-edit fa-sm"></i>
+                                            </a>
+                                            <a th:href="@{/servicos/{id}/excluir(id=${servico.id})}"
+                                                class="btn btn-danger  btn-circle">
+                                                <i class="fas fa-circle fa-trash-alt fa-sm"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
