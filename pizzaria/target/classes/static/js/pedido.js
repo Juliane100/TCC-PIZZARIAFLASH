@@ -7,23 +7,23 @@ $(document).ready(function () {
     var totalSteps = 3;
 
     $('.btn-next').click(function () {
-        
+
         let tamanhoTotalPizzas = cart.reduce((a, b) => a + b.Tamanho, 0);
-        
-        if (!Number.isInteger(tamanhoTotalPizzas)){
-            alert('Pedido incompleto');
-            return;
-        }
 
-        if (cart?.length == 0){
-            alert('Faça o pedido');
-            return;
-        }
+        //  if (!Number.isInteger(tamanhoTotalPizzas)){
+        //      alert('Pedido incompleto');
+        //      return;
+        //  }
 
-        if(currentStep == 2 && (cliente == null || cliente == undefined)){
-            alert('Selecione o cliente');
-            return;
-        }
+        //  if (cart?.length == 0){
+        //      alert('Faça o pedido');
+        //      return;
+        //  }
+
+        //  if(currentStep == 2 && (cliente == null || cliente == undefined)){
+        //      alert('Selecione o cliente');
+        //      return;
+        //  }
 
         if (currentStep < totalSteps) {
             $('#step' + currentStep).hide();
@@ -33,10 +33,11 @@ $(document).ready(function () {
         }
 
         if (currentStep == 3) {
-            objectCart.observacao = $('#descricao').val();
-            objectCart.servico = $('#servico-select').val();
-            
-            listarDetalhes(cart, objectCart, cliente);
+
+            objectCart.observacao = $('#observacao').val();
+            objectCart.servico = qs('#servico-input').value;
+
+            listarDetalhes(cart, objectService, objectCart, cliente);
         }
     });
 

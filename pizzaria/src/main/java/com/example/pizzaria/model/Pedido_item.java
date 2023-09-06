@@ -20,15 +20,11 @@ public class Pedido_item {
     @Column (name = "quantidade")
     private int quantidade;
 
-    @Column (name = "descricao")
-    private String descricao;
 
     @Column (name = "preco", nullable = false)
     private double preco;
 
-    @Column (name = "status", nullable = false) 
-    private String status;
-
+    
     @ManyToOne
     @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
@@ -51,12 +47,6 @@ public class Pedido_item {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    public String getDescricao() {
-        return descricao;
-    }
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
      public double getPreco() {
         return preco;
@@ -65,12 +55,6 @@ public class Pedido_item {
         this.preco = preco;
     }
     
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
     public Pedido getPedido() {
         return pedido;
     }

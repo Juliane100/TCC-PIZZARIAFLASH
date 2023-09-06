@@ -17,11 +17,14 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name = "preco", nullable = false)
-    private double preco;
+    @Column(name = "total", nullable = false)
+    private double total;
 
-    @Column (name = "status", nullable = false)
+    @Column(name = "status", nullable = false)
     private String status;
+
+    @Column(name = "descricao")
+    private String descricao;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
@@ -41,59 +44,80 @@ public class Pedido {
 
     @ManyToOne
     @JoinColumn(name = "forma_pagamento_id", nullable = false)
-    private Forma_pagamento forma_pagamento;
+    private FormaPagamento forma_pagamento;
 
+    // Getters e Setters
 
-    //Getters e Setters 
-    
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public double getPreco() {
-        return preco;
+        return total;
     }
-    public void setPreco(double preco) {
-        this.preco = preco;
+
+    public void setTotal(double total) {
+        this.total = total;
     }
+
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public Funcionario getFuncionario() {
         return funcionario;
     }
+
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+
     public Servico getServico() {
         return servico;
     }
+
     public void setServico(Servico servico) {
         this.servico = servico;
     }
+
     public Cupom getCupom() {
         return cupom;
     }
+
     public void setCupom(Cupom cupom) {
         this.cupom = cupom;
     }
-    public Forma_pagamento getForma_pagamento() {
+
+    public FormaPagamento getForma_pagamento() {
         return forma_pagamento;
     }
-    public void setForma_pagamento(Forma_pagamento forma_pagamento) {
+
+    public void setForma_pagamento(FormaPagamento forma_pagamento) {
         this.forma_pagamento = forma_pagamento;
     }
-    
-    
+
 }

@@ -28,8 +28,8 @@
                         <h2 class="card-title text-center">Editar Produto</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/produtos/{id}/salvar(id=${produto.id})}" method="get" th:object="${produto}"
-                            class="row g-3">
+                        <form th:action="@{/produtos/{id}/salvar(id=${produto.id})}" method="post" th:object="${produto}"
+                        enctype="multipart/form-data"  class="row g-3">
                             <input type="hidden" th:name="categoriaProduto.id"
                                 th:value="${produto.categoriaProduto?.id}" />
                             <div class="col-md-4">
@@ -66,13 +66,18 @@
                                     th:text="${produto.descricao}"></textarea>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="novaImagem" class="form-label">Nova Imagem:</label>
-                                <input type="file" id="novaImagem" name="novaImagem" class="form-control">
+                            <div class="form-group col-md-4">
+                                <label for="uploadImage" class="form-label">Escolha uma Imagem:</label>
+                                <input class="form-control" type="file" onchange="preViewImg();" name="file"
+                                    accept="image/*" id="uploadImage">
                             </div>
-
-                            <img id="imagemAtual" alt="Imagem Atual" th:src="data:image/png;base64,${imagemAntiga}"
-                                class="rounded mx-auto d-block img-fluid" style="max-width: 200px; max-height: 200px;">
+                            <div class="form-group col-md-3">
+                                <label for="preView" class="form-label"></label>
+                                <img id="preView" alt="..."
+                                    th:src="*{imagem} ? @{${'/produtos/showImage/'+ produto.id}} : ${noImage}"
+                                    class="rounded mx-auto d-block img-fluid"
+                                    style="max-width: 200px; max-height: 200px;" />
+                            </div>
 
                             <div class="col-12">
                                 <div class="d-flex justify-content-end mt-4">

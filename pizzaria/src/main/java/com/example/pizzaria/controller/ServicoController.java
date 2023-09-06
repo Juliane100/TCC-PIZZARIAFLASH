@@ -2,6 +2,8 @@ package com.example.pizzaria.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.pizzaria.model.Servico;
+import com.example.pizzaria.repository.ServicoRepository;
 import com.example.pizzaria.service.ServicoService;
 
 @Controller
 @RequestMapping("/servicos")
 public class ServicoController {
+
+    @Autowired
+    private ServicoRepository servicoRepository;
 
     private final ServicoService servicoService;
 
@@ -74,4 +80,18 @@ public class ServicoController {
         model.addAttribute("comment", "Serviço Removido com Sucesso");
         return listarServicos(model);
     }
+
+    @GetMapping("/listarServicos")
+    public ResponseEntity<List<Servico>> listarServicos() {
+        
+        List<Servico> servico = servicoRepository.findAll();
+
+        if (servico.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } 
+
+        return ResponseEntity.ok(servico);
+
+    }
+
 }

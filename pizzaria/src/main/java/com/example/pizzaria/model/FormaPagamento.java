@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Forma_pagamento")
-public class Forma_pagamento {
+public class FormaPagamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Forma_pagamento {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "cupom_id", nullable = false)
+    @JoinColumn(name = "cupom_id")
     private Cupom cupom;
 
 

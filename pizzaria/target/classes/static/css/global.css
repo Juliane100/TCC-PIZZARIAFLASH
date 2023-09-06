@@ -1,9 +1,24 @@
 .btn-circle {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 12px;
-    line-height: 1.42;
-    border-radius: 15px;
-  }
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+.navbar {
+  background-color: #fff;
+  /* Cor de fundo branca para o navbar */
+  /* Adicione outros estilos do navbar aqui */
+}
+
+body {
+  background-image: url('../assets/home.png');
+  /* Substitua 'pizza-pattern.jpg' pelo caminho da sua imagem */
+  background-size: cover;
+  /* Para cobrir toda a área da tela */
+  background-repeat: repeat;
+  /* Repetir a imagem para criar o padrão */
+}

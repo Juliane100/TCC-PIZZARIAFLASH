@@ -3,18 +3,62 @@ let modalCount = 1;
 let modalKey = 0;
 let cart = [];
 let cliente;
+let objectCupom = [];
+let objectService = [];
 let objectCart = {
-    cupom : '', 
-    observacao : '', 
-    servico : 0
+    cupom: '',
+    observacao: '',
+    servico: 0,
+    pagamento:'',
 };
+
 let pizzaJson;
 
 //Atalhos para facilitar
+const ce = (e) => document.createElement(e);
 const qs = (e) => document.querySelector(e);
 const qsa = (e) => document.querySelectorAll(e);
 const cl = (e) => console.log(e);
+const rs = (e) => e?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
+
+
+$.ajax({
+    type: "GET",
+    url: "forma_pagamento/listarPagamento",
+    success: function (data) {
+        pagamento = data;
+        data.forEach(function (item) {
+            $('#pagamento-input').append($('<option>', {
+                value: item.id,
+                text: `${item.nome}`,
+                datainfo: item
+            }));
+        });
+    },
+    error: function (xhr, status, error) {
+        console.error(error);
+    }
+});
+
+
+$.ajax({
+    type: "GET",
+    url: "/servicos/listarServicos",
+    success: function (data) {
+        objectService = data;
+        data.forEach(function (item) {
+            $('#servico-input').append($('<option>', {
+                value: item.id,
+                text: `${item.nome} - ${rs(item.preco)}`,
+                datainfo: item
+            }));
+        });
+    },
+    error: function (xhr, status, error) {
+        console.error(error);
+    }
+});
 
 $.ajax({
     type: "GET",
@@ -26,6 +70,8 @@ $.ajax({
         console.error(error);
     }
 });
+
+
 
 //Listagem das pizzas
 function handleJsonResponse(responseText) {
@@ -45,7 +91,7 @@ function handleJsonResponse(responseText) {
         //Preencher as informaçoes de cada .pizza-item
         // pizzaItem.querySelector('.pizza-item--img img').src = pizza.img; //Consegue-se usar a class e a tag num mesmo querySelector
         pizzaItem.querySelector('.pizza-item--img img').src = `data:image/png;base64,${pizza.imagem}`;
-        pizzaItem.querySelector('.pizza-item--price').innerHTML = pizza.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        pizzaItem.querySelector('.pizza-item--price').innerHTML = rs(pizza.preco);
         pizzaItem.querySelector('.pizza-item--name').innerHTML = pizza.nome;
         pizzaItem.querySelector('.pizza-item--desc').innerHTML = pizza.descricao;
 
@@ -65,7 +111,7 @@ function handleJsonResponse(responseText) {
             qs(".pizzaBig img").src = `data:image/png;base64,${pizzaKey.imagem}`;
             qs(".pizzaInfo h1").innerHTML = pizzaKey.nome;
             qs(".pizzaInfo--desc").innerHTML = pizzaKey.descricao;
-            qs(".pizzaInfo--actualPrice").innerHTML = pizzaKey.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            qs(".pizzaInfo--actualPrice").innerHTML = rs(pizzaKey.preco);
             qs(".pizzaInfo--qt").innerHTML = modalCount;
             qsa(".pizzaInfo--size").forEach((size) => {
                 size.addEventListener('click', () => {
@@ -197,7 +243,7 @@ qs('.pizzaInfo--addButton').addEventListener('click', () => {
                 Tamanho: size,
                 Quantidade: modalCount,
                 Preco: price,
-                Imagem:  pizzaJson[modalKey].imagem
+                Imagem: pizzaJson[modalKey].imagem
             });
         }
 
@@ -219,6 +265,7 @@ function updateCart() {
     let subtotal = 0;
     let desconto = 0;
     let total = 0;
+    let servico = 0;
 
     for (let i in cart) {
         let cartItem = qs('.models .cart--item').cloneNode(true);
@@ -254,10 +301,17 @@ function updateCart() {
     }
 
     desconto = qs('.desconto span:last-child').innerHTML;
-    total = subtotal - +Number(desconto.replace(/[^0-9\.]+/g,""))/100;
+    // servico = qs('.servico span:last-child').innerHTML;
+    servico = qs('#servico-input').value;
 
-    qs('.subtotal span:last-child').innerHTML = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    // qs('.desconto span:last-child').innerHTML = desconto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    qs('.total span:last-child').innerHTML = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    let serviceItem = objectService.find(x => x.id == servico);
+    total = (subtotal + serviceItem.preco) - +Number(desconto.replace(/[^0-9\.]+/g, "")) / 100;
+
+    qs('.subtotal span:last-child').innerHTML = rs(subtotal);
+    qs('.total span:last-child').innerHTML = rs(total);
 
 }
+
+
+

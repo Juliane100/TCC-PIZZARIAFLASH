@@ -50,8 +50,7 @@ public class ClienteController {
         }
 
         model.addAttribute("clientes", clientes);
-        // model.addAttribute("nomePesquisado", nome); // Para manter o valor do termo
-        // de busca na caixa de busca
+        
         return "cliente/cliente";
     }
 

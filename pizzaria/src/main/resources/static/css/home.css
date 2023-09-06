@@ -1,9 +1,12 @@
-.grafico{
-  margin-left: 50px;
-  margin-top: 30px;
-  width: 100%;
-}
-.result{
-  float: right;
-display: block; 
+@media (min-width:992px) {
+  .vertical-nav {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f8f8f8;
+    overflow-y: auto;
+    padding-top: 30px
+  }
 }

@@ -7,6 +7,8 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -20,71 +22,71 @@
 
 </head>
 
-    <script>
-        $.ajax({
-    method: "GET",
-    url: "/chart-data",
-    contentType: 'application/json; charset=utf-8',
-    success: function (jsonData) {
-        var meses = {};
+<script>
+    $.ajax({
+        method: "GET",
+        url: "/chart-data",
+        contentType: 'application/json; charset=utf-8',
+        success: function (jsonData) {
+            var meses = {};
 
-        jsonData.forEach(function(produto) {
-            var mes = produto.dataCadastro.split("-")[1];
-            if (!meses[mes]) {
-                meses[mes] = 1;
-            } else {
-                meses[mes]++;
-            }
-        });
+            jsonData.forEach(function (produto) {
+                var mes = produto.dataCadastro.split("-")[1];
+                if (!meses[mes]) {
+                    meses[mes] = 1;
+                } else {
+                    meses[mes]++;
+                }
+            });
 
-        var labels = Object.keys(meses);
-        var data = Object.values(meses);
+            var labels = Object.keys(meses);
+            var data = Object.values(meses);
 
-        var ctx = document.getElementById('myChart').getContext('2d');
-        
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Quantidade de Produtos Cadastrados',
-                    data: data,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Quantidade de Produtos Cadastrados',
+                        data: data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    }
-});
+            });
+        }
+    });
 
-    </script>
+</script>
 
 <body>
     <div th:replace="fragments/header :: header">&nbsp;</div>
 
-    
-   
+
+
 
 
 
     </head>
 
     <body translate="no">
-        
+
 
         <footer th:replace="fragments/footer :: footer">&nbsp;</footer>
         <script src="/js/home.js"></script>
     </body>
 
-    
-    
+
+
 
 </html>

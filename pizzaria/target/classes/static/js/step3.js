@@ -1,52 +1,51 @@
 
 
 /// Lista dos produtos
-function listarDetalhes(cart, objectCart, cliente) {
-    const itemsArea = document.querySelector('.items-area'); // Elemento que irá conter todos os produtos
+function listarDetalhes(cart, objectService, objectCart, cliente) {
+    const itemsArea = qs('.items-area'); // Elemento que irá conter todos os produtos
 
     itemsArea.childNodes.forEach(e => e.remove());
 
     cart.forEach(element => {
-        let item = document.createElement('div');
+        let item = ce('div');
         item.classList.add('object', 'item'); // Adicione as classes .object e .item ao elemento criado
 
         // Crie elementos para cada informação do produto
-        let imgDiv = document.createElement('div');
+        let imgDiv = ce('div');
         imgDiv.classList.add('item--img');
-        let img = document.createElement('img');
+        let img = ce('img');
         img.src = `data:image/png;base64,${element.Imagem}`;
         imgDiv.appendChild(img);
         item.appendChild(imgDiv);
 
-        let itemInfoDiv = document.createElement('div');
+        let itemInfoDiv = ce('div');
         itemInfoDiv.classList.add('item--info');
 
-        let nameDiv = document.createElement('div');
+        let nameDiv = ce('div');
         nameDiv.classList.add('item--name');
         nameDiv.innerHTML = element.Nome;
         itemInfoDiv.appendChild(nameDiv);
 
-        let tamnDiv = document.createElement('div');
+        let tamnDiv = ce('div');
         tamnDiv.classList.add('item--tamn');
         const tamanhoFormatado = element.Tamanho === 0.5 ? "Metade" : "Inteira";
         tamnDiv.innerHTML = tamanhoFormatado;
         itemInfoDiv.appendChild(tamnDiv);
 
-        let qtdDiv = document.createElement('div');
+        let qtdDiv = ce('div');
         qtdDiv.classList.add('item--qtd');
         qtdDiv.innerHTML = element.Quantidade;
         itemInfoDiv.appendChild(qtdDiv);
 
-        let priceDiv = document.createElement('div');
+        let priceDiv = ce('div');
         priceDiv.classList.add('item--price');
-        priceDiv.innerHTML = element.Preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        priceDiv.innerHTML = rs(element.Preco);
         itemInfoDiv.appendChild(priceDiv);
 
         item.appendChild(itemInfoDiv);
 
-        let trashDiv = document.createElement('div');
+        let trashDiv = ce('div');
         trashDiv.classList.add('item--trash');
-        // Você pode adicionar o botão de remoção aqui
         item.appendChild(trashDiv);
 
         itemsArea.appendChild(item);
@@ -54,13 +53,24 @@ function listarDetalhes(cart, objectCart, cliente) {
 
     });
 
+    let serviceItem = objectService.find(x => x.id == objectCart.servico); 
+    
+    qs('.cupom').innerHTML = `${rs(objectCart.cupom.preco)}`;
+    qs('#descricao-final').innerHTML = `${objectCart.observacao}`;
+    qs('.preco-servico').innerHTML = `${rs(serviceItem.preco)}`;
+
     const valorTotal = cart.reduce(calculate, 0);
-    document.querySelector('.cupom').innerHTML = `${objectCart.cupom}`;
-    document.querySelector('.preco-servico').innerHTML = `${objectCart.servico}`;
-    document.querySelector('.preco-servico').innerHTML = `${objectCart.servico}`;
-    document.querySelector('.subTotal').innerHTML = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    document.querySelector('.subTotal').innerHTML = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    document.querySelector('.total').innerHTML = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    qs('.subTotal').innerHTML = rs(valorTotal);
+    qs('.total').innerHTML = rs((valorTotal + serviceItem.preco) - objectCart.cupom.preco);
+
+     qs('#nome-cliente').innerHTML = cliente.nome;
+     qs('#logradouro-cliente').innerHTML = cliente.logradouro;
+     qs('#numresid-cliente').innerHTML = cliente.numresid;
+     qs('#cep-cliente').innerHTML = cliente.cep;
+     qs('#complemento-cliente').innerHTML = cliente.complemento;
+     qs('#telefone-cliente').innerHTML = cliente.telefone;
+
+
 
     function calculate(total, item) {
         return total + (item.Preco * item.Quantidade);

@@ -33,7 +33,7 @@ public class Produto {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_produto_id", nullable = false)
+    @JoinColumn(name = "categoriaProduto_id", nullable = false)
     private CategoriaProduto categoriaProduto;
 
     // Getters e Setters

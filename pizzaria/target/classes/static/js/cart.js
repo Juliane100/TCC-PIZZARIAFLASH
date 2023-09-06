@@ -1,14 +1,14 @@
 window.addEventListener('scroll', function () {
     var cartContainer = document.querySelector('.cart-container');
     var cart = document.getElementById('cart');
-    var cartHeight = cart.offsetHeight;
+    var cartHeight = cart?.offsetHeight;
     var windowHeight = window.innerHeight;
     var scrollPosition = window.pageYOffset;
 
     if (scrollPosition + windowHeight >= cartContainer.offsetTop + cartHeight) {
-        cart.classList.add('cart-fixed');
+        cart?.classList.add('cart-fixed');
     } else {
-        cart.classList.remove('cart-fixed');
+        cart?.classList.remove('cart-fixed');
     }
 });
 
@@ -41,6 +41,9 @@ $(document).ready(function () {
                     type: "GET",
                     url: `cupons/verificarCupom/${$('#cupomInput').val()}`,
                     success: function (data) {
+
+                        objectCart.cupom = data;
+                        
                         $('.saida').html(`Cupom ${data.nome} Valido!`);
                         qs('.desconto span:last-child').innerHTML = data.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -59,9 +62,7 @@ $(document).ready(function () {
 
                     
                 });
-                //$('.saida').html('Cupom invalido!');
-                //objectCart.cupom = $('#cupomInput').val();
-                //aqui você pode chamar a função ajax
+                
             }
 
         }, DURACAO_DIGITACAO);
@@ -69,3 +70,4 @@ $(document).ready(function () {
     });
 
 });
+

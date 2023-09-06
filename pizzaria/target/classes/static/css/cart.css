@@ -23,7 +23,7 @@
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #EEEE;
-    background-color: red;
+    background-color: rgb(44, 42, 42);
     
 
 }
@@ -43,29 +43,6 @@
     margin-block-end: 2px;
 }
 
-
-.nav-link {
-    background-color: red;
-    padding: 3px;
-    color: #ffffff !important;
-    margin-inline-end: 2px;
-}
-
-/* .summary {
-    position: relative;
-    background-color: #ddd;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding: 1vh;
-    color: rgb(65, 65, 65);
-}
-
-@media (max-width: 767px) {
-    .summary {
-        border-top-right-radius: unset;
-        border-bottom-left-radius: 1rem;
-    }
-} */
 
 
 
