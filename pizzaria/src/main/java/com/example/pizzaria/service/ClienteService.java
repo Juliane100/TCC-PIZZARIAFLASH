@@ -25,7 +25,15 @@ public class ClienteService {
         return clienteRepository.findByTelefone(telefone);
     }
 
-    public Cliente buscarPorId (Long id){
+    public List<Cliente> filtrarPorTelefone(String telefone) {
+        return clienteRepository.findByTelefoneContainsIgnoreCase(telefone);
+    }
+
+    public List<Cliente> listarTodos() {
+        return clienteRepository.findAll();
+    }
+
+    public Cliente buscarPorId(Long id) {
         return clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
     }
 
@@ -38,7 +46,8 @@ public class ClienteService {
     }
 
     public void excluir(Long id) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
         clienteRepository.delete(cliente);
     }
 

@@ -3,73 +3,117 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/js/home.js">
-    <link rel="stylesheet" type="text/css" href="/js/pedido.js">
     <link rel="stylesheet" type="text/css" href="/css/step3.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <style>
-  .container {
-      position: relative;
-      z-index: 1;
-  }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
 </style>
+
 <body>
     <nav th:fragment="pagamento">
-        <!-- <div class="container mt-5 p-3 rounded cart-step3"> 
-          <h3><b>Resumo</b></h3>
-          <hr>
-          <aside>
-               <div class="row">
-                  <div class="col">ITENS: <span id="cart-items">0</span></div>
-                  <div class="col text-right" id="cart-total">0.00</div>
-              </div> 
-              <div class="cart"></div>
-   
-              <form-group>
-                  <div class="col-12">
-                      <label for="descricao" class="form-label">Observação:</label>
-                      <textarea id="descricao" name="descricao" class="form-control" required></textarea>
-                  </div>
-                  <label for="servico-select">Serviço</label>
-                  
-  
-                  <div class="cart--details">
-                      <div class="cart--totalitem subtotal">
-                          <span>Subtotal</span>
-                          <span></span>
-                      </div>
-                      <div class="cart--totalitem entrega">
-                        <span>Entrega</span>
-                        <span></span>
+        <section class="h-100 h-custom" style="background-color: #eee;">
+            <div class="container py-1 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body p-4">
+
+                                <div class="row">
+
+                                    <div class="col-lg-7">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a class="mb-0 btn btn-previous btn-danger shadow"><i
+                                                    class="fas fa-solid fa-arrow-left d-flex justify-content-between"></i></a>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div>
+                                                <p class="mb-0 font-weight-bold">Itens do Pedido</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="items-area"></div>
+
+
+                                    </div>
+                                    <div class="col-lg-5">
+
+                                        <div class="card bg-primary text-white rounded-3">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <h5 class="mb-0">Detalhes do Pedido</h5>
+                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                                                        class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                                                </div>
+
+                                                <p class="small mb-2">Escolha a forma de pagamento</p>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-paypal fa-2x"></i></a>
+
+
+
+                                                <hr class="my-4">
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="mb-2">Serviço</p>
+                                                    <p class="mb-2 preco-servico"></p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="mb-2">Desconto</p>
+                                                    <p class="mb-2 cupom"></p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="mb-2">Subtotal</p>
+                                                    <p class="mb-2 subTotal"></p>
+                                                </div>
+
+
+                                                <div class="d-flex justify-content-between mb-4">
+                                                    <p class="mb-2">Total(Incl. taxas)</p>
+                                                    <p class="mb-2 total"></p>
+                                                </div>
+
+                                                <button type="button" class="btn btn-info btn-block btn-lg">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Finalizar<i
+                                                                class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                    </div>
+                                                </button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                      <div class="cart--totalitem desconto">
-                          <span>Desconto (-10%)</span>
-                          <span></span>
-                      </div>
-                      <div class="cart--totalitem total big">
-                          <span>Total</span>
-                          <span></span>
-                      </div>
-                  </div>
-                  <input type="radio" name="imagem" id="i1" />
-<label for="i1"><img src="assets/2606525_5862.jpg" alt=""></label>
-<input type="radio" name="imagem" id="i2" />
-<label for="i2"><img src="http://vkontakte.ru/images/gifts/256/82.jpg" alt=""></label>
-<input type="radio" name="imagem" id="i3" />
-<label for="i3"><img src="http://vkontakte.ru/images/gifts/256/83.jpg" alt=""></label>
-          </aside>
-          <div class="row">
-            
-              <div class="col text-center d-flex justify-content-center">
-                  <button class="btn btn-danger btn-md btn-previous" style="margin: 5px;background-color: red;">Anterior</button>
-                  <button class="btn btn-success btn-next btn-md me-2" style="margin: 5px;background-color: #05f88b;">Próximo</button>
-      
-          </div>
-          </div>
-          
-        </div>
-             -->
+                </div>
+            </div>
+        </section>
     </nav>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/step3.css">
+
+
 
 </body>
 

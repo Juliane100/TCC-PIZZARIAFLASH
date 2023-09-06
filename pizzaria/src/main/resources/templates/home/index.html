@@ -20,70 +20,65 @@
 
 </head>
 
+    <script>
+        $.ajax({
+    method: "GET",
+    url: "/chart-data",
+    contentType: 'application/json; charset=utf-8',
+    success: function (jsonData) {
+        var meses = {};
+
+        jsonData.forEach(function(produto) {
+            var mes = produto.dataCadastro.split("-")[1];
+            if (!meses[mes]) {
+                meses[mes] = 1;
+            } else {
+                meses[mes]++;
+            }
+        });
+
+        var labels = Object.keys(meses);
+        var data = Object.values(meses);
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Quantidade de Produtos Cadastrados',
+                    data: data,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+});
+
+    </script>
+
 <body>
     <div th:replace="fragments/header :: header">&nbsp;</div>
 
-
-    <script>
-        window.console = window.console || function (t) { };
-    </script>
+    
+   
 
 
 
     </head>
 
     <body translate="no">
-        <div class="grafico">
-            <canvas id="myChart" width="600%" height="300%"></canvas>
-
-            <script src='//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
-            <script id="rendered-js">
-                var data = {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.5)",
-                            strokeColor: "rgba(220,220,220,0.8)",
-                            highlightFill: "rgba(220,220,220,0.75)",
-                            highlightStroke: "rgba(220,220,220,1)",
-                            data: [65, 59, 80, 81, 56, 55, 40]
-                        },
-
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.5)",
-                            strokeColor: "rgba(151,187,205,0.8)",
-                            highlightFill: "rgba(151,187,205,0.75)",
-                            highlightStroke: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 86, 27, 90]
-                        }]
-                };
-
-
-
-
-                var ctx = document.getElementById("myChart").getContext("2d");
-                var myBarChart = new Chart(ctx).Bar(data);
-  //# sourceURL=pen.js
-            </script>
-            <div class="card bg-light result " style="max-width: 35rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card bg-light result " style="max-width: 35rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-        </div>
+        
 
         <footer th:replace="fragments/footer :: footer">&nbsp;</footer>
         <script src="/js/home.js"></script>

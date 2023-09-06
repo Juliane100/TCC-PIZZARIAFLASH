@@ -17,7 +17,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "imagem")
+    @Column(name = "imagem", columnDefinition = "VARBINARY(MAX)")
     private byte[] imagem;
 
     @Column(name = "nome", nullable = false)
@@ -25,9 +25,6 @@ public class Produto {
 
     @Column(name = "descricao")
     private String descricao;
-
-    @Column(name = "tamanho", nullable = false)
-    private String tamanho;
 
     @Column(name = "preco", columnDefinition = "DECIMAL(8,2)")
     private double preco;
@@ -70,14 +67,6 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
     }
 
     public double getPreco() {

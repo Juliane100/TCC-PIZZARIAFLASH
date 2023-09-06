@@ -5,14 +5,13 @@
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
 }
-.cart{
+
+.cart {
     overflow-x: auto;
     height: auto;
     max-height: 80px;
 }
-.footer{
-    
-}
+
 @media (max-width: 767px) {
     .cart {
         padding: 4vh;
@@ -20,21 +19,38 @@
         border-top-right-radius: 1rem;
     }
 }
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #EEEE;
-    background-color: #32801a;
+    background-color: red;
+    
 
 }
 
-.btn-cicle{
-    background-color: #32801a;
+.btn-cicle {
+    padding: 5px;
+    background-color:red;
 }
-.progress-bar{
-    background-color: #32801a;
+
+.progress-bar {
+    background-color: red;
 }
-.nav-link{
-    color: #ffffff!important ;
+
+.progress{
+    
+    margin-top: 6px;
+    margin-block-end: 2px;
 }
+
+
+.nav-link {
+    background-color: red;
+    padding: 3px;
+    color: #ffffff !important;
+    margin-inline-end: 2px;
+}
+
 /* .summary {
     position: relative;
     background-color: #ddd;
@@ -76,7 +92,7 @@ a {
 .close {
     margin-left: auto;
     font-size: 0.7rem;
-    
+
 }
 
 img {
@@ -225,9 +241,4 @@ input:focus::-webkit-input-placeholder {
     padding: 3px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ddd;
-}
-
-.total {
-    background-color: #a6a6a6;
-    color: #fff;
 }

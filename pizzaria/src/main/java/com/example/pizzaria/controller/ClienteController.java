@@ -1,5 +1,7 @@
 package com.example.pizzaria.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,16 +31,28 @@ public class ClienteController {
         return "cliente/cliente";
     }
 
-    @GetMapping("/lista")
-    public String lista() {
-        return "cliente/lista";
-    }
-
     @GetMapping("/buscar")
     public String buscarCliente(@RequestParam String telefone, Model model) {
         Cliente cliente = clienteService.buscarPorTelefone(telefone);
         model.addAttribute("cliente", cliente);
-        return cliente == null ? "cliente/cliente :: salvarCliente" : "cliente/editar :: editarCliente";
+        return cliente == null ? null : "cliente/editar :: editarCliente";
+        
+    }
+
+    @PostMapping("/lista")
+    public String lista(@RequestParam(name = "telefone", required = false) String telefone, Model model) {
+        List<Cliente> clientes;
+
+        if (telefone != null && !telefone.isEmpty()) {
+            clientes = clienteService.filtrarPorTelefone(telefone);
+        } else {
+            clientes = clienteService.listarTodos();
+        }
+
+        model.addAttribute("clientes", clientes);
+        // model.addAttribute("nomePesquisado", nome); // Para manter o valor do termo
+        // de busca na caixa de busca
+        return "cliente/cliente";
     }
 
     @PostMapping("/cadastrar")

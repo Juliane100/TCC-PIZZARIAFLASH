@@ -1,5 +1,6 @@
 package com.example.pizzaria.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,5 +17,6 @@ public class PedidoController {
         model.addAttribute("cliente", new Cliente());
         return "pedido/index";
     }
+    
 
 }

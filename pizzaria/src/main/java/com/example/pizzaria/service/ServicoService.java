@@ -28,6 +28,7 @@ public class ServicoService {
     public List<Servico> listarTodos() {
         return servicoRepository.findAll();
     }
+    
     public Servico buscarPorId(Long id) {
         return servicoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Serviço não encontrado"));

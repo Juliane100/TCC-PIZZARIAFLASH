@@ -1,16 +1,42 @@
 
 const btnBuscarCliente = document.getElementById('btn-buscar-cliente');
 
+
 $(document).ready(function () {
     var currentStep = 1;
     var totalSteps = 3;
 
     $('.btn-next').click(function () {
+        
+        let tamanhoTotalPizzas = cart.reduce((a, b) => a + b.Tamanho, 0);
+        
+        if (!Number.isInteger(tamanhoTotalPizzas)){
+            alert('Pedido incompleto');
+            return;
+        }
+
+        if (cart?.length == 0){
+            alert('Faça o pedido');
+            return;
+        }
+
+        if(currentStep == 2 && (cliente == null || cliente == undefined)){
+            alert('Selecione o cliente');
+            return;
+        }
+
         if (currentStep < totalSteps) {
             $('#step' + currentStep).hide();
             currentStep++;
             $('#step' + currentStep).show();
             updateProgressBar();
+        }
+
+        if (currentStep == 3) {
+            objectCart.observacao = $('#descricao').val();
+            objectCart.servico = $('#servico-select').val();
+            
+            listarDetalhes(cart, objectCart, cliente);
         }
     });
 
@@ -34,6 +60,7 @@ $(document).ready(function () {
     }
 
     updateProgressBar();
+
 });
 
 btnBuscarCliente.addEventListener('click', () => {
@@ -44,10 +71,14 @@ btnBuscarCliente.addEventListener('click', () => {
             type: "GET",
             url: "/clientes/buscar?telefone=" + telefone,
             success: function (data) {
-                $("#resultadoBusca").html(data);
+                $("#resultadoBusca").html(data.replace('Editar Cliente', ''));
+                document.querySelector('.button-editar-cliente').disabled = true;
             },
             error: function (xhr, status, error) {
                 console.error(error);
+                alert('Cliente não cadastrado');
             }
         });
 });
+
+

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/pedido.css">
     <link rel="stylesheet" type="text/css" href="/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="/css/step3.css">
+    
+
 
     <title>Pedido</title>
 
@@ -26,12 +29,13 @@
 <body>
     <div th:replace="fragments/header :: header">&nbsp;</div>
     <br>
-    
+
     <div class="container">
-        
+
         <div class="row justify-content-center text-center">
             <div class="col">
                 <ul class="nav nav-pills justify-content-between">
+
                     <li class="nav-item">
                         <btn class="nav-link active btn-circle" id="step1-link">
                             <i class="fas fa-clipboard-check rounded-circle"></i>
@@ -50,7 +54,7 @@
                 </ul>
 
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 33%"; aria-valuenow="33"
+                    <div class="progress-bar" role="progressbar" style="width: 33%" ; aria-valuenow="33"
                         aria-valuemin="0" aria-valuemax="100" background="#a6a6a6"></div>
                 </div>
             </div>
@@ -60,7 +64,6 @@
             <div class="row justify-content-center text-center">
                 <div class="col-md-8">
                     <div th:replace="pedido/step :: pedido">&nbsp;</div>
-
 
 
                     <div id="step2" class="step-content" style="display: none;">
@@ -73,35 +76,35 @@
                         </div>
                     </div>
 
-                    <div id="step3" class="step-content" style="display: none;">
-                        <div class="container-fluid">
-                            <div class="row justify-content-center text-center">
-                                <div th:replace="pedido/step3 :: pagamento">&nbsp;</div>
-                            </div>
+                    
+
+                </div>
+                <div id="step3" class="step-content col-md-12" style="display: none;">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center text-center">
+                            <div th:replace="pedido/step3 :: pagamento">&nbsp;</div>
                         </div>
                     </div>
+                </div>
 
-                </div>
-                
                 <div id="cart-item-total" class="col-md-4 summary">
-                    <div class="cart" th:replace="pedido/cart :: cart-container" 
-                    data-offset-top="205">&nbsp;</div>
+                    <div class="cart" th:replace="pedido/cart :: cart-container" data-offset-top="205">&nbsp;</div>
                 </div>
-        
+
             </div>
-            
+
         </div>
     </div>
-    
-</div>
 
-<div th:replace="fragments/footer :: footer">&nbsp;</div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer">&nbsp;</div>
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="/js/pedido.js"></script>
-        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/pedido.js"></script>
+
 </body>
 
 </html>

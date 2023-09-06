@@ -21,28 +21,17 @@
         crossorigin="anonymous"></script>
 
     <title>Produto</title>
-
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        var mensagem = [[${ chat }]];
-        /*]]>*/
-        $(document).ready(function () {
-            if (mensagem)
-                $('.toast').toast('show');
-        });
-    </script>
-
 </head>
 
 <body>
 
     <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div class="toast" hide role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast" th:if="${serverMessage != null}" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto">Mensagem</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-            <div class="toast-body" th:text="${chat}"></div>
+            <div class="toast-body" th:text="${serverMessage}"></div>
         </div>
     </div>
 
@@ -57,24 +46,12 @@
                     </div>
                     <div class="card-body">
                         <form th:action="@{/produtos/cadastrar}" method="post" th:object="${novoProduto}"
-                            class="row g-3">
+                            enctype="multipart/form-data" class="row g-3">
                             <div class="col-md-3">
                                 <label for="nome" class="form-label">Nome:</label>
                                 <input type="text" id="nome" name="nome" class="form-control" required>
                             </div>
-                            <div class="col-md-3">
-                                <label for="imagem" class="form-label">Imagem:</label>
-                                <input type="file" id="imagem" name="imagem" class="form-control" required>
-                            </div>
-                            <div class="col-md-3 ">
-                                <label for="tamanho" class="form-label">Tamanho:</label>
-                                <select id="tamanho" name="tamanho" class="form-select" required>
-                                    <option value="">Selecione o Tamanho</option>
-                                    <option value="INTEIRA">Inteira</option>
-                                    <option value="METADE">Metade</option>
-                                    
-                                </select>
-                            </div>
+
                             <div class="col-md-3">
                                 <label for="tamanho" class="form-label">Categoria:</label>
                                 <select id="categoria" name="categoria" class="form-select" required>
@@ -85,11 +62,11 @@
                             </div>
 
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="preco" class="form-label">Preço:</label>
                                 <input type="number" id="preco" name="preco" class="form-control" step="0.01" required>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="status" class="form-label">Status:</label>
                                 <select id="status" name="status" class="form-select" required>
                                     <option value="ATIVO">Ativo</option>
@@ -100,6 +77,20 @@
                                 <label for="descricao" class="form-label">Descrição:</label>
                                 <textarea id="descricao" name="descricao" class="form-control" required></textarea>
                             </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="uploadImage" class="form-label">Escolha uma Imagem:</label>
+                                <input class="form-control" type="file" onchange="preViewImg();" name="file"
+                                    accept="image/*" id="uploadImage">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="preView" class="form-label"></label>
+                                <img id="preView" alt="..."
+                                    th:src="*{imagem} ? @{${'/produtos/showImage/'+ produto.id}} : ${noImage}"
+                                    class="rounded mx-auto d-block img-fluid"
+                                    style="max-width: 200px; max-height: 200px;" />
+                            </div>
+
 
                             <div class="d-flex justify-content-end mt-4">
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -117,14 +108,19 @@
                 <h2 class="card-title text-center">Produtos Cadastrados</h2>
             </div>
             <div class="card-body">
+                <form th:action="@{/produtos/filtro}" method="post" class="d-flex mt-2 mb-3">
+                    <input type="text" name="nome" class="form-control mr-sm-2"
+                        placeholder="Digite o nome do produto..." th:value="${nomePesquisado}">
+                    <button type="submit" class="btn btn-success my-2 my-sm-0">Buscar</button>
+                </form>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead class="thead-light">
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Nome</th>
-                                <th class="text-center">Tamanho</th>
                                 <th class="text-center">Preço</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
@@ -132,32 +128,37 @@
                             <tr th:each="produto : ${produtos}">
                                 <td class="text-center" th:text="${produto.id}"></td>
                                 <td class="text-center" th:text="${produto.nome}"></td>
-                                <td class="text-center" th:text="${produto.tamanho}"></td>
                                 <td class="text-center" th:text="${#numbers.formatCurrency(produto.preco)}"></td>
+                                <td class="text-center" th:text="${produto.status}"></td>
+
                                 <td class="text-center">
                                     <a th:href="@{/produtos/{id}/visualizar(id=${produto.id})}"
                                         class="btn btn-light btn-circle">
-                                        <i class="fas fa-eye"></i> 
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                     <a th:href="@{/produtos/{id}/editar(id=${produto.id})}"
                                         class="btn btn-primary btn-circle">
-                                        <i class="fas fa-edit"></i> 
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                     <a th:href="@{/produtos/{id}/excluir(id=${produto.id})}"
                                         class="btn btn-danger  btn-circle">
-                                        <i class="fas fa-trash-alt"></i> 
+                                        <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <p class="text-center mt-4">Total de Produtos Cadastrados: <span
+                        th:text="${#lists.size(produtos)}"></span></p>
+
             </div>
         </div>
     </div>
 
     <div th:replace="fragments/footer :: footer">&nbsp;</div>
-
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

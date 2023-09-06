@@ -92,6 +92,11 @@
                         <h2 class="card-title text-center">Cupons Cadastrados</h2>
                     </div>
                     <div class="card-body">
+                        <form action="#" th:action="@{cupons/lista}" method="post" class="d-flex mt-2 mb-3">
+                            <input type="text" name="numero" class="form-control mr-sm-2"
+                                placeholder="Digite o numero do cupom..." th:value="${numeroPesquisado}">
+                            <button type="submit" class="btn btn-success my-2 my-sm-0">Buscar</button>
+                        </form>
                         <table class="table ">
                             <thead class="table">
                                 <tr>
@@ -105,7 +110,8 @@
                             <tbody>
                                 <tr th:each="cupom : ${cupons}">
                                     <td class="text-center" th:text="${cupom.numero}"></td>
-                                    <td class="text-center" th:text="${#temporals.format(cupom.data_validade, 'dd/MM/yyyy')}"></td>
+                                    <td class="text-center"
+                                        th:text="${#temporals.format(cupom.data_validade, 'dd/MM/yyyy')}"></td>
                                     <td class="text-center" th:text="${#numbers.formatCurrency(cupom.preco)}"></td>
                                     <td class="text-center" th:text="${cupom.status}"></td>
                                     <td class="text-center">
@@ -127,7 +133,10 @@
                             </tbody>
                         </table>
                     </div>
+                    <p class="text-center mt-4">Total de Cupons Cadastrados: <span
+                            th:text="${#lists.size(cupons)}"></span></p>
                 </div>
+
             </div>
         </div>
     </div>

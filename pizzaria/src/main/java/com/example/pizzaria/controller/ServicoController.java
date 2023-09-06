@@ -31,21 +31,18 @@ public class ServicoController {
         return "servico/servico";
     }
 
-    @GetMapping("/lista")
+    @PostMapping("/lista")
     public String lista(@RequestParam(name = "nome", required = false) String nome, Model model) {
         List<Servico> servicos;
 
         if (nome != null && !nome.isEmpty()) {
-            // Filtra os registros pelo nome usando o método filtrarPorNome do seu serviço
             servicos = servicoService.filtrarPorNome(nome);
         } else {
-            // Caso não haja parâmetro de busca, lista todos os registros
             servicos = servicoService.listarTodos();
         }
 
         model.addAttribute("servicos", servicos);
-        model.addAttribute("nomePesquisado", nome); // Para manter o valor do termo de busca na caixa de busca
-        return "servico/lista";
+        return "servico/servico";
     }
 
     @PostMapping("/cadastrar")

@@ -26,7 +26,7 @@ public class Pedido_item {
     @Column (name = "preco", nullable = false)
     private double preco;
 
-    @Column (name = "status", nullable = false)
+    @Column (name = "status", nullable = false) 
     private String status;
 
     @ManyToOne

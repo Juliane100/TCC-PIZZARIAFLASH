@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.pizzaria.model.Cupom;
 import com.example.pizzaria.repository.CupomRepository;
 
@@ -19,6 +20,14 @@ public class CupomService {
     }
 
     public List<Cupom> buscarTodos() {
+        return cupomRepository.findAll();
+    }
+
+    public List<Cupom> filtrarPorNumero(String numero) {
+        return cupomRepository.findByNumeroContainingIgnoreCase(numero);
+    }
+
+    public List<Cupom> listarTodos() {
         return cupomRepository.findAll();
     }
 
@@ -42,10 +51,14 @@ public class CupomService {
     }
 
     public Cupom gerarNumeroAleatorio(Cupom cupom) {
-    Random random = new Random();
-    int numeroAleatorio = random.nextInt(10000);
-    cupom.setNumero(String.valueOf(numeroAleatorio));
-    return cupom;
-}
-    
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(10000);
+        cupom.setNumero(String.valueOf(numeroAleatorio));
+        return cupom;
+    }
+
+    public Cupom buscarCupomPorNumero(String numero) {
+        return cupomRepository.findByNumero(numero);
+    }
+
 }

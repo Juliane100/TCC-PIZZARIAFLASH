@@ -13,7 +13,7 @@
 <body>
     <div th:fragment="pedido" id="step1" class="step-content">
         <form>
-            
+
             <div class="models">
                 <div class="pizza-item">
                     <a href="">
@@ -56,11 +56,12 @@
                         <div class="pizzaInfo--sizearea">
                             <div class="pizzaInfo--sector">Tamanho</div>
                             <div class="pizzaInfo--sizes">
-                                <div data-key="0" class="pizzaInfo--size">PEQUENA <span></span></div>
-                                <div data-key="1" class="pizzaInfo--size">MÉDIO <span></span></div>
-                                <div data-key="2" class="pizzaInfo--size selected">GRANDE <span></span></div>
+                                <div data-key="0.5" class="pizzaInfo--size">Metade <span></span></div>
+                                <div data-key="1" class="pizzaInfo--size">Inteira <span></span></div>
                             </div>
+
                         </div>
+
                         <div class="pizzaInfo--pricearea">
                             <div class="pizzaInfo--sector">Preço</div>
                             <div class="pizzaInfo--price">
@@ -78,12 +79,14 @@
                 </div>
             </div>
         </form>
+        <script type="text/javascript" src="/js/step.js"></script>
         <script type="text/javascript" src="/js/pizzas.js"></script>
-        <script type="text/javascript" src="/js/script.js"></script>
+        <script type="text/javascript" src="/js/step3.js"></script>
 
     </div>
 
     <script src="/js/pedido.js"></script>
+
 </body>
 
 </html>
