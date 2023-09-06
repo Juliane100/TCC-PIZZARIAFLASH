@@ -1,7 +1,7 @@
 # TCC-PIZZARIAFLASH
-trabalho de conclusão de curso
+Trabalho de Conclusão de Curso
 
-Tema: Gerenciamento de uma pizzaria;
+Tema: Gerenciamento de pedidos de uma Pizzaria
 INF3CM - Grupo:1 (não tenho certeza) 
 
 Integrantes:
