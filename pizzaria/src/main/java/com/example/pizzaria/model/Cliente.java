@@ -25,7 +25,7 @@ public class Cliente {
     @Column(name = "telefone", nullable = false)
     private String telefone;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "data_nasc")
@@ -46,7 +46,7 @@ public class Cliente {
     @Column(name = "numresid", nullable = false)
     private int numresid;
 
-    @Column(name = "complemento", nullable = false)
+    @Column(name = "complemento")
     private String complemento;
 
     @Column(name = "status", nullable = false)

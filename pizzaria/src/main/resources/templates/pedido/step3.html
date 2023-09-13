@@ -31,6 +31,14 @@
                                                 <i
                                                     class="fas fa-solid fa-arrow-left d-flex justify-content-between"></i></a>
 
+                                            <strong class="my-auto">
+                                                <div>
+                                                    <p>ID do Funcionário: <span
+                                                            th:text="${session.autenticacaoDto.funcionario.id}" id="funcionarioId"></span>
+                                                    </p>
+
+                                                </div>
+                                            </strong>
 
                                         </div>
 
@@ -85,38 +93,33 @@
                                     </div>
                                     <div class="col-lg-5">
 
-                                        <div class="card bg-primary text-white rounded-3">
+                                        <div class="card bg-success text-white rounded-3"
+                                            style="max-width: calc(100% - 10px);">
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                                     <h5 class="mb-0">Detalhes do Pedido</h5>
-                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                                        class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                                                    <img src="../assets/logo.png" class="img-fluid rounded-circle"
+                                                        style="width: 45px;" alt="Avatar">
+
+
                                                 </div>
-
-
 
 
                                                 <div class="container">
                                                     <div class="row">
-                                                            <label for="pagamento-input">Forma de Pagamento</label>
-                                                            <select id="pagamento-input" class="form-control"></select>
+                                                        <label for="pagamento-input">Forma de Pagamento</label>
+                                                        <select id="pagamento-input" class="form-control"></select>
                                                     </div>
                                                 </div>
 
 
-                                                <!-- <p class="small mb-2">Escolha a forma de pagamento</p>
-                                                <a href="#!" type="submit" class="text-white"><i
-                                                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                                                <a href="#!" type="submit" class="text-white"><i
-                                                        class="fab fa-cc-visa fa-2x me-2"></i></a>
-                                                <a href="#!" type="submit" class="text-white"><i
-                                                        class="fab fa-cc-amex fa-2x me-2"></i></a>
-                                                <a href="#!" type="submit" class="text-white"><i
-                                                        class="fab fa-cc-paypal fa-2x"></i></a> -->
 
                                                 <div class="cliente-area"></div>
 
                                                 <hr class="my-4">
+
+
+
 
                                                 <div class="col-12">
                                                     <label for="descricao-final" class="form-label">Observação:</label>
@@ -149,12 +152,14 @@
                                                     <p class="mb-2 total"></p>
                                                 </div>
 
-                                                <button type="button" class="btn btn-info btn-block btn-lg">
+                                                <button type="button" id="finalizarPedidoBtn"
+                                                    class="btn btn-danger btn-block btn-lg">
                                                     <div class="d-flex justify-content-between">
                                                         <span>Finalizar<i
                                                                 class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                     </div>
                                                 </button>
+
 
                                             </div>
                                         </div>

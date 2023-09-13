@@ -37,6 +37,10 @@ public class ClienteService {
         return clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
     }
 
+    public List<Cliente> obterClientes() {
+        return clienteRepository.findAll();
+    }
+
     public Cliente inserir(Cliente cliente) {
         return clienteRepository.saveAndFlush(cliente);
     }

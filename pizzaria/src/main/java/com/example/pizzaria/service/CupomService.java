@@ -44,6 +44,10 @@ public class CupomService {
         return cupomRepository.saveAndFlush(cupom);
     }
 
+    public List<Cupom> obterCupons() {
+        return cupomRepository.findAll();
+    }
+
     public void excluir(Long id) {
         Cupom cupom = cupomRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Cupom não encontrado"));

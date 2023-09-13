@@ -19,4 +19,8 @@ public class FuncionarioService {
 
     }
 
+    // public Funcionario getFuncionarioLogado() {
+    //     return funcionarioRepository.findByEmail(funcionarioRepository);
+    // }
+
 }

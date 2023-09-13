@@ -17,23 +17,24 @@
 <body>
 
     <div th:fragment="cart-container" class="cart-container" style="z-index: 900">
-        <h3><b>Resumo</b></h3>
+        <h3 class="text-black text-gradient"><b>Resumo</b></h3>
         <hr>
         <aside>
-           
+
             <div class="cart"></div>
+            <!-- <img class="fundo"> -->
 
             <form-group>
                 <div class="col-12">
-                    <label for="observacao" class="form-label">Observação:</label>
+                    <label for="observacao" class="form-label text-black text-gradient">Observação:</label>
                     <textarea id="observacao" name="observacao" class="form-control" required></textarea>
                 </div>
-                <label for="servico-input">Serviço</label>
+                <label for="servico-input" class="text-black text-gradient">Serviço</label>
                 <select id="servico-input"></select>
 
                 <div class="form-group">
                     <label for="cupomInput">Cupom</label>
-                    <input type="text" class="form-control" id="cupomInput" placeholder="Digite o cupom">
+                    <input type="text" class="form-control " id="cupomInput" placeholder="Digite o cupom">
                 </div>
                 <div class="saida"></div>
 
@@ -42,15 +43,15 @@
 
                 <div class="cart--details">
                     <div class="cart--totalitem subtotal">
-                        <span>Subtotal</span>
+                        <span class="text-black text-gradient">Subtotal</span>
                         <span></span>
                     </div>
                     <div class="cart--totalitem desconto">
-                        <span>Desconto (cupom)</span>
-                        <span class="item-desconto"></span>
+                        <span class="text-black text-gradient">Desconto (cupom)</span>
+                        <span class="item-desconto"> - </span>
                     </div>
                     <div class="cart--totalitem total big">
-                        <span>Total</span>
+                        <span class="text-black text-gradient">Total</span>
                         <span></span>
                     </div>
                 </div>

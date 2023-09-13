@@ -1,75 +1,62 @@
-/* Estilização dos itens da lista de produtos
-.object {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
+.items-area {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  /* Defina a largura máxima desejada para os itens */
+
+}
+
+.item {
+  width: 280px;
+  height: 100px;
+  margin: 8px 2px; 
+  padding: 20px;
+  display: flex;
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #b9b2b2;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item--name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.item--img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  /* margin-right: 10px; */
+  display: flex;
+  align-items: center;
+  /* Alinha verticalmente a imagem ao centro */
+}
+
+.item--content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.item--details {
+  font-size: 13px;
   display: flex;
   align-items: center;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  margin: 0 auto 50px auto;
+.item--details>div {
+  margin-right: 10px;
 }
 
-.item--img {
-  max-width: 100px;
-  /* Defina a largura máxima da imagem conforme necessário 
-  align-self: center;
-  /* Alinhe a imagem no topo 
-}
-
-.item--img img {
-  max-width: 100%;
-  height: auto;
-}
-
-.item--info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* Alinhe as informações no topo 
-  margin-top: 10px;
-  /* Adicione espaço acima do nome 
-}
-
-.item--name {
-  font-weight: bold;
-}
-
-.item--tamn {
-  margin-top: 5px;
-  /* Adicione espaço entre o nome e o tamanho 
-}
-
-.item--qtd {
-  margin-top: auto;
-  /* Alinhe a quantidade na parte inferior 
-}
-
+.item--tamn,
+.item--qtd,
 .item--price {
-  text-align: right;
-  margin-top: 5px;
-  /* Adicione espaço acima do preço 
+  font-size: 13px;
+  display: inline;
+  /* Faz todos os elementos ficarem na mesma linha */
+  margin-right: 16px;
+  /* Adiciona margem entre os elementos */
 }
-
-.item--trash {
-  text-align: center;
-}
-
-/* Estilo para o botão de remoção, você pode personalizá-lo conforme necessário 
-.item--trash button {
-  background-color: #f00;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-weight: bold;
-} */

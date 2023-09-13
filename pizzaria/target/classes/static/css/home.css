@@ -10,3 +10,16 @@
     padding-top: 30px
   }
 }
+
+.custom-height {
+  height: 520px;
+  
+}
+
+.h-custom {
+  height: 163px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}

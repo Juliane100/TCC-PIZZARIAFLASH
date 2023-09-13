@@ -9,6 +9,7 @@ import com.example.pizzaria.model.Login;
 import com.example.pizzaria.service.FuncionarioService;
 import com.example.pizzaria.service.LoginService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 import org.modelmapper.ModelMapper;
@@ -44,7 +45,7 @@ public class LoginController {
     }
 
     @PostMapping
-    public String logarSubmit(@Valid LoginDto loginDto, BindingResult result, Model model) {
+    public String logarSubmit(@Valid LoginDto loginDto, BindingResult result, Model model, HttpSession session) {
 
         if (result.hasErrors())
             return "login/index";
@@ -57,8 +58,9 @@ public class LoginController {
             return "login/index";
         }
 
+        session.setAttribute("autenticacaoDto", autenticacaoDto);
         model.addAttribute("funcionario", autenticacaoDto.funcionario);
-        return "home/index";
+        return "redirect:/home";
     }
 
     @GetMapping("/register")
@@ -75,7 +77,7 @@ public class LoginController {
         var notificacaoDto = loginService.register(mapperLogin.getEmail(), mapperLogin.getSenha());
         if (!notificacaoDto.autenticado) {
             model.addAttribute("notificacaoDto", notificacaoDto);
-            return "login/register"; 
+            return "login/register";
         }
 
         Funcionario mapperFuncionario = modelMapper.map(registroDto, Funcionario.class);
@@ -83,9 +85,9 @@ public class LoginController {
         funcionarioService.register(mapperFuncionario);
 
         return showLoginPage(model);
-        
-        //adicionar a mensagem de cadastro novo
-        
+
+        // adicionar a mensagem de cadastro novo
+
     }
 
 }

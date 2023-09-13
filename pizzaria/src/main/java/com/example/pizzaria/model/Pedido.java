@@ -1,5 +1,8 @@
 package com.example.pizzaria.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +28,9 @@ public class Pedido {
 
     @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "data")
+    private LocalDateTime data;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
@@ -78,6 +84,14 @@ public class Pedido {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
     }
 
     public Cliente getCliente() {

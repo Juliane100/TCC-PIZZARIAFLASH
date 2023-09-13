@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
 
 </head>
 <body>
@@ -16,7 +17,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title text-center">Editar Serviço</h2>
+                        <h2 class="card-title text-center">Editar Cupom</h2>
                     </div>
                     <div class="card-body">
                         <form th:action="@{/cupons/{id}/salvar(id=${cupom.id})}" method="post"
@@ -66,8 +67,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end mt-4">
-                                <button type="submit" class="btn btn-danger">Salvar</button>
+                            <div class="d-flex justify-content-between mt-4">
+                                <a th:href="@{/cupons}" class="btn btn-danger">Voltar</a>
+                                <button type="submit" class="btn btn-success">Salvar</button>
                             </div>
                         </form>
                     </div>

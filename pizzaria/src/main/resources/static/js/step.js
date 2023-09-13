@@ -5,11 +5,12 @@ let cart = [];
 let cliente;
 let objectCupom = [];
 let objectService = [];
+let objectPagamento = [];
 let objectCart = {
     cupom: '',
     observacao: '',
     servico: 0,
-    pagamento:'',
+    pagamento: '',
 };
 
 let pizzaJson;
@@ -27,8 +28,9 @@ $.ajax({
     type: "GET",
     url: "forma_pagamento/listarPagamento",
     success: function (data) {
-        pagamento = data;
+        objectPagamento = data;
         data.forEach(function (item) {
+            // console.log("Dados de pagamento:", pagamento);
             $('#pagamento-input').append($('<option>', {
                 value: item.id,
                 text: `${item.nome}`,
@@ -307,6 +309,8 @@ function updateCart() {
 
     let serviceItem = objectService.find(x => x.id == servico);
     total = (subtotal + serviceItem.preco) - +Number(desconto.replace(/[^0-9\.]+/g, "")) / 100;
+    // let .total = subtotal + serviceItem.preco - descontoNumerico;
+
 
     qs('.subtotal span:last-child').innerHTML = rs(subtotal);
     qs('.total span:last-child').innerHTML = rs(total);

@@ -34,7 +34,7 @@ public class Funcionario {
     private boolean status;
 
     @OneToOne
-    @JoinColumn(name = "login_id", unique = true, nullable = false)
+    @JoinColumn(name = "Login_id", unique = true, nullable = false)
     private Login login;
 
 

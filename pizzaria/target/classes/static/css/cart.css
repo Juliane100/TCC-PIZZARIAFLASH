@@ -24,21 +24,21 @@
 .nav-pills .show>.nav-link {
     color: #EEEE;
     background-color: rgb(44, 42, 42);
-    
+
 
 }
 
 .btn-cicle {
     padding: 5px;
-    background-color:red;
+    background-color: red;
 }
 
 .progress-bar {
     background-color: red;
 }
 
-.progress{
-    
+.progress {
+
     margin-top: 6px;
     margin-block-end: 2px;
 }
@@ -200,6 +200,12 @@ input:focus::-webkit-input-placeholder {
 }
 
 .cart-container {
+
+    border-radius: 0.2px;
+    background-image: url('../assets/prin.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-color: rgba(255, 255, 255, 0.5);
     position: sticky;
     top: 10px;
     height: auto;
@@ -210,6 +216,8 @@ input:focus::-webkit-input-placeholder {
     z-index: 99;
 }
 
+
+
 .cart--totalitem {
     display: flex;
     justify-content: space-between;
@@ -219,3 +227,9 @@ input:focus::-webkit-input-placeholder {
     margin-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
+/* 
+.text-gradient {
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+} */

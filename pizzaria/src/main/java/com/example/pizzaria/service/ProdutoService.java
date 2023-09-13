@@ -105,6 +105,10 @@ public class ProdutoService {
         }
     }
 
+    public List<Produto> obterProdutos() {
+        return produtoRepository.findAll();
+    }
+
     public void excluir(Long id) {
         Produto produto = produtoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));

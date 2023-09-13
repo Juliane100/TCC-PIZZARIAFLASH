@@ -19,72 +19,59 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 
-<script>
-    $.ajax({
-        method: "GET",
-        url: "/chart-data",
-        contentType: 'application/json; charset=utf-8',
-        success: function (jsonData) {
-            var meses = {};
 
-            jsonData.forEach(function (produto) {
-                var mes = produto.dataCadastro.split("-")[1];
-                if (!meses[mes]) {
-                    meses[mes] = 1;
-                } else {
-                    meses[mes]++;
-                }
-            });
-
-            var labels = Object.keys(meses);
-            var data = Object.values(meses);
-
-            var ctx = document.getElementById('myChart').getContext('2d');
-
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Quantidade de Produtos Cadastrados',
-                        data: data,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-    });
-
-</script>
 
 <body>
     <div th:replace="fragments/header :: header">&nbsp;</div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+
+            <!-- Retângulo embaixo do Quadrado 2/3 -->
+            <div class="col-md-9">
+                <div class="bg-secondary text-white p-4 mb-3 custom-height"
+                    style="border: 2px solid black; width: 100%; height: 520px;">
+                    <canvas id="graficoBarras" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+
+
+            <!-- Três quadrados menores alinhados verticalmente -->
+            <div class="col-md-3 shadow">
+                <div class="bg-danger text-white p-4 mb-3 h-custom" style="border: 2px solid black;">
+                    <h5 class="mb-3 text-center">Clientes Cadastrados</h5>
+                    <p class="text-center" style="font-size: 26px; font-weight: bold;">
+                        <span th:text="${clientes != null ? #lists.size(clientes) : 0}"></span>
+                    </p>
+                </div>
+
+                <div class="bg-warning text-white p-4 mb-3 h-custom" style="border: 2px solid black;">
+                    <h5 class="mb-3 text-center">Produtos Cadastrados</h5>
+                    <p class="text-center" style="font-size: 26px; font-weight: bold;">
+                        <span th:text="${produtos != null ? #lists.size(produtos) : 0}"></span>
+                    </p>
+                </div>
+                <div class="bg-info text-white p-4 mb-3 h-custom"style="border: 2px solid black;">
+                    <h5 class="mb-3 text-center">Cupons Cadastrados</h5>
+                    <p class="text-center" style="font-size: 26px; font-weight: bold;">
+                        <span th:text="${cupons != null ? #lists.size(cupons) : 0}"></span>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
-
-
-
-    </head>
-
-    <body translate="no">
-
-
-        <footer th:replace="fragments/footer :: footer">&nbsp;</footer>
-        <script src="/js/home.js"></script>
-    </body>
+    <footer th:replace="fragments/footer :: footer">&nbsp;</footer>
+    <script src="/js/home.js"></script>
+</body>
 
 
 

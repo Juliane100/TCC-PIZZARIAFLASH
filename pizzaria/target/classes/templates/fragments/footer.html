@@ -11,30 +11,32 @@
 
 <body>
     <div class="footer-dark" th:fragment="footer">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/css/footer.css">
-        <footer class="footer-basic-centered bg-light py-3 fixed-bottom">
-
-            <p class="footer-company-motto">Pizzaria Flash</p>
-
-            <p class="footer-links">
-                <a href="/home">Início</a>
-                ·
-                <a href="/servicos">Serviços</a>
-                ·
-                <a href="/cupons">Cupons</a>
-                ·
-                <a href="/clientes">Clientes</a>
-                ·
-                <a href="/pedido">Pedidos</a>
-                ·
-                <a href="/produtos">Produtos</a>
-
-            </p>
-
-            <p class="footer-company-name">Pizzaria Flash &copy; 2023</p>
-
+        <footer class="bg-white py-5 text-black " style="border-radius: 10px; margin-top: 30px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <h4>Contato</h4>
+                        <p>Email: contato@pizzariaflash.com</p>
+                        <p>Telefone: (11) 2456-7890</p>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Horário de Funcionamento -->
+                        <div class="horario-funcionamento">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 18:00 - 23:00</p>
+                            <p>Sábado: 20:00 - 00:00</p>
+                            <p>Domingo: 19:00 - 00:00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <p>&copy; 2023 Pizzaria Flash</p>
+                </div>
+            </div>
         </footer>
-
     </div>
 </body>
 
