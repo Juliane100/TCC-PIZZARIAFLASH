@@ -1407,3 +1407,7 @@ label [for="product-search"] {
     float: left;
 
 }
+
+.details-hidden {
+    display: none;
+}

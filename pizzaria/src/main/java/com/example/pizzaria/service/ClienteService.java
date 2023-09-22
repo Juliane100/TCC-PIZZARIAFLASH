@@ -41,6 +41,10 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
+    public Cliente buscarClientePorId(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
+
     public Cliente inserir(Cliente cliente) {
         return clienteRepository.saveAndFlush(cliente);
     }

@@ -1,6 +1,5 @@
 package com.example.pizzaria.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -62,7 +61,7 @@ public class Pedido {
         this.id = id;
     }
 
-    public double getPreco() {
+    public double getTotal() {
         return total;
     }
 

@@ -8,12 +8,22 @@
 
 <body>
     <nav th:fragment="header" class="navbar shadow">
+        <link rel="stylesheet" type="text/css" href="/css/home.css">
+
         <div class="container-fluid">
-            <div class="container d-flex justify-content-between nav  ">
-                <a class="navbar-brand" href="#">
+            <div class="container d-flex justify-content-between nav">
+                <a class="navbar-brand" href="/home">
                     Pizzaria Flash
                 </a>
+                <a href="/pedido" style="text-decoration: none; color: black;">
+                    <i class="fas fa-shopping-cart custom-icon"></i>
+                </a>
             </div>
+
+
+
+
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                 aria-label="Toggle navigation">
@@ -43,17 +53,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/cupons">Cupons</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="/pedido">Efetuar Pedido</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/Realizar">Pedidos</a>
+                            <a class="nav-link" href="/pedido/listar">Pedidos</a>
                         </li>
-                        <li class="nav-item d-flex align-items-center">
-                            <button class="btn btn-outline-primary me-2"
-                                onclick="window.location.href='/configuracao'">Configuração</button>
-                            <button class="btn btn-outline-danger" onclick="window.location.href='/login'">Sair</button>
-                        </li>
+                        <div
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100px;">
+                            <li class="nav-item d-flex align-items-center">
+                                <button class="btn btn-outline-primary me-2"
+                                    onclick="window.location.href='/configuracao'">Configuração</button>
+                                <button class="btn btn-outline-danger"
+                                    onclick="window.location.href='/login'">Sair</button>
+                            </li>
+                        </div>
+
 
                     </ul>
                 </div>

@@ -34,28 +34,30 @@
             <!-- Retângulo embaixo do Quadrado 2/3 -->
             <div class="col-md-9">
                 <div class="bg-secondary text-white p-4 mb-3 custom-height"
-                    style="border: 2px solid black; width: 100%; height: 520px;">
-                    <canvas id="graficoBarras" style="width: 100%; height: 100%;"></canvas>
+                    style="border: 2px solid black; width: 100%; height: 502px;">
+                    <h3 class="text-center">Gráfico De Pedidos</h3>
+                    <canvas id="graficoBarras" style="width: 100%; height: 90%;"></canvas>
                 </div>
             </div>
 
 
+
             <!-- Três quadrados menores alinhados verticalmente -->
             <div class="col-md-3 shadow">
-                <div class="bg-danger text-white p-4 mb-3 h-custom" style="border: 2px solid black;">
+                <div class="bg-danger text-white p-4 mb-3 h-custom" style="border: 2px solid black; height: 156px;">
                     <h5 class="mb-3 text-center">Clientes Cadastrados</h5>
                     <p class="text-center" style="font-size: 26px; font-weight: bold;">
                         <span th:text="${clientes != null ? #lists.size(clientes) : 0}"></span>
                     </p>
                 </div>
 
-                <div class="bg-warning text-white p-4 mb-3 h-custom" style="border: 2px solid black;">
+                <div class="bg-warning text-white p-4 mb-3 h-custom" style="border: 2px solid black; height: 156px;">
                     <h5 class="mb-3 text-center">Produtos Cadastrados</h5>
                     <p class="text-center" style="font-size: 26px; font-weight: bold;">
                         <span th:text="${produtos != null ? #lists.size(produtos) : 0}"></span>
                     </p>
                 </div>
-                <div class="bg-info text-white p-4 mb-3 h-custom"style="border: 2px solid black;">
+                <div class="bg-info text-white p-4 mb-3 h-custom" style="border: 2px solid black; height: 156px;">
                     <h5 class="mb-3 text-center">Cupons Cadastrados</h5>
                     <p class="text-center" style="font-size: 26px; font-weight: bold;">
                         <span th:text="${cupons != null ? #lists.size(cupons) : 0}"></span>

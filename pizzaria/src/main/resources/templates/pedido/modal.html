@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Realizados</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/global.css"> -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div th:fragment="modal" id="modal" class="modal-content">
+        <!-- Modal para visualização rápida -->
+        <div class="modal fade" th:id="'pedidoModal' + ${pedido.id}" tabindex="-1" role="dialog"
+            aria-labelledby="pedidoModalLabel" aria-hidden="true">
+
+
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pedidoModalLabel">Detalhes do Pedido</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Detalhes do Pedido</h2>
+                        
+                        <p>Data/Hora: <span th:text="${#dates.format(pedido.data, 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+                        <p>Status: <span th:text="${pedido.status}"></span></p>
+
+                        <h2>Itens do Pedido</h2>
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Produto</th>
+                                    <th>Preço</th>
+                                    <th>Quantidade</th>
+                                    <th>Tamanho</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="item : ${itensPedido}">
+                                    <td th:text="${item.id}"></td>
+                                    <td th:text="${item.produto.nome}"></td>
+                                    <td th:text="${#numbers.formatCurrency(item.preco)}"></td>
+                                    <td th:text="${item.quantidade}"></td>
+                                    <td th:text="${item.tamanho}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Editar Status</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Inclua os scripts do Bootstrap e jQuery no final do documento -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>

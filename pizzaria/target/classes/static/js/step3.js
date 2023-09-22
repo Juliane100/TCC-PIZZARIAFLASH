@@ -1,5 +1,4 @@
 let totalComDesconto = 0;
-var pedido;
 
 /// Lista dos produtos
 function listarDetalhes(cart, objectService, objectCart, cliente,) {
@@ -22,11 +21,11 @@ function listarDetalhes(cart, objectService, objectCart, cliente,) {
         let itemInfoDiv = ce('div');
         itemInfoDiv.classList.add('item--info');
 
-        let idDiv = ce('div'); // Crie um elemento div
-        idDiv.classList.add('item--id'); // Adicione classes, se necessário
-        idDiv.innerHTML = `ID: ${element.Id}`; // Defina o conteúdo do elemento para exibir o ID
-        itemInfoDiv.appendChild(idDiv); // Adicione o elemento à div de informações do item
-
+        let idDiv = ce('div');
+        idDiv.classList.add('item--id');
+        idDiv.innerHTML = `ID: ${element.Id}`;
+        itemInfoDiv.appendChild(idDiv);
+        idDiv.style.display = 'none';
 
 
         let nameDiv = ce('div');
@@ -91,35 +90,41 @@ function listarDetalhes(cart, objectService, objectCart, cliente,) {
         return total + (item.Preco * item.Quantidade);
     }
 }
+
+
 $(document).ready(function () {
     var funcionarioId = $("#funcionarioId").text();
 
     $("#finalizarPedidoBtn").click(function () {
         console.log("Botão 'Finalizar Pedido' clicado.");
 
-        var formaPagamentoId = $("#pagamento-input").val();
+        var funcionarioId = parseInt($("#funcionarioId").text(), 10);
+        var formaPagamentoId = parseInt($("#pagamento-input").val(), 10);
+        var servicoId = parseInt(objectCart.servico, 10);
+
 
         var itensDoPedido = [];
 
+        // Itera sobre os itens do pedido na área de itens
         $(".items-area .item").each(function () {
             var precoStr = $(this).find('.item--price').text();
             var quantidadeStr = $(this).find('.item--qtd').text();
 
-            // Aqui você obtém o texto do elemento que contém o ID do produto
+            // Obtém o texto do elemento que contém o ID do produto
             var idText = $(this).find('.item--id').text();
 
             // Use uma expressão regular para extrair apenas o número
             var produtoIdMatch = idText.match(/\d+/);
 
             if (produtoIdMatch) {
-                var produtoId = produtoIdMatch[0]; // Agora, produtoId contém apenas o número
+                var produtoId = produtoIdMatch[0];
             } else {
                 // Lida com o caso em que o ID não foi encontrado
                 console.error("ID do produto não encontrado.");
-                return; // Pule esta iteração do loop
+                return;
             }
 
-            // Verifique se os valores de preco, quantidade e produtoId são válidos
+
             var preco = parseFloat(precoStr.replace('R$', '').replace(',', '.'));
             var quantidade = parseInt(quantidadeStr);
 
@@ -127,8 +132,8 @@ $(document).ready(function () {
                 var item = {
                     preco: preco,
                     quantidade: quantidade,
-                    pedido_id: null, // Você precisará definir o ID do pedido posteriormente
-                    produto_id: produtoId, // Agora, produtoId contém apenas o número
+                    pedido_id: null,
+                    produto_id: produtoId,
                     tamanho: $(this).find('.item--tamn').text(),
                 };
 
@@ -136,42 +141,71 @@ $(document).ready(function () {
             }
         });
 
-        // Exibe os itens do pedido no console
         console.log("Itens do Pedido:", itensDoPedido);
 
-        // Agora, você pode usar a lista 'itensDoPedido' para criar o pedido
         var pedido = {
-            status: "preparando",
+            status: "Preparando",
             total: totalComDesconto,
             cliente_id: cliente.id,
             cupom_id: objectCart.cupom ? objectCart.cupom.id : null,
             forma_pagamento_id: formaPagamentoId,
             funcionario_id: funcionarioId,
-            servico_id: objectCart.servico,
+            servico_id: servicoId,
             descricao: objectCart.observacao,
             data: new Date(),
-            itens: itensDoPedido  
+            //itens: itensDoPedido,
         };
 
-        console.log("Pedido criado:", pedido);
+        console.log("Pedido a ser enviado:", pedido);
 
         $.ajax({
             type: "POST",
-            url: "/pedido/salvar", // Verifique se a URL está correta
+            url: "/pedido/salvar",
             contentType: "application/json",
             data: JSON.stringify(pedido),
             success: function (data) {
                 console.log("Pedido criado com sucesso:", data);
-                // Defina 'dadosProntos' como true após enviar a solicitação
-                dadosProntos = true;
+
+                var pedidoId = data.id;
+                console.log("ID do pedido obtido:", pedidoId);
+
+                for (var i = 0; i < itensDoPedido.length; i++) {
+                    itensDoPedido[i].pedido_id = pedidoId;
+                }
+
+                console.log("Itens do Pedido a serem enviados:", itensDoPedido);
+
+                // Após criar o pedido com sucesso, crie os itens do pedido
+                criarItensDoPedido(itensDoPedido);
             },
+
             error: function (xhr, textStatus, errorThrown) {
                 console.error("Erro ao criar o pedido:", textStatus, errorThrown);
-            }
+                alert("Erro ao criar o pedido. Por favor, tente novamente.");
+            },
         });
 
-       
-    });
+        function criarItensDoPedido(itensDoPedido) {
 
-    // Outro código...
+            console.log(JSON.stringify(itensDoPedido));
+
+            $.ajax({
+                type: "POST",
+                url: "/pedido/salvar/itens",
+                contentType: "application/json",
+                data: JSON.stringify(itensDoPedido),
+                success: function (data) {
+                    console.log("Itens do Pedido a serem enviados:", itensDoPedido);
+                    window.location.href = "/pedido/listar";
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.error("Erro ao criar o pedido:", textStatus, errorThrown);
+                    alert("Erro ao criar o pedido. Por favor, tente novamente.");
+                },
+            });
+        }
+
+    });
 });
+

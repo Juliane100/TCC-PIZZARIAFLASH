@@ -1,6 +1,7 @@
 package com.example.pizzaria.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,11 @@ public class CupomService {
 
     public Cupom buscarCupomPorNumero(String numero) {
         return cupomRepository.findByNumero(numero);
+    }
+
+     public Cupom buscarCupomPorId(Long id) {
+        Optional<Cupom> cupomOptional = cupomRepository.findById(id);
+        return cupomOptional.orElse(null);
     }
 
 }

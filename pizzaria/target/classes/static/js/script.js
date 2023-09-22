@@ -10,3 +10,4 @@ function preViewImg() {
         document.getElementById("preView").src = imgPreViewEvent.target.result;
     }
 }
+

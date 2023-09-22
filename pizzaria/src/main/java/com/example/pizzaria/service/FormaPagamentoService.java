@@ -1,6 +1,7 @@
 package com.example.pizzaria.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import com.example.pizzaria.repository.FormaPagamentoRepository;
 
 @Service
 public class FormaPagamentoService {
-    
+
     private final FormaPagamentoRepository formaPagamentoRepository;
 
     @Autowired
@@ -27,12 +28,17 @@ public class FormaPagamentoService {
                 .orElseThrow(() -> new IllegalArgumentException("Forma de pagamento não encontrada com ID: " + id));
     }
 
-
     public FormaPagamento salvarFormaPagamento(FormaPagamento formaPagamento) {
         return formaPagamentoRepository.save(formaPagamento);
     }
 
     public void deletarFormaPagamento(Long id) {
         formaPagamentoRepository.deleteById(id);
-    } 
+    }
+
+    public FormaPagamento buscarFormaPagamentoPorId(Long id) {
+        Optional<FormaPagamento> formaPagamentoOptional = formaPagamentoRepository.findById(id);
+        return formaPagamentoOptional.orElse(null);
+    }
+
 }

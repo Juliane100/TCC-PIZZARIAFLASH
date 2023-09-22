@@ -1,25 +1,9 @@
-@media (min-width:992px) {
-  .vertical-nav {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #f8f8f8;
-    overflow-y: auto;
-    padding-top: 30px
-  }
+.custom-icon {
+  font-size: 20px;
+  color: rgb(14, 8, 8);
+  /* Cor do ícone (branco) */
+  padding: 5px;
+  /* Espaçamento interno */
+  padding-top: 10px;
 }
 
-.custom-height {
-  height: 520px;
-  
-}
-
-.h-custom {
-  height: 163px;
-}
-body {
-  margin: 0;
-  padding: 0;
-}

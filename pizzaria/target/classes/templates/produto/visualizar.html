@@ -66,7 +66,7 @@
                             <div class="form-group col-md-3">
                                 <label for="preView" class="form-label"></label>
                                 <img id="preView" alt="..."
-                                    th:src="*{imagem} ? @{${'/produtos/showImage/'+ produto.id}} : ${noImage}"
+                                    th:src="@{${'/produtos/showImage/'+ produto.id}}"
                                     class="rounded mx-auto d-block img-fluid"
                                     style="max-width: 200px; max-height: 200px;" />
                             </div>
