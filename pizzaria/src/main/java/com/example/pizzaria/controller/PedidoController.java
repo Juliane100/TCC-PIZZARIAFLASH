@@ -226,7 +226,7 @@ public class PedidoController {
         model.addAttribute("formattedDates", formattedDates);
 
         return "pedido/realizado";
-    }
+}
 
     @PostMapping("/{id}/editar-status")
     public String editarStatusDoPedido(@PathVariable Long id, @RequestParam String novoStatus) {

@@ -25,9 +25,6 @@ public class Cliente {
     @Column(name = "telefone", nullable = false)
     private String telefone;
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "data_nasc")
     private LocalDate data_nasc;
 
@@ -88,14 +85,6 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public LocalDate getData_nasc() {

@@ -22,3 +22,8 @@ body {
   background-repeat: repeat;
   /* Repetir a imagem para criar o padrão */
 }
+
+/* Ocultar os detalhes do pedido por padrão */
+.detalhes-pedido {
+  display: none;
+}

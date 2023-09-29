@@ -1,7 +1,9 @@
 package com.example.pizzaria.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -50,6 +53,9 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "forma_pagamento_id", nullable = false)
     private FormaPagamento forma_pagamento;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<Pedido_item> itensPedido;
 
     // Getters e Setters
 
@@ -131,6 +137,14 @@ public class Pedido {
 
     public void setForma_pagamento(FormaPagamento forma_pagamento) {
         this.forma_pagamento = forma_pagamento;
+    }
+
+    public List<Pedido_item> getItensPedido() {
+        return itensPedido;
+    }
+
+    public void setItensPedido(List<Pedido_item> itensPedido) {
+        this.itensPedido = itensPedido;
     }
 
 }
