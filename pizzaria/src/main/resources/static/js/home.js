@@ -5,10 +5,10 @@ var myChart = new Chart(ctx, {
         labels: ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo'],
         datasets: [{
             label: 'Quantidade de Pedidos',
-            data: [], // Os dados serão preenchidos dinamicamente
-            backgroundColor: 'rgba(255, 255, 255, 0.7)', // Cor branca mais clara
-            borderColor: 'rgba(255, 255, 255, 1)', // Branco
-            borderWidth: 1.7,
+            data: [], 
+            backgroundColor: 'rgba(54,54,54, 0.5)', 
+            borderColor: 'rgba(245,245,245, 1)', 
+            borderWidth: 1.9,
             yAxisID: 'y',
         }]
     },
