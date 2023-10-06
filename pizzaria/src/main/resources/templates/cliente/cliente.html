@@ -155,7 +155,7 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Nome</th>
                                 <th class="text-center">Telefone</th>
-                                <th class="text-center">Data de Nascimento</th>
+                                <th class="text-center">Logradouro</th>
                                 <th class="text-center">CEP</th>
                                 <th class="text-center">Ações</th>
                             </tr>
@@ -167,7 +167,7 @@
                                 <td class="text-center"
                                     th:text="${#strings.replace(#strings.replace(cliente.telefone, '(\d{2})(\d{4,5})(\d{4})', '($1) $2-$3'), '(^\\(\\d{2}\\)\\s\\d{4,5})-(\\d{4}$)', '$1 $2')}">
                                 </td>
-                                <td class="text-center" th:text="${#temporals.format(cliente.data_nasc, 'dd/MM/yyyy')}">
+                                <td class="text-center" th:text="${cliente.logradouro}">
                                 </td>
                                 <td class="text-center"
                                     th:text="${#strings.substring(cliente.cep, 0, 5) + '-' + #strings.substring(cliente.cep, 5)}">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,23 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
 </head>
+
 <body>
 
     <div th:replace="fragments/header :: header">&nbsp;</div>
-    
+
     <div class="container">
         <div class="row justify-content-center mt-4">
             <div class="col">
@@ -20,8 +33,8 @@
                         <h2 class="card-title text-center">Editar Cupom</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/cupons/{id}/salvar(id=${cupom.id})}" method="post"
-                            th:object="${cupom}" class="row g-3">
+                        <form th:action="@{/cupons/{id}/salvar(id=${cupom.id})}" method="post" th:object="${cupom}"
+                            class="row g-3">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nome">Nome:</label>
@@ -32,7 +45,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="numero">Numero:</label>
-                                    <input type="text" id="numero" name="numero" class="form-control" 
+                                    <input type="text" id="numero" name="numero" class="form-control"
                                         th:value="${cupom.numero}" required>
                                 </div>
                             </div>
@@ -78,7 +91,8 @@
         </div>
     </div>
 
-    
-<footer th:replace="fragments/footer :: footer">&nbsp;</footer>
+
+    <footer th:replace="fragments/footer :: footer">&nbsp;</footer>
 </body>
+
 </html>

@@ -3,8 +3,9 @@ package com.example.pizzaria.controller;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-// import java.util.Collections;
+import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -226,13 +227,35 @@ public class PedidoController {
         model.addAttribute("formattedDates", formattedDates);
 
         return "pedido/realizado";
-}
+    }
 
-    @PostMapping("/{id}/editar-status")
+    @PostMapping("/status/{id}")
     public String editarStatusDoPedido(@PathVariable Long id, @RequestParam String novoStatus) {
         Pedido pedido = pedidoService.buscarPedidoPorId(id);
         pedido.setStatus(novoStatus);
         pedidoService.salvarPedido(pedido);
-        return "pedido/realizado" + id;
+        return "pedido/realizado";
     }
+
+    @PostMapping("/{id}/salvar-status")
+    public String salvarStatusDoPedido(@PathVariable("id") Long id, @RequestParam("novoStatus") String novoStatus) {
+        // Implemente a lógica para atualizar o status do pedido
+        pedidoService.atualizarStatus(id, novoStatus);
+        return "redirect:/pedido/listar"; // Redireciona de volta para a lista de pedidos
+    }
+
+    @GetMapping("/qtd-semana")
+    public ResponseEntity<Map<String, Integer>> getQuantidadePedidosPorDiaDaSemana() {
+        Map<String, Integer> quantidadePorDia = pedidoService.calcularQuantidadePedidosPorDiaDaSemana();
+        Map<String, Integer> resultado = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : quantidadePorDia.entrySet()) {
+            if (entry.getValue() != 0) {
+                resultado.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+        return ResponseEntity.ok(resultado);
+    }
+
 }

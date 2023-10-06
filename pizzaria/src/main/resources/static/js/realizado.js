@@ -35,22 +35,21 @@ $(document).ready(function () {
                 $('#status').text(data.pedido.status);
                 $('#total').text(data.pedido.total);
 
-                // Limpa a tabela de itens do pedido
-                $('#itensPedidoModal tbody').empty();
+                // Defina a variável itensHtml antes de usá-la
+                var itensHtml = '';
 
-                // Preenche a tabela de itens do pedido
                 $.each(data.itensPedido, function (index, item) {
-                    var row = '<tr>';
-                    row += '<td>' + item.produto.nome + '</td>';
-                    row += '<td>' + item.preco + '</td>';
-                    row += '<td>' + item.quantidade + '</td>';
-                    row += '<td>' + item.tamanho + '</td>';
-                    row += '</tr>';
-                    $('#itensPedidoModal tbody').append(row);
+                    itensHtml += '<div class="mb-3">';
+                    itensHtml += '<strong>Produto:</strong> ' + item.produto.nome + '<br>';
+                    itensHtml += '<strong>Preço:</strong> ' + item.preco + '<br>';
+                    itensHtml += '<strong>Quantidade:</strong> ' + item.quantidade + '<br>';
+                    itensHtml += '<strong>Tamanho:</strong> ' + item.tamanho + '<br>';
+                    itensHtml += '</div>';
                 });
+                $("#itensPedidoModal").html(itensHtml);
             },
             error: function () {
-                alert('Erro ao carregar os detalhes do pedido.');
+                alert('Erro ao carregar os detalhes dos itens do pedido.');
             }
         });
     });

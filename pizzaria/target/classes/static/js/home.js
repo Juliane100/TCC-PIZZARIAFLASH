@@ -1,14 +1,14 @@
-var ctx = document.getElementById('graficoBarras').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
+        labels: ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo'],
         datasets: [{
-            label: 'Quantidade',
-            data: [12, 19, 3, 10, 4, 10, 16, 7, 10],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'white',
-            borderWidth: 1.5,
+            label: 'Quantidade de Pedidos',
+            data: [], // Os dados serão preenchidos dinamicamente
+            backgroundColor: 'rgba(255, 255, 255, 0.7)', // Cor branca mais clara
+            borderColor: 'rgba(255, 255, 255, 1)', // Branco
+            borderWidth: 1.7,
             yAxisID: 'y',
         }]
     },
@@ -41,3 +41,28 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+// Crie uma função para buscar os dados dos pedidos do seu serviço Spring
+function buscarDadosPedidos() {
+    fetch('/pedido/qtd-semana')
+        .then(response => response.json())
+        .then(data => {
+
+            // Mapeie os dados recebidos para o formato correto para o gráfico
+            const diasDaSemana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo'];
+            const dadosDoGrafico = diasDaSemana.map(dia => data[dia] || 0);
+
+            myChart.data.datasets[0].data = dadosDoGrafico;
+            myChart.update();
+        })
+        .catch(error => {
+            console.error('Erro ao buscar dados:', error);
+        });
+}
+
+window.addEventListener('load', () => {
+    buscarDadosPedidos();
+});
+
+setInterval(buscarDadosPedidos, 5000);
